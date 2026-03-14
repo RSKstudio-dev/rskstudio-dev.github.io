@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSK Plugin Suite — RPG Maker MZ by Ramsak</title>
+<meta name="description" content="14 Premium Plugins for RPG Maker MZ. Commercial use ✓ JoiPlay ✓ Browser ✓ by Ramsak">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════
+   RESET & VARIABLES
+═══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg:         #06071a;
+  --bg2:        #090b20;
+  --bg3:        #0c0f2a;
+  --card:       #0e1130;
+  --card2:      #111440;
+  --cyan:       #00e5ff;
+  --cyan-dim:   rgba(0,229,255,.12);
+  --cyan-glow:  rgba(0,229,255,.5);
+  --pink:       #e91e8c;
+  --pink-dim:   rgba(233,30,140,.15);
+  --gold:       #ffc107;
+  --gold-dim:   rgba(255,193,7,.12);
+  --green:      #4ade80;
+  --red:        #f87171;
+  --purple:     #a78bfa;
+  --border:     rgba(30,42,86,.9);
+  --border-lit: rgba(0,229,255,.25);
+  --text:       #c8d8f0;
+  --text2:      #7a90b8;
+  --text3:      #3d5070;
+  --grid:       rgba(0,229,255,.03);
+  --fn:         'Exo 2', sans-serif;
+  --fm:         'Share Tech Mono', monospace;
+  --fh:         'Rajdhani', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--fn);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Grid pattern */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══════════════════════════════════════
+   TOP BAR
+═══════════════════════════════════════ */
+#topbar {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(6,7,26,.96);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 56px;
+  gap: 1rem;
+}
+
+.tb-logo {
+  display: flex; align-items: center; gap: .5rem;
+  text-decoration: none; flex-shrink: 0;
+}
+.tb-logo-rsk {
+  font-family: var(--fh);
+  font-size: 1.5rem; font-weight: 900;
+  color: var(--cyan);
+  text-shadow: 0 0 16px var(--cyan-glow);
+  letter-spacing: .06em;
+}
+.tb-logo-sub {
+  font-family: var(--fm);
+  font-size: .62rem; color: var(--text2);
+  letter-spacing: .15em; text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.tb-spacer { flex: 1; }
+
+/* Language toggle */
+.lang-wrap {
+  display: flex; gap: 3px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px; padding: 3px;
+}
+.lang-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: var(--fm); font-size: .72rem;
+  color: var(--text2); padding: 4px 12px;
+  border-radius: 4px; transition: all .2s;
+  letter-spacing: .08em;
+}
+.lang-btn.on { background: var(--cyan); color: #000; font-weight: 700; }
+
+.tb-itch {
+  display: flex; align-items: center; gap: .4rem;
+  background: var(--pink); color: #fff;
+  border: none; border-radius: 6px;
+  font-family: var(--fh); font-weight: 700;
+  font-size: .78rem; letter-spacing: .08em;
+  text-transform: uppercase; padding: 7px 14px;
+  text-decoration: none; cursor: pointer;
+  transition: all .2s;
+  box-shadow: 0 0 16px var(--pink-dim);
+  flex-shrink: 0;
+}
+.tb-itch:hover { background: #ff2fa0; box-shadow: 0 0 24px var(--pink); }
+
+/* ═══════════════════════════════════════
+   TAB NAV
+═══════════════════════════════════════ */
+#tabnav {
+  position: sticky; top: 56px; z-index: 190;
+  background: rgba(9,11,32,.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  display: flex; overflow-x: auto;
+  scrollbar-width: none;
+}
+#tabnav::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: var(--fh); font-weight: 600;
+  font-size: .82rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--text2);
+  padding: 0 1.4rem; height: 46px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all .2s; position: relative;
+  flex-shrink: 0;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.on {
+  color: var(--cyan);
+  border-bottom-color: var(--cyan);
+  text-shadow: 0 0 10px var(--cyan-glow);
+}
+.tab-btn .tab-num {
+  font-family: var(--fm); font-size: .58rem;
+  color: var(--text3); margin-right: .3rem;
+}
+
+/* ═══════════════════════════════════════
+   TAB PANELS
+═══════════════════════════════════════ */
+.tab-panel { display: none; position: relative; z-index: 1; }
+.tab-panel.on { display: block; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+/* Section header */
+.sec-label {
+  font-family: var(--fm); font-size: .65rem;
+  color: var(--cyan); letter-spacing: .25em;
+  text-transform: uppercase; opacity: .7;
+  margin-bottom: .5rem;
+}
+.sec-title {
+  font-family: var(--fh); font-size: 2rem;
+  font-weight: 700; color: #fff; line-height: 1.1;
+  margin-bottom: .8rem;
+}
+.sec-title em { font-style: normal; color: var(--cyan); }
+.sec-sub { color: var(--text2); max-width: 640px; font-size: .92rem; margin-bottom: 2.5rem; }
+.sec-rule { border: none; border-top: 1px solid var(--border); margin-bottom: 2.5rem; }
+
+/* ═══════════════════════════════════════
+   TAB 1 — HERO
+═══════════════════════════════════════ */
+#tab-hero { background: var(--bg); }
+
+.hero-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem; align-items: center;
+  padding: 4rem 0 2rem;
+}
+@media(max-width:700px){
+  .hero-wrap { grid-template-columns:1fr; text-align:center; }
+  .hero-logo-col { display:flex; justify-content:center; }
+}
+
+.hero-eyebrow {
+  font-family: var(--fm); font-size: .7rem;
+  color: var(--cyan); letter-spacing: .28em;
+  text-transform: uppercase; margin-bottom: 1rem; opacity: .8;
+}
+.hero-h1 {
+  font-family: var(--fh);
+  font-size: clamp(3rem,7vw,5.5rem);
+  font-weight: 900; line-height: .9;
+  text-transform: uppercase; letter-spacing: -.01em;
+  color: #fff; margin-bottom: .5rem;
+}
+.hero-h1 .rsk {
+  color: var(--cyan);
+  text-shadow: 0 0 40px var(--cyan-glow), 0 0 80px rgba(0,229,255,.2);
+}
+.hero-tagline {
+  font-family: var(--fh); font-size: 1.15rem;
+  font-weight: 600; color: var(--gold);
+  letter-spacing: .14em; text-transform: uppercase;
+  margin-bottom: .4rem;
+}
+.hero-for {
+  font-family: var(--fm); font-size: .78rem;
+  color: var(--text2); margin-bottom: 2rem;
+}
+
+.badge-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; }
+@media(max-width:700px){ .badge-row { justify-content:center; } }
+.badge {
+  display: inline-flex; align-items: center; gap: .3rem;
+  border-radius: 4px; padding: 4px 11px;
+  font-family: var(--fm); font-size: .65rem;
+  letter-spacing: .07em; text-transform: uppercase;
+  border: 1px solid;
+}
+.b-cyan   { border-color: rgba(0,229,255,.35); color: var(--cyan); background: var(--cyan-dim); }
+.b-pink   { border-color: rgba(233,30,140,.35); color: var(--pink); background: var(--pink-dim); }
+.b-gold   { border-color: rgba(255,193,7,.35); color: var(--gold); background: var(--gold-dim); }
+.b-purple { border-color: rgba(167,139,250,.35); color: var(--purple); background: rgba(124,58,237,.08); }
+
+.hero-btns { display: flex; gap: .8rem; flex-wrap: wrap; margin-bottom: 3rem; }
+@media(max-width:700px){ .hero-btns { justify-content:center; } }
+
+.btn-p {
+  background: var(--cyan); color: #000;
+  border: none; border-radius: 6px; padding: 11px 26px;
+  font-family: var(--fh); font-weight: 700; font-size: .9rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: all .2s;
+  box-shadow: 0 0 20px var(--cyan-glow);
+}
+.btn-p:hover { background: #fff; box-shadow: 0 0 35px var(--cyan); }
+
+.btn-s {
+  background: transparent; color: var(--text);
+  border: 1px solid var(--border); border-radius: 6px; padding: 11px 26px;
+  font-family: var(--fh); font-weight: 600; font-size: .9rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer; transition: all .2s;
+}
+.btn-s:hover { border-color: var(--cyan); color: var(--cyan); }
+
+.hero-stats {
+  display: flex; gap: 2.5rem; flex-wrap: wrap;
+  padding-top: 2rem; border-top: 1px solid var(--border);
+}
+@media(max-width:700px){ .hero-stats { justify-content:center; } }
+.stat-n {
+  font-family: var(--fh); font-size: 2.2rem;
+  font-weight: 900; color: var(--cyan); line-height: 1;
+}
+.stat-l {
+  font-family: var(--fm); font-size: .6rem;
+  color: var(--text2); text-transform: uppercase;
+  letter-spacing: .12em; margin-top: 3px;
+}
+
+/* Logo */
+.hero-logo-img {
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 30px var(--cyan-glow));
+  animation: glow-pulse 3.5s ease-in-out infinite;
+}
+@keyframes glow-pulse {
+  0%,100% { filter: drop-shadow(0 0 20px var(--cyan-glow)); }
+  50%      { filter: drop-shadow(0 0 50px var(--cyan)) brightness(1.1); }
+}
+
+/* Hero hex decoration */
+.hero-deco {
+  position: absolute; right: 2%; top: 50%;
+  transform: translateY(-50%);
+  width: 300px; height: 300px;
+  opacity: .06; pointer-events: none;
+}
+@media(max-width:900px){ .hero-deco { display:none; } }
+
+/* ═══════════════════════════════════════
+   TAB 2 — PLUGINS
+═══════════════════════════════════════ */
+#tab-plugins { background: var(--bg2); }
+
+/* Filter bar */
+.filter-bar {
+  display: flex; gap: .5rem; flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.filter-btn {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 5px; cursor: pointer;
+  font-family: var(--fm); font-size: .65rem;
+  color: var(--text2); padding: 5px 13px;
+  letter-spacing: .07em; text-transform: uppercase;
+  transition: all .2s;
+}
+.filter-btn:hover { border-color: var(--border-lit); color: var(--text); }
+.filter-btn.on { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-dim); }
+
+/* Grid */
+.plugin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 1.1rem;
+}
+
+.p-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.4rem 1.5rem;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+  position: relative; overflow: hidden;
+}
+.p-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0; transition: opacity .3s;
+}
+.p-card:hover {
+  border-color: var(--border-lit);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 36px rgba(0,229,255,.07);
+}
+.p-card:hover::after { opacity: 1; }
+
+.p-head { display: flex; justify-content: space-between; align-items: flex-start; gap: .5rem; margin-bottom: .4rem; }
+.p-name { font-family: var(--fh); font-size: 1rem; font-weight: 700; color: var(--cyan); }
+.p-ver {
+  font-family: var(--fm); font-size: .63rem;
+  color: var(--gold); background: rgba(255,193,7,.09);
+  border: 1px solid rgba(255,193,7,.22); border-radius: 3px;
+  padding: 2px 7px; flex-shrink: 0;
+}
+.p-cat { font-family: var(--fm); font-size: .72rem; color: var(--text2); margin-bottom: .7rem; }
+.p-compat { display: flex; gap: .35rem; flex-wrap: wrap; margin-bottom: .8rem; }
+.ct {
+  font-family: var(--fm); font-size: .6rem;
+  border-radius: 3px; padding: 2px 7px; border: 1px solid;
+  letter-spacing: .05em;
+}
+.ct-j  { border-color: rgba(74,222,128,.3); color: #4ade80; background: rgba(34,197,94,.05); }
+.ct-b  { border-color: rgba(125,211,252,.3); color: #7dd3fc; background: rgba(56,189,248,.05); }
+.ct-vs { border-color: rgba(167,139,250,.3); color: var(--purple); background: rgba(124,58,237,.05); }
+
+.p-desc { font-size: .86rem; color: var(--text); line-height: 1.55; margin-bottom: 1rem; }
+
+.p-toggle {
+  display: flex; align-items: center; gap: .4rem;
+  background: none; border: none; cursor: pointer;
+  font-family: var(--fm); font-size: .66rem;
+  color: var(--text2); letter-spacing: .08em;
+  text-transform: uppercase; padding: 0;
+  transition: color .2s;
+}
+.p-toggle:hover { color: var(--cyan); }
+.p-toggle .arr { transition: transform .25s; display: inline-block; }
+.p-toggle.open .arr { transform: rotate(90deg); }
+
+.p-body {
+  display: none; margin-top: .9rem;
+  border-top: 1px solid var(--border); padding-top: .9rem;
+}
+.p-body.vis { display: block; }
+.p-feats { list-style: none; display: flex; flex-direction: column; gap: .3rem; margin-bottom: 1rem; }
+.p-feats li {
+  font-size: .82rem; color: var(--text); padding-left: 1.1rem;
+  position: relative; line-height: 1.45;
+}
+.p-feats li::before { content: '▸'; position: absolute; left: 0; color: var(--cyan); font-size: .65rem; top: 3px; }
+
+.p-cmds-lbl {
+  font-family: var(--fm); font-size: .6rem;
+  color: var(--text2); text-transform: uppercase;
+  letter-spacing: .12em; margin-bottom: .4rem;
+}
+.cmd {
+  display: block; font-family: var(--fm); font-size: .7rem;
+  color: #86efac; background: rgba(134,239,172,.04);
+  border-left: 2px solid rgba(74,222,128,.3);
+  padding: 3px 8px; margin-bottom: 3px;
+  border-radius: 0 3px 3px 0;
+}
+
+/* ═══════════════════════════════════════
+   TAB 3 — QUICKSTART
+═══════════════════════════════════════ */
+#tab-qs { background: var(--bg); }
+
+.qs-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+}
+@media(max-width:680px){ .qs-grid { grid-template-columns:1fr; } }
+
+.qs-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.8rem;
+}
+.qs-card-h {
+  font-family: var(--fh); font-weight: 700; font-size: .95rem;
+  color: var(--cyan); text-transform: uppercase;
+  letter-spacing: .1em; margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+.qs-steps { list-style: none; display: flex; flex-direction: column; gap: .9rem; }
+.qs-steps li { display: flex; gap: .85rem; align-items: flex-start; font-size: .88rem; }
+.sn {
+  background: var(--cyan); color: #000;
+  font-family: var(--fm); font-size: .65rem; font-weight: 700;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+code {
+  font-family: var(--fm); font-size: .78rem;
+  background: rgba(0,229,255,.06); border: 1px solid rgba(0,229,255,.14);
+  color: var(--cyan); padding: 1px 6px; border-radius: 3px;
+}
+.order-box {
+  background: rgba(0,229,255,.03); border: 1px solid rgba(0,229,255,.1);
+  border-radius: 8px; padding: .9rem 1.1rem; margin-top: .9rem;
+  font-family: var(--fm); font-size: .76rem;
+  color: var(--text2); line-height: 1.9;
+}
+.order-box .hl { color: var(--cyan); }
+
+.lang-chips {
+  display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem;
+}
+.lang-chip {
+  font-family: var(--fm); font-size: .65rem;
+  color: var(--cyan); background: var(--cyan-dim);
+  border: 1px solid rgba(0,229,255,.2);
+  border-radius: 4px; padding: 3px 9px;
+}
+
+/* ═══════════════════════════════════════
+   TAB 4 — COMPAT
+═══════════════════════════════════════ */
+#tab-compat { background: var(--bg2); }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+thead tr { border-bottom: 2px solid var(--border); }
+thead th {
+  font-family: var(--fh); font-weight: 700;
+  color: var(--cyan); text-transform: uppercase;
+  letter-spacing: .1em; font-size: .72rem;
+  padding: .7rem 1rem; text-align: left;
+}
+tbody tr { border-bottom: 1px solid rgba(30,42,86,.5); transition: background .15s; }
+tbody tr:hover { background: rgba(0,229,255,.025); }
+tbody td { padding: .62rem 1rem; }
+tbody td:first-child { font-family: var(--fm); font-size: .77rem; color: var(--cyan); }
+.ck { color: var(--green); }
+.ds { color: var(--text3); font-size: .75rem; }
+
+/* ═══════════════════════════════════════
+   TAB 5 — LICENSE
+═══════════════════════════════════════ */
+#tab-lic { background: var(--bg); }
+
+.lic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-bottom: 1.5rem; }
+@media(max-width:600px){ .lic-grid { grid-template-columns:1fr; } }
+
+.lic-card { border-radius: 10px; padding: 1.5rem 1.7rem; border: 1px solid; }
+.lic-yes { border-color: rgba(74,222,128,.25); background: rgba(34,197,94,.04); }
+.lic-no  { border-color: rgba(248,113,113,.25); background: rgba(239,68,68,.04); }
+.lic-h {
+  font-family: var(--fh); font-weight: 700; font-size: .88rem;
+  text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem;
+}
+.lic-yes .lic-h { color: var(--green); }
+.lic-no  .lic-h { color: var(--red); }
+.lic-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+.lic-list li {
+  font-size: .86rem; color: var(--text);
+  padding-left: 1.4rem; position: relative;
+}
+.lic-yes .lic-list li::before { content:'✓'; position:absolute; left:0; color:var(--green); }
+.lic-no  .lic-list li::before { content:'✕'; position:absolute; left:0; color:var(--red); }
+
+.lic-note {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 1.1rem 1.5rem;
+  font-size: .86rem; color: var(--text2);
+  margin-bottom: 1.5rem;
+}
+.lic-note strong { color: var(--gold); }
+
+.eula-box {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.5rem 1.7rem;
+}
+.eula-box h3 {
+  font-family: var(--fh); font-weight: 700; font-size: 1rem;
+  color: #fff; text-transform: uppercase; letter-spacing: .08em;
+  margin-bottom: 1rem;
+}
+.eula-section { margin-bottom: 1.1rem; }
+.eula-section h4 {
+  font-family: var(--fh); font-weight: 600; font-size: .88rem;
+  color: var(--cyan); margin-bottom: .35rem; text-transform: uppercase;
+  letter-spacing: .07em;
+}
+.eula-section p { font-size: .84rem; color: var(--text2); line-height: 1.6; }
+.eula-section p strong { color: var(--red); }
+
+/* ═══════════════════════════════════════
+   TAB 6 — CHANGELOG
+═══════════════════════════════════════ */
+#tab-cl { background: var(--bg2); }
+
+.cl-ver-badge {
+  display: inline-block;
+  background: var(--card2); border: 1px solid var(--cyan);
+  border-radius: 6px; padding: 5px 16px;
+  font-family: var(--fm); font-size: .76rem;
+  color: var(--cyan); letter-spacing: .12em;
+  margin-bottom: 1.6rem;
+}
+.cl-list { display: flex; flex-direction: column; gap: .55rem; }
+.cl-row {
+  display: flex; align-items: baseline; gap: 1rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: .85rem 1.2rem;
+  transition: border-color .2s;
+}
+.cl-row:hover { border-color: var(--border-lit); }
+.cl-plugin-name {
+  font-family: var(--fm); font-size: .73rem;
+  color: var(--cyan); min-width: 200px; flex-shrink: 0;
+}
+.cl-plugin-name .cv { color: var(--gold); margin-left: 5px; }
+.cl-desc { font-size: .84rem; color: var(--text2); }
+
+/* ═══════════════════════════════════════
+   TAB 7 — SUPPORT
+═══════════════════════════════════════ */
+#tab-sup { background: var(--bg); }
+
+.sup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media(max-width:680px){ .sup-grid { grid-template-columns:1fr; } }
+
+.sup-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.8rem;
+}
+.sup-card h3 {
+  font-family: var(--fh); font-weight: 700; font-size: 1rem;
+  color: #fff; text-transform: uppercase; letter-spacing: .08em;
+  margin-bottom: 1rem;
+}
+.sup-email {
+  display: inline-block; font-family: var(--fm); font-size: .95rem;
+  color: var(--cyan); text-decoration: none; margin-bottom: 1.2rem;
+  transition: text-shadow .2s;
+}
+.sup-email:hover { text-shadow: 0 0 16px var(--cyan); }
+.sup-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+.sup-list li {
+  font-size: .85rem; color: var(--text);
+  padding-left: 1.3rem; position: relative;
+}
+.sup-list li::before { content:'—'; position:absolute; left:0; color:var(--cyan); font-size:.75rem; top:2px; }
+.sup-note {
+  margin-top: 1.2rem; font-size: .82rem; color: var(--text2);
+  background: var(--cyan-dim); border: 1px solid rgba(0,229,255,.12);
+  border-radius: 7px; padding: .85rem 1rem;
+  font-family: var(--fm);
+}
+.sup-note strong { color: var(--cyan); }
+.upd-text { font-size: .87rem; color: var(--text2); line-height: 1.7; margin-bottom: 1.4rem; }
+.upd-text a { color: var(--cyan); text-decoration: none; }
+.upd-text a:hover { text-decoration: underline; }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  border-top: 1px solid var(--border);
+  background: rgba(6,7,26,.95);
+  padding: 2rem; text-align: center;
+  font-family: var(--fm); font-size: .68rem;
+  color: var(--text2); letter-spacing: .07em;
+  position: relative; z-index: 1;
+}
+footer a { color: var(--cyan); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* ═══════════════════════════════════════
+   LANG VISIBILITY
+═══════════════════════════════════════ */
+[data-l="es"] { display: none; }
+.es [data-l="en"] { display: none; }
+.es [data-l="es"] { display: block; }
+span[data-l], a[data-l], code[data-l], strong[data-l] { display: inline; }
+.es span[data-l="en"], .es a[data-l="en"] { display: none; }
+.es span[data-l="es"], .es a[data-l="es"] { display: inline; }
+
+/* ═══════════════════════════════════════
+   REVEAL ANIMATION
+═══════════════════════════════════════ */
+.rev {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.rev.in { opacity: 1; transform: none; }
+
+/* Stagger delays */
+.rev:nth-child(2){ transition-delay:.05s; }
+.rev:nth-child(3){ transition-delay:.1s; }
+.rev:nth-child(4){ transition-delay:.15s; }
+.rev:nth-child(5){ transition-delay:.2s; }
+.rev:nth-child(6){ transition-delay:.25s; }
+.rev:nth-child(7){ transition-delay:.3s; }
+
+</style>
+</head>
+<body>
+
+<!-- ════════ TOP BAR ════════ -->
+<div id="topbar">
+  <a href="#" class="tb-logo" onclick="openTab('hero'); return false;">
+    <span class="tb-logo-rsk">RSK</span>
+    <span class="tb-logo-sub">Plugin Suite<br>for RPG Maker MZ</span>
+  </a>
+
+  <div class="tb-spacer"></div>
+
+  <div class="lang-wrap">
+    <button class="lang-btn on" id="lbtn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn"    id="lbtn-es" onclick="setLang('es')">ES</button>
+  </div>
+
+  <a href="https://ramsak.itch.io" target="_blank" rel="noopener" class="tb-itch">
+    itch.io ↗
+  </a>
+</div>
+
+<!-- ════════ TAB NAV ════════ -->
+<div id="tabnav">
+  <button class="tab-btn on"  onclick="openTab('hero')"   id="tnav-hero">
+    <span class="tab-num">00</span>
+    <span data-l="en">Home</span><span data-l="es">Inicio</span>
+  </button>
+  <button class="tab-btn" onclick="openTab('plugins')" id="tnav-plugins">
+    <span class="tab-num">01</span>
+    Plugins
+  </button>
+  <button class="tab-btn" onclick="openTab('qs')"      id="tnav-qs">
+    <span class="tab-num">02</span>
+    <span data-l="en">Quick Start</span><span data-l="es">Inicio Rápido</span>
+  </button>
+  <button class="tab-btn" onclick="openTab('compat')"  id="tnav-compat">
+    <span class="tab-num">03</span>
+    <span data-l="en">Compatibility</span><span data-l="es">Compatibilidad</span>
+  </button>
+  <button class="tab-btn" onclick="openTab('lic')"     id="tnav-lic">
+    <span class="tab-num">04</span>
+    <span data-l="en">License</span><span data-l="es">Licencia</span>
+  </button>
+  <button class="tab-btn" onclick="openTab('cl')"      id="tnav-cl">
+    <span class="tab-num">05</span>
+    Changelog
+  </button>
+  <button class="tab-btn" onclick="openTab('sup')"     id="tnav-sup">
+    <span class="tab-num">06</span>
+    <span data-l="en">Support</span><span data-l="es">Soporte</span>
+  </button>
+</div>
+
+<!-- ════════════════════════════════════
+     TAB 00 — HOME / HERO
+════════════════════════════════════ -->
+<div class="tab-panel on" id="tab-hero">
+<div class="container" style="position:relative; overflow:hidden;">
+
+  <!-- Hex decoration -->
+  <svg class="hero-deco" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="100,8 187,54 187,146 100,192 13,146 13,54" stroke="#00e5ff" stroke-width="1"/>
+    <polygon points="100,28 168,68 168,132 100,172 32,132 32,68" stroke="#00e5ff" stroke-width=".5"/>
+    <polygon points="100,50 148,78 148,122 100,150 52,122 52,78" stroke="#00e5ff" stroke-width=".3"/>
+  </svg>
+
+  <div class="hero-wrap">
+    <div class="hero-text">
+      <p class="hero-eyebrow" data-l="en">by Ramsak · ramsak.itch.io · v1.0</p>
+      <p class="hero-eyebrow" data-l="es">por Ramsak · ramsak.itch.io · v1.0</p>
+
+      <h1 class="hero-h1">
+        <span class="rsk">RSK</span><br>
+        PLUGIN<br>SUITE
+      </h1>
+
+      <p class="hero-tagline" data-l="en">Premium Plugins for RPG Maker MZ</p>
+      <p class="hero-tagline" data-l="es">Plugins Premium para RPG Maker MZ</p>
+      <p class="hero-for" data-l="en">v1.0 · 14 Premium Plugins · Commercial Use ✓ · JoiPlay ✓ · Browser ✓</p>
+      <p class="hero-for" data-l="es">v1.0 · 14 Plugins Premium · Uso Comercial ✓ · JoiPlay ✓ · Navegador ✓</p>
+
+      <div class="badge-row">
+        <span class="badge b-cyan">⬡ Premium Plugins</span>
+        <span class="badge b-gold">RPG Maker MZ</span>
+        <span class="badge b-pink">Commercial Use ✓</span>
+        <span class="badge b-purple">JoiPlay / Android ✓</span>
+        <span class="badge b-cyan">Browser / NW.js ✓</span>
+      </div>
+
+      <div class="hero-btns">
+        <a href="https://ramsak.itch.io" target="_blank" rel="noopener" class="btn-p" data-l="en">Get on itch.io ↗</a>
+        <a href="https://ramsak.itch.io" target="_blank" rel="noopener" class="btn-p" data-l="es">Conseguir en itch.io ↗</a>
+        <button class="btn-s" onclick="openTab('plugins')" data-l="en">View All Plugins</button>
+        <button class="btn-s" onclick="openTab('plugins')" data-l="es">Ver todos los Plugins</button>
+      </div>
+
+      <div class="hero-stats">
+        <div><div class="stat-n">14</div><div class="stat-l" data-l="en">Premium Plugins</div><div class="stat-l" data-l="es">Plugins Premium</div></div>
+        <div><div class="stat-n">11</div><div class="stat-l" data-l="en">Languages (SuperTool)</div><div class="stat-l" data-l="es">Idiomas (SuperTool)</div></div>
+        <div><div class="stat-n">∞</div><div class="stat-l" data-l="en">Commercial Projects</div><div class="stat-l" data-l="es">Proyectos Comerciales</div></div>
+        <div><div class="stat-n">3</div><div class="stat-l" data-l="en">Platforms</div><div class="stat-l" data-l="es">Plataformas</div></div>
+      </div>
+    </div>
+
+    <div class="hero-logo-col">
+      <!-- Replace the src with your preferred logo filename -->
+      <img class="hero-logo-img" src="logo_perfecto.png" alt="RSK Plugin Suite"
+           onerror="this.replaceWith(document.getElementById('hero-svg-fallback').content.cloneNode(true))">
+      <template id="hero-svg-fallback">
+        <svg width="200" height="200" viewBox="0 0 200 200" style="filter:drop-shadow(0 0 30px rgba(0,229,255,.5));animation:glow-pulse 3.5s ease-in-out infinite">
+          <polygon points="100,12 182,57 182,143 100,188 18,143 18,57" fill="rgba(0,229,255,.04)" stroke="#00e5ff" stroke-width="1.5"/>
+          <polygon points="100,32 162,67 162,133 100,168 38,133 38,67" fill="none" stroke="#00e5ff" stroke-width=".6" opacity=".4"/>
+          <text x="100" y="110" text-anchor="middle" dominant-baseline="middle"
+                font-family="Rajdhani,sans-serif" font-size="58" font-weight="900" fill="#00e5ff">RSK</text>
+        </svg>
+      </template>
+    </div>
+  </div>
+
+  <!-- Quick-nav tiles -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.8rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--border);">
+    <button onclick="openTab('plugins')" class="qn-tile rev">
+      <span class="qn-icon">⬡</span>
+      <span class="qn-title" data-l="en">Plugins</span><span class="qn-title" data-l="es">Plugins</span>
+      <span class="qn-sub" data-l="en">14 premium plugins</span><span class="qn-sub" data-l="es">14 plugins premium</span>
+    </button>
+    <button onclick="openTab('qs')" class="qn-tile rev">
+      <span class="qn-icon">▶</span>
+      <span class="qn-title" data-l="en">Quick Start</span><span class="qn-title" data-l="es">Inicio Rápido</span>
+      <span class="qn-sub" data-l="en">Install in 4 steps</span><span class="qn-sub" data-l="es">Instala en 4 pasos</span>
+    </button>
+    <button onclick="openTab('compat')" class="qn-tile rev">
+      <span class="qn-icon">✓</span>
+      <span class="qn-title" data-l="en">Compatibility</span><span class="qn-title" data-l="es">Compatibilidad</span>
+      <span class="qn-sub" data-l="en">Platform matrix</span><span class="qn-sub" data-l="es">Matriz de plataformas</span>
+    </button>
+    <button onclick="openTab('lic')" class="qn-tile rev">
+      <span class="qn-icon">◈</span>
+      <span class="qn-title" data-l="en">License</span><span class="qn-title" data-l="es">Licencia</span>
+      <span class="qn-sub" data-l="en">Commercial use info</span><span class="qn-sub" data-l="es">Info uso comercial</span>
+    </button>
+    <button onclick="openTab('cl')" class="qn-tile rev">
+      <span class="qn-icon">◎</span>
+      <span class="qn-title">Changelog</span>
+      <span class="qn-sub">v1.0.0 — 2025</span>
+    </button>
+    <button onclick="openTab('sup')" class="qn-tile rev">
+      <span class="qn-icon">✉</span>
+      <span class="qn-title" data-l="en">Support</span><span class="qn-title" data-l="es">Soporte</span>
+      <span class="qn-sub">rskstudio.support@gmail.com</span>
+    </button>
+  </div>
+
+</div>
+</div>
+
+<!-- ════════════════════════════════════
+     TAB 01 — PLUGINS
+════════════════════════════════════ -->
+<div class="tab-panel" id="tab-plugins">
+<div class="container">
+  <p class="sec-label">01 — Plugins</p>
+  <h2 class="sec-title" data-l="en">All <em>14 Plugins</em></h2>
+  <h2 class="sec-title" data-l="es">Los <em>14 Plugins</em></h2>
+  <p class="sec-sub" data-l="en">Click any card to expand features and plugin commands. Filter by platform compatibility.</p>
+  <p class="sec-sub" data-l="es">Haz clic en cualquier tarjeta para ver características y comandos. Filtra por compatibilidad de plataforma.</p>
+  <hr class="sec-rule">
+
+  <div class="filter-bar">
+    <button class="filter-btn on" data-filter="all" onclick="filterPlugins(this,'all')" data-l="en">All</button>
+    <button class="filter-btn on" data-filter="all" onclick="filterPlugins(this,'all')" data-l="es">Todos</button>
+    <button class="filter-btn" data-filter="joiplay" onclick="filterPlugins(this,'joiplay')">JoiPlay</button>
+    <button class="filter-btn" data-filter="browser" onclick="filterPlugins(this,'browser')">Browser</button>
+    <button class="filter-btn" data-filter="vistella" onclick="filterPlugins(this,'vistella')">VisuStella</button>
+  </div>
+
+  <div class="plugin-grid" id="pgrid"></div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════
+     TAB 02 — QUICK START
+════════════════════════════════════ -->
+<div class="tab-panel" id="tab-qs">
+<div class="container">
+  <p class="sec-label" data-l="en">02 — Quick Start</p>
+  <p class="sec-label" data-l="es">02 — Inicio Rápido</p>
+  <h2 class="sec-title" data-l="en"><em>Quick</em> Start</h2>
+  <h2 class="sec-title" data-l="es"><em>Inicio</em> Rápido</h2>
+  <hr class="sec-rule">
+
+  <div class="qs-grid">
+
+    <div class="qs-card rev">
+      <div class="qs-card-h">📦 <span data-l="en">Installation</span><span data-l="es">Instalación</span></div>
+      <ol class="qs-steps">
+        <li>
+          <span class="sn">1</span>
+          <span data-l="en">Copy the desired <code>RSK_PluginName.js</code> files into your project's <code>/js/plugins/</code> folder.</span>
+          <span data-l="es">Copia los archivos <code>RSK_NombrePlugin.js</code> en la carpeta <code>/js/plugins/</code> de tu proyecto.</span>
+        </li>
+        <li>
+          <span class="sn">2</span>
+          <span data-l="en">Open RPG Maker MZ → <strong>Plugin Manager</strong> → Add Plugin → select the RSK plugin.</span>
+          <span data-l="es">Abre RPG Maker MZ → <strong>Administrador de Plugins</strong> → Añadir Plugin → selecciona el plugin RSK.</span>
+        </li>
+        <li>
+          <span class="sn">3</span>
+          <span data-l="en">Configure parameters in the Plugin Manager panel and press <strong>OK</strong>.</span>
+          <span data-l="es">Configura los parámetros en el Administrador de Plugins y pulsa <strong>OK</strong>.</span>
+        </li>
+        <li>
+          <span class="sn">4</span>
+          <span data-l="en">Save your project. The plugin activates immediately in <strong>Test Play</strong>.</span>
+          <span data-l="es">Guarda el proyecto. El plugin se activa inmediatamente en <strong>Prueba de Juego</strong>.</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="qs-card rev">
+      <div class="qs-card-h">⚙️ <span data-l="en">Load Order</span><span data-l="es">Orden de Carga</span></div>
+      <p style="font-size:.86rem;color:var(--text2);" data-l="en">Place RSK plugins <strong style="color:var(--cyan)">AFTER</strong> VisuStella Core Engine (if used). Order between other RSK plugins is flexible unless noted in individual docs.</p>
+      <p style="font-size:.86rem;color:var(--text2);" data-l="es">Coloca los plugins RSK <strong style="color:var(--cyan)">DESPUÉS</strong> del VisuStella Core Engine (si lo usas). El orden entre otros plugins RSK es flexible salvo que se indique lo contrario.</p>
+      <div class="order-box">
+        <span class="hl">RSK_SuperTool</span> → <span class="hl">RSK_AtmosphereStudio</span> → <span class="hl">RSK_NatureStudio</span><br>
+        <span class="hl">RSK_MovementStudio</span> → <span class="hl">RSK_JumpStudio</span> → <span class="hl">RSK_SeamlessWorld</span>
+      </div>
+    </div>
+
+    <div class="qs-card rev">
+      <div class="qs-card-h">🌐 <span data-l="en">Multilingual Support</span><span data-l="es">Soporte Multilingüe</span></div>
+      <p style="font-size:.86rem;color:var(--text2);margin-bottom:.8rem;" data-l="en">RSK_SuperTool's visual interface is fully localized in <strong style="color:#fff">11 languages</strong>:</p>
+      <p style="font-size:.86rem;color:var(--text2);margin-bottom:.8rem;" data-l="es">La interfaz visual de RSK_SuperTool está completamente localizada en <strong style="color:#fff">11 idiomas</strong>:</p>
+      <div class="lang-chips">
+        <span class="lang-chip">EN</span><span class="lang-chip">ES</span><span class="lang-chip">FR</span>
+        <span class="lang-chip">IT</span><span class="lang-chip">DE</span><span class="lang-chip">PT</span>
+        <span class="lang-chip">RU</span><span class="lang-chip">JP</span><span class="lang-chip">KR</span>
+        <span class="lang-chip">ZH-CN</span><span class="lang-chip">ZH-TW</span>
+      </div>
+    </div>
+
+    <div class="qs-card rev">
+      <div class="qs-card-h">📋 <span data-l="en">License Summary</span><span data-l="es">Resumen de Licencia</span></div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.5rem;">
+        <li style="font-size:.86rem;color:var(--green);padding-left:1.2rem;position:relative;">
+          <span style="position:absolute;left:0;">✓</span>
+          <span data-l="en">Unlimited personal and commercial games.</span>
+          <span data-l="es">Juegos personales y comerciales ilimitados.</span>
+        </li>
+        <li style="font-size:.86rem;color:var(--green);padding-left:1.2rem;position:relative;">
+          <span style="position:absolute;left:0;">✓</span>
+          <span data-l="en">Include compiled plugins in released games.</span>
+          <span data-l="es">Incluir plugins compilados en juegos publicados.</span>
+        </li>
+        <li style="font-size:.86rem;color:var(--red);padding-left:1.2rem;position:relative;">
+          <span style="position:absolute;left:0;">✕</span>
+          <span data-l="en">Do NOT redistribute the raw .js source files.</span>
+          <span data-l="es">NO redistribuir los archivos fuente .js originales.</span>
+        </li>
+        <li style="font-size:.86rem;color:var(--red);padding-left:1.2rem;position:relative;">
+          <span style="position:absolute;left:0;">✕</span>
+          <span data-l="en">Do NOT resell, sublicense, or bundle for resale.</span>
+          <span data-l="es">NO revender, sublicenciar ni empaquetar para reventa.</span>
+        </li>
+      </ul>
+      <p style="font-size:.78rem;color:var(--text2);margin-top:1rem;font-family:var(--fm);">
+        <span data-l="en">Full terms → <button class="btn-s" style="padding:4px 12px;font-size:.72rem;" onclick="openTab('lic')">View License Tab</button></span>
+        <span data-l="es">Términos completos → <button class="btn-s" style="padding:4px 12px;font-size:.72rem;" onclick="openTab('lic')">Ver Pestaña Licencia</button></span>
+      </p>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════
+     TAB 03 — COMPATIBILITY
+════════════════════════════════════ -->
+<div class="tab-panel" id="tab-compat">
+<div class="container">
+  <p class="sec-label" data-l="en">03 — Platform Compatibility</p>
+  <p class="sec-label" data-l="es">03 — Compatibilidad de Plataformas</p>
+  <h2 class="sec-title" data-l="en"><em>Platform</em> Compatibility</h2>
+  <h2 class="sec-title" data-l="es"><em>Compatibilidad</em> de Plataformas</h2>
+  <hr class="sec-rule">
+  <div class="table-wrap rev">
+    <table>
+      <thead>
+        <tr>
+          <th data-l="en">Plugin</th><th data-l="es">Plugin</th>
+          <th>VisuStella</th>
+          <th>JoiPlay / Android</th>
+          <th>Browser / NW.js</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>RSK_SuperTool</td>       <td class="ds">—</td><td class="ds">—</td>     <td class="ck">✓</td></tr>
+        <tr><td>RSK_ZoomStudio</td>      <td class="ck">✓</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_AtmosphereStudio</td><td class="ck">✓</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_NatureStudio</td>    <td class="ds">—</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_MovementStudio</td>  <td class="ds">—</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_JumpStudio</td>      <td class="ds">—</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_MountStudio</td>     <td class="ds">—</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_SeamlessWorld</td>   <td class="ck">✓</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_MinimapStudio</td>   <td class="ds">—</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_PuzzleStudio</td>    <td class="ds">—</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_HarvestStudio</td>   <td class="ds">—</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_BubbleStudio</td>    <td class="ck">✓</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_MobileController</td><td class="ds">—</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_AudioLayer</td>      <td class="ds">—</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════
+     TAB 04 — LICENSE
+════════════════════════════════════ -->
+<div class="tab-panel" id="tab-lic">
+<div class="container">
+  <p class="sec-label" data-l="en">04 — License / EULA</p>
+  <p class="sec-label" data-l="es">04 — Licencia / ALUF</p>
+  <h2 class="sec-title" data-l="en"><em>License</em> &amp; EULA</h2>
+  <h2 class="sec-title" data-l="es"><em>Licencia</em> y ALUF</h2>
+  <hr class="sec-rule">
+
+  <div class="lic-grid">
+    <div class="lic-card lic-yes rev">
+      <div class="lic-h" data-l="en">✓ Allowed</div>
+      <div class="lic-h" data-l="es">✓ Permitido</div>
+      <ul class="lic-list">
+        <li data-l="en">Use in unlimited personal and commercial games.</li>
+        <li data-l="es">Uso en proyectos personales y comerciales ilimitados.</li>
+        <li data-l="en">Include compiled plugins in released games (desktop, mobile, browser).</li>
+        <li data-l="es">Incluir plugins compilados en juegos publicados (escritorio, móvil, navegador).</li>
+        <li data-l="en">Use in the Software in an unlimited number of personal projects.</li>
+        <li data-l="es">Usar el Software en un número ilimitado de proyectos personales.</li>
+        <li data-l="en">No royalties required. Attribution appreciated but not legally required.</li>
+        <li data-l="es">Sin regalías adicionales. Se agradece la atribución aunque no es legalmente obligatoria.</li>
+      </ul>
+    </div>
+    <div class="lic-card lic-no rev">
+      <div class="lic-h" data-l="en">✕ Prohibited</div>
+      <div class="lic-h" data-l="es">✕ Prohibido</div>
+      <ul class="lic-list">
+        <li data-l="en">Reselling, sublicensing, renting, or transferring the Software or your license.</li>
+        <li data-l="es">Revender, sublicenciar, alquilar o transferir el Software o tu licencia.</li>
+        <li data-l="en">Redistributing raw .js source files (free or paid) on any platform.</li>
+        <li data-l="es">Redistribuir los archivos fuente .js originales (gratis o de pago) en cualquier plataforma.</li>
+        <li data-l="en">Packaging plugins in bundles or asset packs for resale.</li>
+        <li data-l="es">Empaquetar plugins en bundles o packs de assets para reventa.</li>
+        <li data-l="en">Removing copyright notices, author credits, or version tags from the source.</li>
+        <li data-l="es">Eliminar avisos de copyright, créditos de autor o etiquetas de versión del código.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="lic-note rev">
+    <strong data-l="en">Commercial Use:</strong><strong data-l="es">Uso Comercial:</strong>
+    <span data-l="en"> You MAY use the Software in commercial games sold for money. No additional royalties are required. Attribution ('Plugins by Ramsak / ramsak.itch.io') in your game credits is appreciated but not legally required.</span>
+    <span data-l="es"> PUEDES usar el Software en juegos comerciales vendidos por dinero. No se requieren regalías adicionales. Se agradece la atribución ('Plugins by Ramsak / ramsak.itch.io') en los créditos de tu juego, aunque no es legalmente obligatoria.</span>
+  </div>
+
+  <div class="eula-box rev">
+    <h3 data-l="en">End User License Agreement — Summary</h3>
+    <h3 data-l="es">Acuerdo de Licencia de Usuario Final — Resumen</h3>
+
+    <div class="eula-section">
+      <h4 data-l="en">1. Grant of License</h4>
+      <h4 data-l="es">1. Concesión de Licencia</h4>
+      <p data-l="en">Ramsak ('the Author') grants you a non-exclusive, non-transferable license to install and use the Software on your personal computers to develop RPG Maker MZ games, and to include the compiled Software in games you distribute commercially or for free, in unlimited projects.</p>
+      <p data-l="es">Ramsak ('el Autor') te concede una licencia limitada, no exclusiva e intransferible para instalar y usar el Software en tus ordenadores personales para desarrollar juegos con RPG Maker MZ, e incluir el Software compilado en juegos que distribuyas comercialmente o de forma gratuita, en proyectos ilimitados.</p>
+    </div>
+
+    <div class="eula-section">
+      <h4 data-l="en">4. Updates &amp; Support</h4>
+      <h4 data-l="es">4. Actualizaciones y Soporte</h4>
+      <p data-l="en">Future updates, if any, will be provided through the original purchase page on ramsak.itch.io at the Author's discretion. The Author is not obligated to provide updates or support but will make reasonable efforts to do so.</p>
+      <p data-l="es">Las actualizaciones futuras, si las hubiera, se proporcionarán a través de la página de compra original en ramsak.itch.io a discreción del Autor. El Autor no está obligado a proporcionar actualizaciones o soporte, aunque hará esfuerzos razonables.</p>
+    </div>
+
+    <div class="eula-section">
+      <h4 data-l="en">5. Disclaimer of Warranties</h4>
+      <h4 data-l="es">5. Exclusión de Garantías</h4>
+      <p data-l="en"><strong>THE SOFTWARE IS PROVIDED 'AS IS' WITHOUT WARRANTY OF ANY KIND. THE AUTHOR DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE OR FIT FOR ANY PARTICULAR PURPOSE.</strong></p>
+      <p data-l="es"><strong>EL SOFTWARE SE PROPORCIONA 'TAL CUAL' SIN GARANTÍA DE NINGÚN TIPO. EL AUTOR NO GARANTIZA QUE EL SOFTWARE ESTÉ LIBRE DE ERRORES.</strong></p>
+    </div>
+
+    <div class="eula-section">
+      <h4 data-l="en">7. Termination</h4>
+      <h4 data-l="es">7. Rescisión</h4>
+      <p data-l="en">This license terminates automatically if you breach any term. Upon termination you must destroy all copies of the Software in your possession.</p>
+      <p data-l="es">Esta licencia se rescinde automáticamente si incumples algún término. Tras la rescisión debes destruir todas las copias del Software en tu poder.</p>
+    </div>
+
+    <p style="font-size:.78rem;color:var(--text2);margin-top:1rem;font-family:var(--fm);" data-l="en">Full EULA included as RSK_EULA.pdf with your purchase. Effective 2025.</p>
+    <p style="font-size:.78rem;color:var(--text2);margin-top:1rem;font-family:var(--fm);" data-l="es">ALUF completo incluido como RSK_EULA.pdf con tu compra. Vigente desde 2025.</p>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════
+     TAB 05 — CHANGELOG
+════════════════════════════════════ -->
+<div class="tab-panel" id="tab-cl">
+<div class="container">
+  <p class="sec-label">05 — Changelog</p>
+  <h2 class="sec-title">Change<em>log</em></h2>
+  <p class="sec-sub" data-l="en">Version history of the RSK Plugin Suite.</p>
+  <p class="sec-sub" data-l="es">Historial de versiones del RSK Plugin Suite.</p>
+  <hr class="sec-rule">
+
+  <div class="cl-ver-badge">v1.0.0 — Initial Release (2025)</div>
+
+  <div class="cl-list" id="cl-list">
+    <!-- injected by JS -->
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════
+     TAB 06 — SUPPORT
+════════════════════════════════════ -->
+<div class="tab-panel" id="tab-sup">
+<div class="container">
+  <p class="sec-label" data-l="en">06 — Support &amp; Contact</p>
+  <p class="sec-label" data-l="es">06 — Soporte y Contacto</p>
+  <h2 class="sec-title" data-l="en">Support <em>&amp; Contact</em></h2>
+  <h2 class="sec-title" data-l="es">Soporte <em>&amp; Contacto</em></h2>
+  <hr class="sec-rule">
+
+  <div class="sup-grid">
+
+    <div class="sup-card rev">
+      <h3 data-l="en">How to Request Support</h3>
+      <h3 data-l="es">Cómo Solicitar Soporte</h3>
+      <a href="mailto:rskstudio.support@gmail.com" class="sup-email">rskstudio.support@gmail.com</a>
+      <p style="font-size:.84rem;color:var(--text2);margin-bottom:.7rem;" data-l="en">Please include in your message (use the RSK_Support_Template for a ready-to-fill form):</p>
+      <p style="font-size:.84rem;color:var(--text2);margin-bottom:.7rem;" data-l="es">Por favor incluye en tu mensaje (usa el RSK_Support_Template para un formulario listo para rellenar):</p>
+      <ul class="sup-list">
+        <li data-l="en">Plugin name and version (found at the top of the .js file).</li>
+        <li data-l="es">Nombre y versión del plugin (al inicio del archivo .js).</li>
+        <li data-l="en">RPG Maker MZ version (Help → About).</li>
+        <li data-l="es">Versión de RPG Maker MZ (Ayuda → Acerca de).</li>
+        <li data-l="en">Operating system (Windows / macOS / Linux).</li>
+        <li data-l="es">Sistema operativo (Windows / macOS / Linux).</li>
+        <li data-l="en">Deployment target (Desktop NW.js / JoiPlay Android / Browser).</li>
+        <li data-l="es">Destino de despliegue (Escritorio NW.js / JoiPlay Android / Navegador).</li>
+        <li data-l="en">Full list of other active plugins (name + version).</li>
+        <li data-l="es">Lista completa de otros plugins activos (nombre + versión).</li>
+        <li data-l="en">Steps to reproduce the issue.</li>
+        <li data-l="es">Pasos para reproducir el problema.</li>
+        <li data-l="en">Error message or console output (if any).</li>
+        <li data-l="es">Mensaje de error o salida de consola (si los hay).</li>
+        <li data-l="en">Screenshot or short video clip (if the issue is visual).</li>
+        <li data-l="es">Captura o clip de vídeo corto (si el problema es visual).</li>
+      </ul>
+      <div class="sup-note">
+        <strong data-l="en">Tip:</strong><strong data-l="es">Consejo:</strong>
+        <span data-l="en"> Use the <strong>RSK_Support_Template</strong> included in your purchase — it's a fillable PDF form with all fields ready.</span>
+        <span data-l="es"> Usa el <strong>RSK_Support_Template</strong> incluido en tu compra — es un formulario PDF rellenable con todos los campos listos.</span>
+      </div>
+    </div>
+
+    <div class="sup-card rev">
+      <h3 data-l="en">Updates &amp; Store</h3>
+      <h3 data-l="es">Actualizaciones y Tienda</h3>
+      <p class="upd-text" data-l="en">Future updates are delivered through the original purchase page on <a href="https://ramsak.itch.io" target="_blank" rel="noopener">ramsak.itch.io</a>. You will receive a notification from itch.io when a new version is uploaded.</p>
+      <p class="upd-text" data-l="es">Las actualizaciones futuras se entregan a través de la página de compra original en <a href="https://ramsak.itch.io" target="_blank" rel="noopener">ramsak.itch.io</a>. Recibirás una notificación de itch.io cuando se suba una nueva versión.</p>
+      <a href="https://ramsak.itch.io" target="_blank" rel="noopener" class="btn-p" style="display:inline-block;margin-bottom:2rem;" data-l="en">Visit ramsak.itch.io ↗</a>
+      <a href="https://ramsak.itch.io" target="_blank" rel="noopener" class="btn-p" style="display:inline-block;margin-bottom:2rem;" data-l="es">Visitar ramsak.itch.io ↗</a>
+
+      <h3 style="margin-top:.5rem;" data-l="en">Included in Your Purchase</h3>
+      <h3 style="margin-top:.5rem;" data-l="es">Incluido en tu Compra</h3>
+      <ul class="sup-list" style="margin-top:.6rem;">
+        <li data-l="en">All 14 .js plugin files</li>
+        <li data-l="es">Los 14 archivos .js de plugins</li>
+        <li data-l="en">RSK_Master_Manual.pdf (EN + ES)</li>
+        <li data-l="es">RSK_Master_Manual.pdf (EN + ES)</li>
+        <li data-l="en">RSK_EULA.pdf</li>
+        <li data-l="es">RSK_EULA.pdf</li>
+        <li data-l="en">RSK_Changelog.pdf</li>
+        <li data-l="es">RSK_Changelog.pdf</li>
+        <li data-l="en">RSK_Support_Template.pdf (fillable)</li>
+        <li data-l="es">RSK_Support_Template.pdf (rellenable)</li>
+        <li data-l="en">RSK_Master_README.pdf</li>
+        <li data-l="es">RSK_Master_README.pdf</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div style="margin-bottom:.3rem;">
+    RSK Plugin Suite · by <a href="https://ramsak.itch.io" target="_blank" rel="noopener">Ramsak</a> ·
+    <a href="mailto:rskstudio.support@gmail.com">rskstudio.support@gmail.com</a>
+  </div>
+  <div>
+    <span data-l="en">© Ramsak · Non-transferable license · All rights reserved.</span>
+    <span data-l="es">© Ramsak · Licencia no transferible · Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════
+     ADDITIONAL CSS: Quick-nav tiles
+════════════════════════════════════ -->
+<style>
+.qn-tile {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: .25rem; padding: 1.2rem 1.4rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; cursor: pointer; text-align: left;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+  text-decoration: none;
+}
+.qn-tile:hover {
+  border-color: var(--border-lit); transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,229,255,.07);
+}
+.qn-icon {
+  font-size: 1.3rem; color: var(--cyan);
+  font-family: var(--fm); line-height: 1;
+  margin-bottom: .2rem;
+}
+.qn-title {
+  font-family: var(--fh); font-weight: 700; font-size: .92rem;
+  color: #fff; text-transform: uppercase; letter-spacing: .06em;
+}
+.qn-sub { font-family: var(--fm); font-size: .65rem; color: var(--text2); }
+</style>
+
+<!-- ════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════ -->
+<script>
+// ─────────────────────────────────────
+// DATA
+// ─────────────────────────────────────
+const PLUGINS = [
+  { id:'supertool', name:'RSK_SuperTool', ver:'v17.6',
+    cat:{en:'Ultra Premium UI Editor', es:'Editor de UI Ultra Premium'},
+    desc:{en:'The central UI customization system. Visually reposition, resize, and restyle every in-game window using a Photoshop-style floating panel — no code required.',
+          es:'El sistema central de personalización de interfaz. Reposiciona, redimensiona y restylea cada ventana del juego con un panel flotante tipo Photoshop — sin escribir código.'},
+    compat:['browser'],
+    feats:{en:['Drag-and-drop window positioning with snap-to-grid (8/16/32 px).',
+               'Pro Text System: gradients (H/V/diagonal), shadows, outlines, letter spacing.',
+               'Apply-to-All: propagate a style to ALL game menus in one click.',
+               'Custom HUD: place HP / MP / Gold overlays anywhere on screen.',
+               'Multilingual UI localized in 11 languages: EN, ES, FR, IT, DE, PT, RU, JP, KR, ZH-CN, ZH-TW.',
+               'CJK and Cyrillic font loader.',
+               'Multi-selection (Ctrl+Click) and Copy/Paste styles between windows.',
+               'Z-index control: bring to front / send to back.',
+               'Debounce system — no flickering on slower machines.'],
+           es:['Posicionamiento por arrastrar y soltar con encaje a rejilla (8/16/32 px).',
+               'Sistema de Texto Pro: degradados, sombras, contorno, espaciado de letras.',
+               'Aplicar a Todos: propaga un estilo a TODOS los menús del juego con un clic.',
+               'HUD personalizado: coloca HP / MP / Oro donde quieras en pantalla.',
+               'Interfaz localizada en 11 idiomas: EN, ES, FR, IT, DE, PT, RU, JP, KR, ZH-CN, ZH-TW.',
+               'Cargador de fuentes CJK y cirílico.',
+               'Multi-selección (Ctrl+Click) y copiar/pegar estilos entre ventanas.',
+               'Control de índice Z: traer al frente / enviar al fondo.',
+               'Sistema debounce — sin parpadeos en máquinas lentas.']},
+    cmds:['RSKSuperTool OpenEditor','RSKSuperTool CloseEditor','RSKSuperTool ApplyToAll','RSKSuperTool ResetWindow [name]'] },
+
+  { id:'zoomstudio', name:'RSK_ZoomStudio', ver:'v10.0.0',
+    cat:{en:'True Perspective Mode7', es:'Perspectiva Mode7 Real'},
+    desc:{en:'Transforms your flat RPG Maker map into an HD-2D perspective view (Octopath Traveler / SNES Mode7 style). Real 1/z perspective division — no approximation curves.',
+          es:'Transforma el mapa plano de RPG Maker en una vista HD-2D tipo Octopath Traveler o SNES Mode7. División de perspectiva 1/z real — sin curvas de aproximación.'},
+    compat:['vistella','joiplay','browser'],
+    feats:{en:['True 1/z perspective: ground plane stretches naturally to the horizon.',
+               'HD-2D Billboarding: characters stay vertical while the ground tilts.',
+               'Depth-of-Field (DoF) blur layer for cinematic atmosphere.',
+               '3D Tilt and Diorama modes.',
+               'Live Editor: adjust inclination, horizon line, and DoF in real-time.',
+               'VisuStella Core Engine compatible.'],
+           es:['Perspectiva 1/z real: el plano del suelo se extiende hasta el horizonte de forma natural.',
+               'Billboarding HD-2D: los personajes permanecen verticales mientras el suelo se inclina.',
+               'Profundidad de campo (DoF) para atmósfera cinemática.',
+               'Modos de inclinación 3D y diorama.',
+               'Editor en vivo: ajusta inclinación, línea de horizonte y DoF en tiempo real.',
+               'Compatible con VisuStella Core Engine.']},
+    cmds:['RSKZoom SetZoom [value]','RSKZoom EnableMode7','RSKZoom DisableMode7','RSKZoom OpenEditor','RSKZoom SetDoF [near] [far]'] },
+
+  { id:'atmosphere', name:'RSK_AtmosphereStudio', ver:'v22.3',
+    cat:{en:'Lights, Post-FX & Weather', es:'Luces, Post-FX y Clima'},
+    desc:{en:'Comprehensive visual effects layer. Animated point lights, post-processing filters, ground projections, special effects, and integrated ambient audio.',
+          es:'Capa de efectos visuales integral. Luces de punto animadas, filtros de post-procesado, proyecciones de suelo, efectos especiales y audio ambiental integrado.'},
+    compat:['vistella','joiplay','browser'],
+    feats:{en:['Animated light sources: radius, color, intensity, and flicker control.',
+               'Post-FX: bloom, vignette, chromatic aberration, color grading.',
+               'Ground effects: puddles, snow, mud, lava glow, dust.',
+               'Shadow casting from light sources.',
+               'Procedural texture overlays (noise, scanlines, film grain).',
+               'Integrated rain and wind ambient sound.'],
+           es:['Fuentes de luz animadas: radio, color, intensidad y control de parpadeo.',
+               'Post-FX: bloom, viñeta, aberración cromática, gradación de color.',
+               'Efectos de suelo: charcos, nieve, barro, lava, polvo.',
+               'Proyección de sombras desde fuentes de luz.',
+               'Superposiciones de textura procedural (ruido, scanlines, grano de película).',
+               'Sonido ambiental de lluvia y viento integrado.']},
+    cmds:['RSKAtmo AddLight [x] [y] [radius] [color]','RSKAtmo RemoveLight [id]','RSKAtmo SetBloom [intensity]','RSKAtmo SetVignette [intensity]','RSKAtmo StartRain / StopRain'] },
+
+  { id:'nature', name:'RSK_NatureStudio', ver:'v5.5',
+    cat:{en:'Water, Wind & Flora', es:'Agua, Viento y Flora'},
+    desc:{en:'Animates map environments: water tiles with ripples and caustics, wind-sway on grass/trees, surface reflections, and an improved grass rendering system with Z-Fix.',
+          es:'Anima entornos de mapa: tiles de agua con ondas y caustics, movimiento de hierba/árboles por el viento, reflejos y sistema de hierba mejorado con Z-Fix.'},
+    compat:['joiplay','browser'],
+    feats:{en:['Animated water tiles with ripple speed and caustic intensity.',
+               'Wind-sway on tagged vegetation events (trees, grass, flowers).',
+               'Reflections on water surfaces (character and map reflection).',
+               'Improved grass with proper Z-layer ordering (Z-Fix).',
+               'Seasonal palette shifts (spring, summer, autumn, winter presets).'],
+           es:['Tiles de agua animados con velocidad de ondas e intensidad caustic.',
+               'Movimiento por viento en eventos de vegetación etiquetados.',
+               'Reflejos en superficies de agua (reflejo del personaje y del mapa).',
+               'Hierba mejorada con orden Z-layer correcto (Z-Fix).',
+               'Cambios de paleta estacionales (presets de primavera, verano, otoño, invierno).']},
+    cmds:['RSKNature SetWindSpeed [0-10]','RSKNature SetWaterRipple [0-10]','RSKNature SetSeason [name]'] },
+
+  { id:'movement', name:'RSK_MovementStudio', ver:'v10.4.0',
+    cat:{en:'Pro Motion FX & Advanced Movement', es:'FX de Movimiento Pro y Movimiento Avanzado'},
+    desc:{en:'Enhances character movement with motion FX, step particles, multiple movement modes, and a visual editor for tuning all parameters without writing code.',
+          es:'Mejora el movimiento del personaje con FX de movimiento, partículas de pasos, múltiples modos de movimiento y un editor visual para ajustar todos los parámetros sin código.'},
+    compat:['joiplay','browser'],
+    feats:{en:['Motion blur and afterimage trails (configurable opacity and length).',
+               'Step and landing particle effects.',
+               'Dash, sneak, swim, and fly movement modes.',
+               'Screen shake on hard landings.',
+               'Dust cloud and speed-line effects.',
+               'Visual Editor (toggle with configurable hotkey).'],
+           es:['Desenfoque de movimiento y estelas de post-imagen (opacidad y longitud configurables).',
+               'Efectos de partículas de pasos y aterrizaje.',
+               'Modos de movimiento: correr, sigilo, nadar y volar.',
+               'Sacudida de pantalla en aterrizajes bruscos.',
+               'Efectos de nube de polvo y líneas de velocidad.',
+               'Editor visual (activable con tecla configurable).']},
+    cmds:['RSKMove SetMode [mode]','RSKMove SetTrail [0|1]','RSKMove OpenEditor'] },
+
+  { id:'jump', name:'RSK_JumpStudio', ver:'v3.6.0',
+    cat:{en:'2-Tile Jump System', es:'Sistema de Salto de 2 Tiles'},
+    desc:{en:'Adds a polished 2-tile jump mechanic. Players can jump over obstacles, gaps, or ledges. Live Editor for arc, height, and landing effect tuning.',
+          es:'Añade una mecánica de salto de 2 tiles pulida. Saltar sobre obstáculos, huecos o bordes. Editor en vivo para arco, altura y efectos de aterrizaje.'},
+    compat:['joiplay','browser'],
+    feats:{en:['Configurable jump arc, height, and duration.',
+               'Landing dust and screen-shake effects.',
+               'Directional jumps (forward, diagonal).',
+               'Obstacle and ledge tag system (mark tiles as jumpable).',
+               'Live Editor for in-game tuning.'],
+           es:['Arco de salto, altura y duración configurables.',
+               'Polvo de aterrizaje y efectos de sacudida de pantalla.',
+               'Saltos direccionales (adelante, diagonal).',
+               'Sistema de etiquetado de obstáculos y bordes.',
+               'Editor en vivo para ajuste en el juego.']},
+    cmds:['RSKJump Enable / Disable','RSKJump SetHeight [value]','RSKJump OpenEditor'] },
+
+  { id:'mount', name:'RSK_MountStudio', ver:'v2.3.0',
+    cat:{en:'Mount & Ride System', es:'Sistema de Monturas'},
+    desc:{en:'Allows the player to mount animals or vehicles defined as map events. Procedural sprite layering, item binding (equip saddle to ride), and free map spawning.',
+          es:'Permite al jugador montar animales o vehículos definidos como eventos de mapa. Capas de sprites procedurales, vinculación de objetos y spawn libre en mapa.'},
+    compat:['joiplay','browser'],
+    feats:{en:['Any map event can become a mountable creature or vehicle.',
+               'Procedural sprite layering (rider sits on mount automatically).',
+               'Item binding: require a specific item to mount.',
+               'Free map spawning: call mounts to the player\'s location via command.',
+               'Speed, dash, and ability modifiers while mounted.',
+               'Visual Editor for sprite offset tuning.'],
+           es:['Cualquier evento de mapa puede convertirse en una montura o vehículo.',
+               'Capas de sprites procedurales (el jinete se sienta automáticamente).',
+               'Vinculación de objetos: requiere un objeto específico para montar.',
+               'Spawn libre en mapa: llama a monturas a la posición del jugador.',
+               'Modificadores de velocidad, correr y habilidades mientras está montado.',
+               'Editor visual para ajuste de offset de sprites.']},
+    cmds:['RSKMount Ride [eventId]','RSKMount Dismount','RSKMount SpawnMount [id] [x] [y]'] },
+
+  { id:'seamless', name:'RSK_SeamlessWorld', ver:'v14.1',
+    cat:{en:'Infinite Seamless Map', es:'Mapa Sin Costuras Infinito'},
+    desc:{en:'Connects multiple maps into one continuous scrolling world with no visible transitions. 100% compatible with JoiPlay (Android), MalDives, and browser deployments.',
+          es:'Conecta múltiples mapas en un mundo de desplazamiento continuo sin transiciones visibles. 100% compatible con JoiPlay (Android), MalDives y navegador.'},
+    compat:['vistella','joiplay','browser'],
+    feats:{en:['Stitch up to dozens of maps into one seamless continuous world.',
+               'Invisible boundaries: player walks from map to map with no fade.',
+               'Character and event positions preserved across stitched maps.',
+               '100% JoiPlay (Android), MalDives, and browser (NW.js) compatible.',
+               'Integrated mobile patch — no extra plugins needed.',
+               'VisuStella Core Engine compatible.'],
+           es:['Une decenas de mapas en un mundo continuo sin costuras.',
+               'Límites invisibles: el jugador pasa de mapa en mapa sin fundido.',
+               'Posiciones de personaje y eventos preservadas entre mapas unidos.',
+               '100% compatible con JoiPlay (Android), MalDives y navegador (NW.js).',
+               'Parche móvil integrado — no se necesitan plugins adicionales.',
+               'Compatible con VisuStella Core Engine.']},
+    cmds:['RSKWorld AddNeighbor [mapId] [direction]','RSKWorld RemoveNeighbor [mapId]','RSKWorld TeleportSeamless [mapId] [x] [y]'] },
+
+  { id:'minimap', name:'RSK_MinimapStudio', ver:'v6.0.0',
+    cat:{en:'Minimap PRO', es:'Minimapa PRO'},
+    desc:{en:'Renders a live minimap using actual tile graphics from your map. World-map mode, NPC/enemy markers, door icons, and a fully configurable HUD overlay.',
+          es:'Renderiza un minimapa en vivo usando los gráficos de tiles reales de tu mapa. Modo mapa del mundo, marcadores de NPCs/enemigos, iconos de puerta y HUD configurable.'},
+    compat:['joiplay','browser'],
+    feats:{en:['Real-tile minimap: renders your actual tileset graphics (not icons).',
+               'World-map mode: shows a full overview of connected maps.',
+               'NPC, enemy, and item markers with custom icons and colors.',
+               'Door / transition icons with configurable style.',
+               'Configurable HUD: position, size, opacity, border style.',
+               'Fog-of-war mode: reveal map as the player explores.'],
+           es:['Minimapa de tiles reales: renderiza los gráficos de tu tileset (no iconos).',
+               'Modo mapa del mundo: muestra una vista completa de los mapas conectados.',
+               'Marcadores de NPCs, enemigos y objetos con iconos y colores personalizados.',
+               'Iconos de puerta/transición con estilo configurable.',
+               'HUD configurable: posición, tamaño, opacidad, estilo de borde.',
+               'Modo niebla de guerra: revela el mapa al explorar.']},
+    cmds:['RSKMinimap Show / Hide','RSKMinimap SetOpacity [0-1]','RSKMinimap AddMarker [x] [y] [icon]','RSKMinimap ToggleFogOfWar'] },
+
+  { id:'puzzle', name:'RSK_PuzzleStudio', ver:'v4.2.0',
+    cat:{en:'Push/Pull Puzzle Engine', es:'Motor de Puzles Empujar/Tirar'},
+    desc:{en:'Implements Sokoban-style push/pull puzzles. Objects can be pushed, pulled, stuck on magnets, slide smoothly, and produce impact effects. Full undo system and visual editor.',
+          es:'Implementa puzles tipo Sokoban de empujar/tirar. Objetos se pueden empujar, tirar, quedar en imanes, deslizarse suavemente y producir efectos de impacto.'},
+    compat:['joiplay','browser'],
+    feats:{en:['Push and pull any tagged event as a puzzle object.',
+               'Magnet tiles: objects lock onto magnets when they slide over them.',
+               'Smooth slide with configurable speed.',
+               'Impact FX: dust, particles, and screen-shake on collision.',
+               'Unlimited undo/redo system.',
+               'Strength variable: require a certain stat to push heavy objects.',
+               'Visual layout editor (in-game, no need to exit to MZ editor).'],
+           es:['Empuja y tira cualquier evento etiquetado como objeto de puzle.',
+               'Tiles imán: los objetos se fijan a imanes cuando se deslizan sobre ellos.',
+               'Deslizamiento suave con velocidad configurable.',
+               'FX de impacto: polvo, partículas y sacudida de pantalla en colisiones.',
+               'Sistema de deshacer/rehacer ilimitado.',
+               'Variable de fuerza: requiere cierta estadística para empujar objetos pesados.',
+               'Editor visual de diseño en el juego.']},
+    cmds:['RSKPuzzle Undo','RSKPuzzle ResetRoom','RSKPuzzle SetStrength [var]'] },
+
+  { id:'harvest', name:'RSK_HarvestStudio', ver:'v5.0.0',
+    cat:{en:'Harvest, Fishing & Garden', es:'Recolección, Pesca y Jardín'},
+    desc:{en:'A complete gathering loop: harvest plants with tool and time requirements, fish at designated tiles, and manage a growing garden with seed, water, and yield stages.',
+          es:'Un ciclo de recolección completo: cosecha plantas con herramientas y tiempos, pesca en tiles designados y gestiona un jardín con etapas de semilla, agua y cosecha.'},
+    compat:['joiplay','browser'],
+    feats:{en:['Harvestable plants with configurable respawn timers.',
+               'Tool requirement: only harvest with the correct equipped item.',
+               'Fishing system: cast at water tiles, mini-game or instant catch.',
+               'Garden mode: plant seeds, water them, wait for growth stages, harvest.',
+               'Variable yields (quantity and item type based on luck/stats).',
+               'Sound and particle FX for each action.'],
+           es:['Plantas cosechables con temporizadores de reaparición configurables.',
+               'Requisito de herramienta: solo cosecha con el objeto equipado correcto.',
+               'Sistema de pesca: lanza en tiles de agua, minijuego o captura instantánea.',
+               'Modo jardín: planta semillas, riégalas, espera etapas de crecimiento, cosecha.',
+               'Rendimientos variables basados en suerte/estadísticas.',
+               'Sonido y FX de partículas para cada acción.']},
+    cmds:['RSKHarvest PlantSeed [itemId] [x] [y]','RSKHarvest Water [x] [y]','RSKHarvest SetFishSpot [x] [y] [table]'] },
+
+  { id:'bubble', name:'RSK_BubbleStudio', ver:'v4.4.0',
+    cat:{en:'Dialogue Bubbles & Popups', es:'Burbujas de Diálogo y Popups'},
+    desc:{en:'Replaces or supplements the default message box with character speech bubbles, loot popups, floating name tags, and a PRO bust/portrait system.',
+          es:'Reemplaza o complementa el cuadro de mensaje predeterminado con burbujas de discurso, popups de botín, etiquetas flotantes y un sistema de busto/retrato PRO.'},
+    compat:['vistella','joiplay','browser'],
+    feats:{en:['Speech bubbles anchored above any event or the player.',
+               'Loot popups: item name + icon floats up and fades (Diablo-style).',
+               'Floating name tags: persistent labels above NPCs.',
+               'Bust/Portrait PRO: full portrait side panels with expression states.',
+               'Voice clip support: play a SE per message line.',
+               'Particle burst FX on bubble appearance/close.',
+               'Choice prompts displayed inside bubbles.',
+               'VisuStella Message Core compatible.'],
+           es:['Burbujas de habla ancladas encima de cualquier evento o el jugador.',
+               'Popups de botín: nombre del objeto + icono flota hacia arriba (estilo Diablo).',
+               'Etiquetas de nombre flotantes: etiquetas persistentes encima de los NPCs.',
+               'Busto/Retrato PRO: paneles laterales de retrato con estados de expresión.',
+               'Soporte de clips de voz: reproduce un SE por línea de mensaje.',
+               'FX de ráfaga de partículas al aparecer/cerrar la burbuja.',
+               'Opciones de diálogo mostradas dentro de las burbujas.',
+               'Compatible con VisuStella Message Core.']},
+    cmds:['RSKBubble Show [eventId] [text]','RSKBubble LootPopup [itemId] [qty]','RSKBubble SetNameTag [eventId] [name]','RSKBubble SetBust [actorId] [filename]'] },
+
+  { id:'mobile', name:'RSK_MobileController', ver:'v5.1',
+    cat:{en:'Virtual Gamepad PRO', es:'Mando Virtual PRO'},
+    desc:{en:'Fully customizable on-screen virtual gamepad for mobile (touch) play. Also enhances physical gamepad support with analog stick mapping, vibration, and button remapping.',
+          es:'Mando virtual en pantalla totalmente personalizable para jugar en móvil (táctil). También mejora el soporte de mando físico con mapeo analógico, vibración y reasignación de botones.'},
+    compat:['joiplay','browser'],
+    feats:{en:['Drag-and-drop button layout editor.',
+               'Custom button skins (image-based).',
+               'Analog stick with dead-zone and sensitivity settings.',
+               'Physical gamepad: analog-to-digital mapping, vibration support.',
+               'Button remapping for all actions.',
+               'Auto-hide when physical gamepad is connected.'],
+           es:['Editor de diseño de botones de arrastrar y soltar.',
+               'Skins de botones personalizados (basados en imágenes).',
+               'Stick analógico con configuración de zona muerta y sensibilidad.',
+               'Mando físico: mapeo analógico a digital, soporte de vibración.',
+               'Reasignación de botones para todas las acciones.',
+               'Auto-ocultación cuando se conecta un mando físico.']},
+    cmds:['RSKMobile ShowController / HideController','RSKMobile SetOpacity [0-1]','RSKMobile OpenLayoutEditor'] },
+
+  { id:'audio', name:'RSK_AudioLayer', ver:'v4.0',
+    cat:{en:'Multi-Channel Audio Mixer', es:'Mezclador de Audio Multi-Canal'},
+    desc:{en:'Extends RPG Maker\'s audio system with independent BGM layers, SFX channels, crossfade transitions, volume envelopes, and in-game audio controls.',
+          es:'Extiende el sistema de audio de RPG Maker con capas BGM independientes, canales SFX, transiciones crossfade, envolventes de volumen y controles de audio en el juego.'},
+    compat:['joiplay','browser'],
+    feats:{en:['Up to 4 simultaneous BGM layers (e.g. base + drums + melody).',
+               'Independent volume, pan, and pitch per layer.',
+               'Crossfade transitions between BGMs.',
+               'SFX channels: assign SFX to specific channels to avoid overlap.',
+               'Volume envelope: fade in/out on cue.',
+               'In-game audio mixer overlay (optional).'],
+           es:['Hasta 4 capas BGM simultáneas (p.ej. base + batería + melodía).',
+               'Volumen, paneo y tono independientes por capa.',
+               'Transiciones crossfade entre BGMs.',
+               'Canales SFX: asigna SFX a canales específicos para evitar solapamiento.',
+               'Envolvente de volumen: fundido de entrada/salida a voluntad.',
+               'Overlay del mezclador de audio en el juego (opcional).']},
+    cmds:['RSKAudio PlayLayer [slot] [filename] [volume]','RSKAudio FadeLayer [slot] [duration]','RSKAudio CrossFade [from] [to] [duration]','RSKAudio SetVolume [slot] [0-100]'] }
+];
+
+const CL_DATA = [
+  {name:'RSK_SuperTool', ver:'v17.6',
+   en:'Ultra Premium UI Editor — Pro Text System, Apply-to-All, Custom HUD, 11-language interface, CJK/Cyrillic fonts.',
+   es:'Editor de UI Ultra Premium — Sistema de Texto Pro, Aplicar a Todos, HUD personalizado, interfaz en 11 idiomas.'},
+  {name:'RSK_ZoomStudio', ver:'v10.0.0',
+   en:'True Perspective Mode7 — Real 1/z perspective, HD-2D billboarding, Depth-of-Field, VisuStella compatible.',
+   es:'Perspectiva Mode7 real — División 1/z real, billboarding HD-2D, Profundidad de campo, compatible con VisuStella.'},
+  {name:'RSK_AtmosphereStudio', ver:'v22.3',
+   en:'Animated Lights, Post-FX (bloom, vignette, aberration), Ground Effects v3, Special FX, Shadow system.',
+   es:'Luces animadas, Post-FX (bloom, viñeta, aberración), Efectos de suelo v3, FX especiales, sistema de sombras.'},
+  {name:'RSK_NatureStudio', ver:'v5.5',
+   en:'Water, Wind, Flora, Reflections — Z-Fix and Improved Grass system.',
+   es:'Agua, viento, flora, reflejos — Sistema Z-Fix y hierba mejorada.'},
+  {name:'RSK_MovementStudio', ver:'v10.4.0',
+   en:'Pro Motion FX, Visual Editor — motion blur, trails, dash, sneak, swim, fly modes.',
+   es:'FX de movimiento Pro, Editor visual — desenfoque, estelas, correr, sigilo, nadar, volar.'},
+  {name:'RSK_JumpStudio', ver:'v3.6.0',
+   en:'Professional 2-Tile Jump System with Live Editor for arc, height, and landing FX.',
+   es:'Sistema de salto de 2 tiles profesional con Editor en vivo para arco, altura y FX de aterrizaje.'},
+  {name:'RSK_MountStudio', ver:'v2.3.0',
+   en:'Mount & Ride System — procedural sprites, item binding, free map spawning, Visual Editor.',
+   es:'Sistema de monturas — sprites procedurales, vinculación de objetos, spawn libre, Editor visual.'},
+  {name:'RSK_SeamlessWorld', ver:'v14.1',
+   en:'Infinite seamless map — perfect transitions, JoiPlay/Mobile/Web 100% compatible, integrated mobile patch.',
+   es:'Mapa sin costuras infinito — transiciones perfectas, 100% JoiPlay/Móvil/Web, parche móvil integrado.'},
+  {name:'RSK_MinimapStudio', ver:'v6.0.0',
+   en:'Minimap PRO — Real Tiles, World Map, NPC/Enemy Markers, Door Styles, Fog-of-War.',
+   es:'Minimapa PRO — Tiles reales, Mapa del mundo, Marcadores NPCs/Enemigos, Estilos de puerta, Niebla de guerra.'},
+  {name:'RSK_PuzzleStudio', ver:'v4.2.0',
+   en:'Push/Pull Puzzle Engine — Undo, Magnets, Smooth Slide, Impact FX, Visual layout editor.',
+   es:'Motor de puzles empujar/tirar — Deshacer, Imanes, Deslizamiento suave, FX de impacto, Editor visual.'},
+  {name:'RSK_HarvestStudio', ver:'v5.0.0',
+   en:'Harvest, Fishing & Garden System — respawn timers, tool requirements, growth stages.',
+   es:'Sistema de recolección, pesca y jardín — temporizadores de reaparición, herramientas requeridas, etapas de crecimiento.'},
+  {name:'RSK_BubbleStudio', ver:'v4.4.0',
+   en:'Dialogue Bubbles, Loot Popups, Name Tags, Bust PRO — Voice clips, particles, choice prompts.',
+   es:'Burbujas de diálogo, Popups de botín, Etiquetas de nombre, Bust PRO — Clips de voz, partículas, opciones.'},
+  {name:'RSK_MobileController', ver:'v5.1',
+   en:'Ultimate Virtual Gamepad + Physical Gamepad PRO — analog mapping, vibration, button remapping.',
+   es:'Mando virtual definitivo + Mando físico PRO — mapeo analógico, vibración, reasignación de botones.'},
+  {name:'RSK_AudioLayer', ver:'v4.0',
+   en:'Immersive Multi-Channel Audio Mixer — 4 BGM layers, SFX channels, crossfade, volume envelopes.',
+   es:'Mezclador de audio multi-canal inmersivo — 4 capas BGM, canales SFX, crossfade, envolventes de volumen.'}
+];
+
+// ─────────────────────────────────────
+// STATE
+// ─────────────────────────────────────
+let lang    = 'en';
+let curTab  = 'hero';
+let curFilter = 'all';
+
+// ─────────────────────────────────────
+// LANGUAGE
+// ─────────────────────────────────────
+function setLang(l) {
+  lang = l;
+  document.body.classList.toggle('es', l === 'es');
+  document.getElementById('lbtn-en').classList.toggle('on', l === 'en');
+  document.getElementById('lbtn-es').classList.toggle('on', l === 'es');
+  buildPlugins();
+  buildChangelog();
+}
+
+// ─────────────────────────────────────
+// TABS
+// ─────────────────────────────────────
+function openTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('on'));
+  document.getElementById('tab-' + id).classList.add('on');
+  document.getElementById('tnav-' + id).classList.add('on');
+  curTab = id;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Trigger reveal on newly visible tab
+  setTimeout(() => {
+    document.querySelectorAll('#tab-' + id + ' .rev').forEach(el => {
+      observer.observe(el);
+    });
+  }, 50);
+}
+
+// ─────────────────────────────────────
+// PLUGIN CARDS
+// ─────────────────────────────────────
+function compatBadges(compat) {
+  return compat.map(c => {
+    if (c === 'joiplay') return '<span class="ct ct-j">JoiPlay</span>';
+    if (c === 'browser') return '<span class="ct ct-b">Browser</span>';
+    if (c === 'vistella') return '<span class="ct ct-vs">VisuStella</span>';
+    return '';
+  }).join('');
+}
+
+function buildPlugins() {
+  const grid = document.getElementById('pgrid');
+  const filtered = curFilter === 'all'
+    ? PLUGINS
+    : PLUGINS.filter(p => p.compat.includes(curFilter));
+
+  grid.innerHTML = filtered.map((p, i) => {
+    const feats = p.feats[lang].map(f => `<li>${f}</li>`).join('');
+    const cmds  = p.cmds.map(c => `<span class="cmd">→ ${c}</span>`).join('');
+    const lbl   = lang === 'en' ? 'Features & Commands' : 'Características y Comandos';
+    return `
+      <div class="p-card rev" style="transition-delay:${i*35}ms">
+        <div class="p-head">
+          <div class="p-name">${p.name}</div>
+          <span class="p-ver">${p.ver}</span>
+        </div>
+        <div class="p-cat">${p.cat[lang]}</div>
+        <div class="p-compat">${compatBadges(p.compat)}</div>
+        <div class="p-desc">${p.desc[lang]}</div>
+        <button class="p-toggle" onclick="toggleCard(this)">
+          <span class="arr">▶</span> ${lbl}
+        </button>
+        <div class="p-body">
+          <ul class="p-feats">${feats}</ul>
+          <div class="p-cmds-lbl">${lang==='en'?'Plugin Commands':'Comandos del Plugin'}</div>
+          ${cmds}
+        </div>
+      </div>`;
+  }).join('');
+
+  // observe new cards
+  grid.querySelectorAll('.rev').forEach(el => observer.observe(el));
+}
+
+function toggleCard(btn) {
+  const body = btn.nextElementSibling;
+  const open = btn.classList.toggle('open');
+  body.classList.toggle('vis', open);
+}
+
+function filterPlugins(btn, filter) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  curFilter = filter;
+  buildPlugins();
+}
+
+// ─────────────────────────────────────
+// CHANGELOG
+// ─────────────────────────────────────
+function buildChangelog() {
+  const list = document.getElementById('cl-list');
+  list.innerHTML = CL_DATA.map(c => `
+    <div class="cl-row rev">
+      <span class="cl-plugin-name">${c.name} <span class="cv">${c.ver}</span></span>
+      <span class="cl-desc">${c[lang]}</span>
+    </div>`).join('');
+  list.querySelectorAll('.rev').forEach(el => observer.observe(el));
+}
+
+// ─────────────────────────────────────
+// INTERSECTION OBSERVER
+// ─────────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.rev').forEach(el => observer.observe(el));
+
+// ─────────────────────────────────────
+// INIT
+// ─────────────────────────────────────
+buildPlugins();
+buildChangelog();
+</script>
+</body>
+</html>
