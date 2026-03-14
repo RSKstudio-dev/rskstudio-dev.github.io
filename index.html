@@ -618,12 +618,35 @@ footer a:hover { text-decoration: underline; }
 /* ═══════════════════════════════════════
    LANG VISIBILITY
 ═══════════════════════════════════════ */
-[data-l="es"] { display: none; }
-.es [data-l="en"] { display: none; }
-.es [data-l="es"] { display: block; }
-span[data-l], a[data-l], code[data-l], strong[data-l] { display: inline; }
-.es span[data-l="en"], .es a[data-l="en"] { display: none; }
-.es span[data-l="es"], .es a[data-l="es"] { display: inline; }
+
+/* ── Language visibility ──
+   All [data-l="es"] hidden by default (EN mode).
+   When body has class .es: EN hidden, ES shown.
+   Using :not() avoids specificity wars entirely.
+*/
+
+/* EN mode: hide all ES elements */
+body:not(.es) [data-l="es"] { display: none !important; }
+
+/* ES mode: hide all EN elements */
+body.es [data-l="en"] { display: none !important; }
+
+/* ES mode: show ES elements — restore natural display per tag */
+body.es p[data-l="es"],
+body.es h2[data-l="es"],
+body.es h3[data-l="es"],
+body.es h4[data-l="es"],
+body.es div[data-l="es"],
+body.es li[data-l="es"] { display: block !important; }
+
+body.es span[data-l="es"],
+body.es a[data-l="es"],
+body.es code[data-l="es"],
+body.es strong[data-l="es"],
+body.es em[data-l="es"],
+body.es button[data-l="es"] { display: inline !important; }
+
+body.es th[data-l="es"] { display: table-cell !important; }
 
 /* ═══════════════════════════════════════
    REVEAL ANIMATION
@@ -667,34 +690,13 @@ span[data-l], a[data-l], code[data-l], strong[data-l] { display: inline; }
 
 <!-- ════════ TAB NAV ════════ -->
 <div id="tabnav">
-  <button class="tab-btn on"  onclick="openTab('hero')"   id="tnav-hero">
-    <span class="tab-num">00</span>
-    <span data-l="en">Home</span><span data-l="es">Inicio</span>
-  </button>
-  <button class="tab-btn" onclick="openTab('plugins')" id="tnav-plugins">
-    <span class="tab-num">01</span>
-    Plugins
-  </button>
-  <button class="tab-btn" onclick="openTab('qs')"      id="tnav-qs">
-    <span class="tab-num">02</span>
-    <span data-l="en">Quick Start</span><span data-l="es">Inicio Rápido</span>
-  </button>
-  <button class="tab-btn" onclick="openTab('compat')"  id="tnav-compat">
-    <span class="tab-num">03</span>
-    <span data-l="en">Compatibility</span><span data-l="es">Compatibilidad</span>
-  </button>
-  <button class="tab-btn" onclick="openTab('lic')"     id="tnav-lic">
-    <span class="tab-num">04</span>
-    <span data-l="en">License</span><span data-l="es">Licencia</span>
-  </button>
-  <button class="tab-btn" onclick="openTab('cl')"      id="tnav-cl">
-    <span class="tab-num">05</span>
-    Changelog
-  </button>
-  <button class="tab-btn" onclick="openTab('sup')"     id="tnav-sup">
-    <span class="tab-num">06</span>
-    <span data-l="en">Support</span><span data-l="es">Soporte</span>
-  </button>
+  <button class="tab-btn on" onclick="openTab('hero')"   id="tnav-hero">   <span class="tab-num">00</span><span class="tab-lbl">Home</span></button>
+  <button class="tab-btn"    onclick="openTab('plugins')" id="tnav-plugins"><span class="tab-num">01</span><span class="tab-lbl">Plugins</span></button>
+  <button class="tab-btn"    onclick="openTab('qs')"     id="tnav-qs">     <span class="tab-num">02</span><span class="tab-lbl">Quick Start</span></button>
+  <button class="tab-btn"    onclick="openTab('compat')" id="tnav-compat"> <span class="tab-num">03</span><span class="tab-lbl">Compatibility</span></button>
+  <button class="tab-btn"    onclick="openTab('lic')"    id="tnav-lic">    <span class="tab-num">04</span><span class="tab-lbl">License</span></button>
+  <button class="tab-btn"    onclick="openTab('cl')"     id="tnav-cl">     <span class="tab-num">05</span><span class="tab-lbl">Changelog</span></button>
+  <button class="tab-btn"    onclick="openTab('sup')"    id="tnav-sup">    <span class="tab-num">06</span><span class="tab-lbl">Support</span></button>
 </div>
 
 <!-- ════════════════════════════════════
@@ -749,17 +751,16 @@ span[data-l], a[data-l], code[data-l], strong[data-l] { display: inline; }
     </div>
 
     <div class="hero-logo-col">
-      <!-- Replace the src with your preferred logo filename -->
-      <img class="hero-logo-img" src="logo_perfecto.png" alt="RSK Plugin Suite"
-           onerror="this.replaceWith(document.getElementById('hero-svg-fallback').content.cloneNode(true))">
-      <template id="hero-svg-fallback">
-        <svg width="200" height="200" viewBox="0 0 200 200" style="filter:drop-shadow(0 0 30px rgba(0,229,255,.5));animation:glow-pulse 3.5s ease-in-out infinite">
-          <polygon points="100,12 182,57 182,143 100,188 18,143 18,57" fill="rgba(0,229,255,.04)" stroke="#00e5ff" stroke-width="1.5"/>
-          <polygon points="100,32 162,67 162,133 100,168 38,133 38,67" fill="none" stroke="#00e5ff" stroke-width=".6" opacity=".4"/>
-          <text x="100" y="110" text-anchor="middle" dominant-baseline="middle"
-                font-family="Rajdhani,sans-serif" font-size="58" font-weight="900" fill="#00e5ff">RSK</text>
-        </svg>
-      </template>
+      <!-- Logo: place your logo PNG in the repo root named "logo_perfecto.png" to show it, otherwise the SVG is shown -->
+      <img class="hero-logo-img" id="hero-logo-img" src="logo_perfecto.png" alt="RSK Plugin Suite"
+           onerror="this.style.display='none'; document.getElementById('hero-logo-svg').style.display='block';">
+      <svg id="hero-logo-svg" width="200" height="200" viewBox="0 0 200 200" style="display:none;filter:drop-shadow(0 0 30px rgba(0,229,255,.5));animation:glow-pulse 3.5s ease-in-out infinite">
+        <polygon points="100,12 182,57 182,143 100,188 18,143 18,57" fill="rgba(0,229,255,.06)" stroke="#00e5ff" stroke-width="1.5"/>
+        <polygon points="100,32 162,67 162,133 100,168 38,133 38,67" fill="none" stroke="#00e5ff" stroke-width=".8" opacity=".5"/>
+        <polygon points="100,52 142,77 142,123 100,148 58,123 58,77" fill="none" stroke="#00e5ff" stroke-width=".4" opacity=".25"/>
+        <text x="100" y="108" text-anchor="middle" dominant-baseline="middle"
+              font-family="Rajdhani,sans-serif" font-size="58" font-weight="900" fill="#00e5ff">RSK</text>
+      </svg>
     </div>
   </div>
 
@@ -1517,11 +1518,28 @@ let curFilter = 'all';
 // ─────────────────────────────────────
 // LANGUAGE
 // ─────────────────────────────────────
+// Tab label translations
+const TAB_LABELS = {
+  hero:    { en: 'Home',          es: 'Inicio' },
+  plugins: { en: 'Plugins',       es: 'Plugins' },
+  qs:      { en: 'Quick Start',   es: 'Inicio Rápido' },
+  compat:  { en: 'Compatibility', es: 'Compatibilidad' },
+  lic:     { en: 'License',       es: 'Licencia' },
+  cl:      { en: 'Changelog',     es: 'Changelog' },
+  sup:     { en: 'Support',       es: 'Soporte' }
+};
+function updateTabLabels() {
+  Object.keys(TAB_LABELS).forEach(id => {
+    const btn = document.getElementById('tnav-' + id);
+    if (btn) { const lbl = btn.querySelector('.tab-lbl'); if (lbl) lbl.textContent = TAB_LABELS[id][lang]; }
+  });
+}
 function setLang(l) {
   lang = l;
   document.body.classList.toggle('es', l === 'es');
   document.getElementById('lbtn-en').classList.toggle('on', l === 'en');
   document.getElementById('lbtn-es').classList.toggle('on', l === 'es');
+  updateTabLabels();
   buildPlugins();
   buildChangelog();
 }
@@ -1632,6 +1650,7 @@ document.querySelectorAll('.rev').forEach(el => observer.observe(el));
 // ─────────────────────────────────────
 buildPlugins();
 buildChangelog();
+updateTabLabels();
 </script>
 </body>
 </html>
