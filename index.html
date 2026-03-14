@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RSK Plugin Suite — RPG Maker MZ by Ramsak</title>
-<meta name="description" content="14 Premium Plugins for RPG Maker MZ. Commercial use ✓ JoiPlay ✓ Browser ✓ by Ramsak">
+<meta name="description" content="14 Premium Plugins for RPG Maker MZ. Commercial use ✓ Android / JoiPlay / MalDives ✓ Browser ✓ by Ramsak">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -367,6 +367,7 @@ body::before {
   letter-spacing: .05em;
 }
 .ct-j  { border-color: rgba(74,222,128,.3); color: #4ade80; background: rgba(34,197,94,.05); }
+.ct-m  { border-color: rgba(251,191,36,.3); color: #fbbf24; background: rgba(251,191,36,.05); }
 .ct-b  { border-color: rgba(125,211,252,.3); color: #7dd3fc; background: rgba(56,189,248,.05); }
 .ct-vs { border-color: rgba(167,139,250,.3); color: var(--purple); background: rgba(124,58,237,.05); }
 
@@ -724,14 +725,14 @@ body.es th[data-l="es"] { display: table-cell !important; }
 
       <p class="hero-tagline" data-l="en">Premium Plugins for RPG Maker MZ</p>
       <p class="hero-tagline" data-l="es">Plugins Premium para RPG Maker MZ</p>
-      <p class="hero-for" data-l="en">v1.0 · 14 Premium Plugins · Commercial Use ✓ · JoiPlay ✓ · Browser ✓</p>
-      <p class="hero-for" data-l="es">v1.0 · 14 Plugins Premium · Uso Comercial ✓ · JoiPlay ✓ · Navegador ✓</p>
+      <p class="hero-for" data-l="en">v1.0 · 14 Premium Plugins · Commercial Use ✓ · Android / JoiPlay / MalDives ✓ · Browser ✓</p>
+      <p class="hero-for" data-l="es">v1.0 · 14 Plugins Premium · Uso Comercial ✓ · Android / JoiPlay / MalDives ✓ · Navegador ✓</p>
 
       <div class="badge-row">
         <span class="badge b-cyan">⬡ Premium Plugins</span>
         <span class="badge b-gold">RPG Maker MZ</span>
         <span class="badge b-pink">Commercial Use ✓</span>
-        <span class="badge b-purple">JoiPlay / Android ✓</span>
+        <span class="badge b-purple">Android / JoiPlay / MalDives ✓</span>
         <span class="badge b-cyan">Browser / NW.js ✓</span>
       </div>
 
@@ -818,6 +819,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
     <button class="filter-btn on" data-filter="all" onclick="filterPlugins(this,'all')" data-l="es">Todos</button>
     <button class="filter-btn" data-filter="joiplay" onclick="filterPlugins(this,'joiplay')">JoiPlay</button>
     <button class="filter-btn" data-filter="browser" onclick="filterPlugins(this,'browser')">Browser</button>
+    <button class="filter-btn" data-filter="maldives" onclick="filterPlugins(this,'maldives')">MalDives</button>
     <button class="filter-btn" data-filter="vistella" onclick="filterPlugins(this,'vistella')">VisuStella</button>
   </div>
 
@@ -936,7 +938,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
         <tr>
           <th data-l="en">Plugin</th><th data-l="es">Plugin</th>
           <th>VisuStella</th>
-          <th>JoiPlay / Android</th>
+          <th>Android / JoiPlay / MalDives</th>
           <th>Browser / NW.js</th>
         </tr>
       </thead>
@@ -1092,8 +1094,8 @@ body.es th[data-l="es"] { display: table-cell !important; }
         <li data-l="es">Versión de RPG Maker MZ (Ayuda → Acerca de).</li>
         <li data-l="en">Operating system (Windows / macOS / Linux).</li>
         <li data-l="es">Sistema operativo (Windows / macOS / Linux).</li>
-        <li data-l="en">Deployment target (Desktop NW.js / JoiPlay Android / Browser).</li>
-        <li data-l="es">Destino de despliegue (Escritorio NW.js / JoiPlay Android / Navegador).</li>
+        <li data-l="en">Deployment target (Desktop NW.js / Android / JoiPlay / MalDives / Browser).</li>
+        <li data-l="es">Destino de despliegue (Escritorio NW.js / Android / JoiPlay / MalDives / Navegador).</li>
         <li data-l="en">Full list of other active plugins (name + version).</li>
         <li data-l="es">Lista completa de otros plugins activos (nombre + versión).</li>
         <li data-l="en">Steps to reproduce the issue.</li>
@@ -1217,7 +1219,7 @@ const PLUGINS = [
     cat:{en:'True Perspective Mode7', es:'Perspectiva Mode7 Real'},
     desc:{en:'Transforms your flat RPG Maker map into an HD-2D perspective view (Octopath Traveler / SNES Mode7 style). Real 1/z perspective division — no approximation curves.',
           es:'Transforma el mapa plano de RPG Maker en una vista HD-2D tipo Octopath Traveler o SNES Mode7. División de perspectiva 1/z real — sin curvas de aproximación.'},
-    compat:['vistella','joiplay','browser'],
+    compat:['vistella','joiplay','maldives','browser'],
     feats:{en:['True 1/z perspective: ground plane stretches naturally to the horizon.',
                'HD-2D Billboarding: characters stay vertical while the ground tilts.',
                'Depth-of-Field (DoF) blur layer for cinematic atmosphere.',
@@ -1236,7 +1238,7 @@ const PLUGINS = [
     cat:{en:'Lights, Post-FX & Weather', es:'Luces, Post-FX y Clima'},
     desc:{en:'Comprehensive visual effects layer. Animated point lights, post-processing filters, ground projections, special effects, and integrated ambient audio.',
           es:'Capa de efectos visuales integral. Luces de punto animadas, filtros de post-procesado, proyecciones de suelo, efectos especiales y audio ambiental integrado.'},
-    compat:['vistella','joiplay','browser'],
+    compat:['vistella','joiplay','maldives','browser'],
     feats:{en:['Animated light sources: radius, color, intensity, and flicker control.',
                'Post-FX: bloom, vignette, chromatic aberration, color grading.',
                'Ground effects: puddles, snow, mud, lava glow, dust.',
@@ -1255,7 +1257,7 @@ const PLUGINS = [
     cat:{en:'Water, Wind & Flora', es:'Agua, Viento y Flora'},
     desc:{en:'Animates map environments: water tiles with ripples and caustics, wind-sway on grass/trees, surface reflections, and an improved grass rendering system with Z-Fix.',
           es:'Anima entornos de mapa: tiles de agua con ondas y caustics, movimiento de hierba/árboles por el viento, reflejos y sistema de hierba mejorado con Z-Fix.'},
-    compat:['joiplay','browser'],
+    compat:['joiplay','maldives','browser'],
     feats:{en:['Animated water tiles with ripple speed and caustic intensity.',
                'Wind-sway on tagged vegetation events (trees, grass, flowers).',
                'Reflections on water surfaces (character and map reflection).',
@@ -1272,7 +1274,7 @@ const PLUGINS = [
     cat:{en:'Pro Motion FX & Advanced Movement', es:'FX de Movimiento Pro y Movimiento Avanzado'},
     desc:{en:'Enhances character movement with motion FX, step particles, multiple movement modes, and a visual editor for tuning all parameters without writing code.',
           es:'Mejora el movimiento del personaje con FX de movimiento, partículas de pasos, múltiples modos de movimiento y un editor visual para ajustar todos los parámetros sin código.'},
-    compat:['joiplay','browser'],
+    compat:['joiplay','maldives','browser'],
     feats:{en:['Motion blur and afterimage trails (configurable opacity and length).',
                'Step and landing particle effects.',
                'Dash, sneak, swim, and fly movement modes.',
@@ -1291,7 +1293,7 @@ const PLUGINS = [
     cat:{en:'2-Tile Jump System', es:'Sistema de Salto de 2 Tiles'},
     desc:{en:'Adds a polished 2-tile jump mechanic. Players can jump over obstacles, gaps, or ledges. Live Editor for arc, height, and landing effect tuning.',
           es:'Añade una mecánica de salto de 2 tiles pulida. Saltar sobre obstáculos, huecos o bordes. Editor en vivo para arco, altura y efectos de aterrizaje.'},
-    compat:['joiplay','browser'],
+    compat:['joiplay','maldives','browser'],
     feats:{en:['Configurable jump arc, height, and duration.',
                'Landing dust and screen-shake effects.',
                'Directional jumps (forward, diagonal).',
@@ -1308,7 +1310,7 @@ const PLUGINS = [
     cat:{en:'Mount & Ride System', es:'Sistema de Monturas'},
     desc:{en:'Allows the player to mount animals or vehicles defined as map events. Procedural sprite layering, item binding (equip saddle to ride), and free map spawning.',
           es:'Permite al jugador montar animales o vehículos definidos como eventos de mapa. Capas de sprites procedurales, vinculación de objetos y spawn libre en mapa.'},
-    compat:['joiplay','browser'],
+    compat:['joiplay','maldives','browser'],
     feats:{en:['Any map event can become a mountable creature or vehicle.',
                'Procedural sprite layering (rider sits on mount automatically).',
                'Item binding: require a specific item to mount.',
@@ -1327,7 +1329,7 @@ const PLUGINS = [
     cat:{en:'Infinite Seamless Map', es:'Mapa Sin Costuras Infinito'},
     desc:{en:'Connects multiple maps into one continuous scrolling world with no visible transitions. 100% compatible with JoiPlay (Android), MalDives, and browser deployments.',
           es:'Conecta múltiples mapas en un mundo de desplazamiento continuo sin transiciones visibles. 100% compatible con JoiPlay (Android), MalDives y navegador.'},
-    compat:['vistella','joiplay','browser'],
+    compat:['vistella','joiplay','maldives','browser'],
     feats:{en:['Stitch up to dozens of maps into one seamless continuous world.',
                'Invisible boundaries: player walks from map to map with no fade.',
                'Character and event positions preserved across stitched maps.',
@@ -1346,7 +1348,7 @@ const PLUGINS = [
     cat:{en:'Minimap PRO', es:'Minimapa PRO'},
     desc:{en:'Renders a live minimap using actual tile graphics from your map. World-map mode, NPC/enemy markers, door icons, and a fully configurable HUD overlay.',
           es:'Renderiza un minimapa en vivo usando los gráficos de tiles reales de tu mapa. Modo mapa del mundo, marcadores de NPCs/enemigos, iconos de puerta y HUD configurable.'},
-    compat:['joiplay','browser'],
+    compat:['joiplay','maldives','browser'],
     feats:{en:['Real-tile minimap: renders your actual tileset graphics (not icons).',
                'World-map mode: shows a full overview of connected maps.',
                'NPC, enemy, and item markers with custom icons and colors.',
@@ -1365,7 +1367,7 @@ const PLUGINS = [
     cat:{en:'Push/Pull Puzzle Engine', es:'Motor de Puzles Empujar/Tirar'},
     desc:{en:'Implements Sokoban-style push/pull puzzles. Objects can be pushed, pulled, stuck on magnets, slide smoothly, and produce impact effects. Full undo system and visual editor.',
           es:'Implementa puzles tipo Sokoban de empujar/tirar. Objetos se pueden empujar, tirar, quedar en imanes, deslizarse suavemente y producir efectos de impacto.'},
-    compat:['joiplay','browser'],
+    compat:['joiplay','maldives','browser'],
     feats:{en:['Push and pull any tagged event as a puzzle object.',
                'Magnet tiles: objects lock onto magnets when they slide over them.',
                'Smooth slide with configurable speed.',
@@ -1386,7 +1388,7 @@ const PLUGINS = [
     cat:{en:'Harvest, Fishing & Garden', es:'Recolección, Pesca y Jardín'},
     desc:{en:'A complete gathering loop: harvest plants with tool and time requirements, fish at designated tiles, and manage a growing garden with seed, water, and yield stages.',
           es:'Un ciclo de recolección completo: cosecha plantas con herramientas y tiempos, pesca en tiles designados y gestiona un jardín con etapas de semilla, agua y cosecha.'},
-    compat:['joiplay','browser'],
+    compat:['joiplay','maldives','browser'],
     feats:{en:['Harvestable plants with configurable respawn timers.',
                'Tool requirement: only harvest with the correct equipped item.',
                'Fishing system: cast at water tiles, mini-game or instant catch.',
@@ -1405,7 +1407,7 @@ const PLUGINS = [
     cat:{en:'Dialogue Bubbles & Popups', es:'Burbujas de Diálogo y Popups'},
     desc:{en:'Replaces or supplements the default message box with character speech bubbles, loot popups, floating name tags, and a PRO bust/portrait system.',
           es:'Reemplaza o complementa el cuadro de mensaje predeterminado con burbujas de discurso, popups de botín, etiquetas flotantes y un sistema de busto/retrato PRO.'},
-    compat:['vistella','joiplay','browser'],
+    compat:['vistella','joiplay','maldives','browser'],
     feats:{en:['Speech bubbles anchored above any event or the player.',
                'Loot popups: item name + icon floats up and fades (Diablo-style).',
                'Floating name tags: persistent labels above NPCs.',
@@ -1428,7 +1430,7 @@ const PLUGINS = [
     cat:{en:'Virtual Gamepad PRO', es:'Mando Virtual PRO'},
     desc:{en:'Fully customizable on-screen virtual gamepad for mobile (touch) play. Also enhances physical gamepad support with analog stick mapping, vibration, and button remapping.',
           es:'Mando virtual en pantalla totalmente personalizable para jugar en móvil (táctil). También mejora el soporte de mando físico con mapeo analógico, vibración y reasignación de botones.'},
-    compat:['joiplay','browser'],
+    compat:['joiplay','maldives','browser'],
     feats:{en:['Drag-and-drop button layout editor.',
                'Custom button skins (image-based).',
                'Analog stick with dead-zone and sensitivity settings.',
@@ -1447,7 +1449,7 @@ const PLUGINS = [
     cat:{en:'Multi-Channel Audio Mixer', es:'Mezclador de Audio Multi-Canal'},
     desc:{en:'Extends RPG Maker\'s audio system with independent BGM layers, SFX channels, crossfade transitions, volume envelopes, and in-game audio controls.',
           es:'Extiende el sistema de audio de RPG Maker con capas BGM independientes, canales SFX, transiciones crossfade, envolventes de volumen y controles de audio en el juego.'},
-    compat:['joiplay','browser'],
+    compat:['joiplay','maldives','browser'],
     feats:{en:['Up to 4 simultaneous BGM layers (e.g. base + drums + melody).',
                'Independent volume, pan, and pitch per layer.',
                'Crossfade transitions between BGMs.',
@@ -1567,7 +1569,8 @@ function openTab(id) {
 // ─────────────────────────────────────
 function compatBadges(compat) {
   return compat.map(c => {
-    if (c === 'joiplay') return '<span class="ct ct-j">JoiPlay</span>';
+    if (c === 'joiplay') return '<span class="ct ct-j">Android / JoiPlay / MalDives</span>';
+    if (c === 'maldives') return '';
     if (c === 'browser') return '<span class="ct ct-b">Browser</span>';
     if (c === 'vistella') return '<span class="ct ct-vs">VisuStella</span>';
     return '';
