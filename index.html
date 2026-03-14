@@ -746,20 +746,40 @@ body.es th[data-l="es"] { display: table-cell !important; }
            onerror="this.style.display='none'; document.getElementById('hero-logo-svg').style.display='flex';">
       <div id="hero-logo-svg" style="
         display:none;
-        width:200px; height:200px;
+        width:260px; height:260px;
         align-items:center; justify-content:center;
         position:relative;
-        animation:glow-pulse 3.5s ease-in-out infinite;
+        flex-shrink:0;
       ">
-        <svg width="200" height="200" viewBox="0 0 200 200" style="position:absolute;top:0;left:0;">
+        <svg width="260" height="260" viewBox="0 0 260 260" style="position:absolute;top:0;left:0;overflow:visible;">
+          <!-- glow filter -->
+          <defs>
+            <filter id="hex-glow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="8" result="blur1"/>
+              <feGaussianBlur stdDeviation="18" result="blur2"/>
+              <feMerge><feMergeNode in="blur2"/><feMergeNode in="blur1"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="hex-glow-bright" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="14" result="blur1"/>
+              <feGaussianBlur in="blur1" stdDeviation="26" result="blur2"/>
+              <feMerge><feMergeNode in="blur2"/><feMergeNode in="blur1"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- animated glow layer (behind) -->
+          <polygon id="hex-glow-poly" points="130,18 212,63 212,153 130,198 48,153 48,63"
+            fill="none" stroke="#00e5ff" stroke-width="2.5"
+            filter="url(#hex-glow)" opacity="0.7">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
+            <animate attributeName="filter" values="url(#hex-glow);url(#hex-glow-bright);url(#hex-glow)" dur="3.5s" repeatCount="indefinite"/>
+          </polygon>
           <!-- dark filled background hex -->
-          <polygon points="100,10 185,55 185,145 100,190 15,145 15,55"
+          <polygon points="130,18 212,63 212,153 130,198 48,153 48,63"
             fill="#0a0c24" stroke="#00e5ff" stroke-width="2"/>
           <!-- inner subtle ring -->
-          <polygon points="100,28 168,68 168,132 100,172 32,132 32,68"
+          <polygon points="130,36 196,73 196,143 130,180 64,143 64,73"
             fill="none" stroke="#00e5ff" stroke-width=".7" opacity=".35"/>
           <!-- RSK text -->
-          <text x="100" y="108" text-anchor="middle" dominant-baseline="middle"
+          <text x="130" y="113" text-anchor="middle" dominant-baseline="middle"
             font-family="Rajdhani,sans-serif" font-size="62" font-weight="900"
             fill="#00e5ff">RSK</text>
         </svg>
