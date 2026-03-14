@@ -754,14 +754,27 @@ body.es th[data-l="es"] { display: table-cell !important; }
     <div class="hero-logo-col">
       <!-- Logo: place your logo PNG in the repo root named "logo_perfecto.png" to show it, otherwise the SVG is shown -->
       <img class="hero-logo-img" id="hero-logo-img" src="logo_perfecto.png" alt="RSK Plugin Suite"
-           onerror="this.style.display='none'; document.getElementById('hero-logo-svg').style.display='block';">
-      <svg id="hero-logo-svg" width="200" height="200" viewBox="0 0 200 200" style="display:none;filter:drop-shadow(0 0 30px rgba(0,229,255,.5));animation:glow-pulse 3.5s ease-in-out infinite">
-        <polygon points="100,12 182,57 182,143 100,188 18,143 18,57" fill="rgba(0,229,255,.06)" stroke="#00e5ff" stroke-width="1.5"/>
-        <polygon points="100,32 162,67 162,133 100,168 38,133 38,67" fill="none" stroke="#00e5ff" stroke-width=".8" opacity=".5"/>
-        <polygon points="100,52 142,77 142,123 100,148 58,123 58,77" fill="none" stroke="#00e5ff" stroke-width=".4" opacity=".25"/>
-        <text x="100" y="108" text-anchor="middle" dominant-baseline="middle"
-              font-family="Rajdhani,sans-serif" font-size="58" font-weight="900" fill="#00e5ff">RSK</text>
-      </svg>
+           onerror="this.style.display='none'; document.getElementById('hero-logo-svg').style.display='flex';">
+      <div id="hero-logo-svg" style="
+        display:none;
+        width:200px; height:200px;
+        align-items:center; justify-content:center;
+        position:relative;
+        animation:glow-pulse 3.5s ease-in-out infinite;
+      ">
+        <svg width="200" height="200" viewBox="0 0 200 200" style="position:absolute;top:0;left:0;">
+          <!-- dark filled background hex -->
+          <polygon points="100,10 185,55 185,145 100,190 15,145 15,55"
+            fill="#0a0c24" stroke="#00e5ff" stroke-width="2"/>
+          <!-- inner subtle ring -->
+          <polygon points="100,28 168,68 168,132 100,172 32,132 32,68"
+            fill="none" stroke="#00e5ff" stroke-width=".7" opacity=".35"/>
+          <!-- RSK text -->
+          <text x="100" y="108" text-anchor="middle" dominant-baseline="middle"
+            font-family="Rajdhani,sans-serif" font-size="62" font-weight="900"
+            fill="#00e5ff">RSK</text>
+        </svg>
+      </div>
     </div>
   </div>
 
