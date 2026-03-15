@@ -113,7 +113,7 @@ body::before {
   border-radius: 4px; transition: all .2s;
   letter-spacing: .08em;
 }
-.lang-btn.on { background: var(--cyan); color: #000; font-weight: 700; }
+.lang-btn.on { background: rgba(0,229,255,.15); border-radius: 4px; opacity: 1; box-shadow: 0 0 0 1.5px var(--cyan); }
 
 .tb-itch {
   display: flex; align-items: center; gap: .4rem;
@@ -710,8 +710,21 @@ body.es th[data-l="es"] { display: table-cell !important; }
   <div class="tb-spacer"></div>
 
   <div class="lang-wrap">
-    <button class="lang-btn on" id="lbtn-en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn"    id="lbtn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn on" id="lbtn-en" onclick="setLang('en')" title="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="24" height="12">
+  <clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath>
+  <clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath>
+  <g clip-path="url(#a)">
+    <path d="M0 0v30h60V0z" fill="#012169"/>
+    <path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/>
+    <path d="M0 0l60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/>
+    <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
+    <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+  </g>
+</svg></button>
+    <button class="lang-btn"    id="lbtn-es" onclick="setLang('es')" title="Español"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16">
+  <rect width="3" height="2" fill="#c60b1e"/>
+  <rect y=".5" width="3" height="1" fill="#ffc400"/>
+</svg></button>
   </div>
 
   <a href="https://ramsak.itch.io" target="_blank" rel="noopener" class="tb-itch">
