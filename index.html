@@ -660,6 +660,37 @@ body.es th[data-l="es"] { display: table-cell !important; }
 .rev:nth-child(6){ transition-delay:.25s; }
 .rev:nth-child(7){ transition-delay:.3s; }
 
+
+/* ── Hex Logo (SVG fallback) ── */
+.hex-logo-wrap {
+  position: relative;
+  width: 180px; height: 180px;
+  align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.hex-logo-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(0,229,255,.35) 0%, rgba(0,229,255,.12) 40%, transparent 70%);
+  border-radius: 50%;
+  animation: hex-glow-anim 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes hex-glow-anim {
+  0%,100% { opacity: .6; transform: translate(-50%,-50%) scale(1); }
+  50%      { opacity: 1;  transform: translate(-50%,-50%) scale(1.25); }
+}
+.hex-logo-svg {
+  position: relative; z-index: 1;
+  filter: drop-shadow(0 0 6px rgba(0,229,255,.8));
+  animation: hex-svg-anim 3.5s ease-in-out infinite;
+}
+@keyframes hex-svg-anim {
+  0%,100% { filter: drop-shadow(0 0 6px rgba(0,229,255,.7)); }
+  50%      { filter: drop-shadow(0 0 18px rgba(0,229,255,1)) drop-shadow(0 0 32px rgba(0,229,255,.5)); }
+}
 </style>
 </head>
 <body>
@@ -698,11 +729,11 @@ body.es th[data-l="es"] { display: table-cell !important; }
      TAB 00 — HOME / HERO
 ════════════════════════════════════ -->
 <div class="tab-panel on" id="tab-hero">
-<div class="container" style="position:relative; overflow:hidden;">
+<div class="container" style="position:relative; overflow:visible;">
 
 
 
-  <div class="hero-wrap">
+  <div class="hero-wrap" style="overflow:visible;">
     <div class="hero-text">
       <p class="hero-eyebrow" data-l="en">by Ramsak · ramsak.itch.io · v1.0</p>
       <p class="hero-eyebrow" data-l="es">por Ramsak · ramsak.itch.io · v1.0</p>
@@ -740,46 +771,18 @@ body.es th[data-l="es"] { display: table-cell !important; }
       </div>
     </div>
 
-    <div class="hero-logo-col">
+    <div class="hero-logo-col" style="overflow:visible;">
       <!-- Logo: place your logo PNG in the repo root named "logo_perfecto.png" to show it, otherwise the SVG is shown -->
       <img class="hero-logo-img" id="hero-logo-img" src="logo_perfecto.png" alt="RSK Plugin Suite"
            onerror="this.style.display='none'; document.getElementById('hero-logo-svg').style.display='flex';">
-      <div id="hero-logo-svg" style="
-        display:none;
-        width:260px; height:260px;
-        align-items:center; justify-content:center;
-        position:relative;
-        flex-shrink:0;
-      ">
-        <svg width="260" height="260" viewBox="0 0 260 260" style="position:absolute;top:0;left:0;overflow:visible;">
-          <!-- glow filter -->
-          <defs>
-            <filter id="hex-glow" x="-40%" y="-40%" width="180%" height="180%">
-              <feGaussianBlur stdDeviation="8" result="blur1"/>
-              <feGaussianBlur stdDeviation="18" result="blur2"/>
-              <feMerge><feMergeNode in="blur2"/><feMergeNode in="blur1"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <filter id="hex-glow-bright" x="-40%" y="-40%" width="180%" height="180%">
-              <feGaussianBlur stdDeviation="14" result="blur1"/>
-              <feGaussianBlur in="blur1" stdDeviation="26" result="blur2"/>
-              <feMerge><feMergeNode in="blur2"/><feMergeNode in="blur1"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-          <!-- animated glow layer (behind) -->
-          <polygon id="hex-glow-poly" points="130,18 212,63 212,153 130,198 48,153 48,63"
-            fill="none" stroke="#00e5ff" stroke-width="2.5"
-            filter="url(#hex-glow)" opacity="0.7">
-            <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
-            <animate attributeName="filter" values="url(#hex-glow);url(#hex-glow-bright);url(#hex-glow)" dur="3.5s" repeatCount="indefinite"/>
-          </polygon>
-          <!-- dark filled background hex -->
-          <polygon points="130,18 212,63 212,153 130,198 48,153 48,63"
-            fill="#0a0c24" stroke="#00e5ff" stroke-width="2"/>
-          <!-- inner subtle ring -->
-          <polygon points="130,36 196,73 196,143 130,180 64,143 64,73"
-            fill="none" stroke="#00e5ff" stroke-width=".7" opacity=".35"/>
-          <!-- RSK text -->
-          <text x="130" y="113" text-anchor="middle" dominant-baseline="middle"
+      <div id="hero-logo-svg" class="hex-logo-wrap" style="display:none;">
+        <div class="hex-logo-glow"></div>
+        <svg class="hex-logo-svg" width="180" height="180" viewBox="0 0 200 200">
+          <polygon points="100,10 185,55 185,145 100,190 15,145 15,55"
+            fill="#0a0c24" stroke="#00e5ff" stroke-width="2.5"/>
+          <polygon points="100,28 168,68 168,132 100,172 32,132 32,68"
+            fill="none" stroke="#00e5ff" stroke-width=".8" opacity=".4"/>
+          <text x="100" y="108" text-anchor="middle" dominant-baseline="middle"
             font-family="Rajdhani,sans-serif" font-size="62" font-weight="900"
             fill="#00e5ff">RSK</text>
         </svg>
