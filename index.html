@@ -699,28 +699,16 @@ body.es th[data-l="es"] { display: table-cell !important; }
 
 /* ── Back to top ── */
 #back-to-top {
-  position: fixed;
-  bottom: 1.8rem; right: 1.8rem;
-  z-index: 9999;
-  width: 46px; height: 46px;
-  background: var(--card);
-  border: 1.5px solid var(--cyan);
-  border-radius: 50%;
+  position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 9999;
+  width: 46px; height: 46px; background: var(--card);
+  border: 1.5px solid var(--cyan); border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  opacity: 0; transform: translateY(12px);
+  cursor: pointer; opacity: 0; transform: translateY(12px);
   transition: opacity .3s, transform .3s, box-shadow .2s;
-  pointer-events: none;
-  box-shadow: 0 0 12px rgba(0,229,255,.2);
+  pointer-events: none; box-shadow: 0 0 12px rgba(0,229,255,.2);
 }
-#back-to-top.visible {
-  opacity: 1; transform: translateY(0);
-  pointer-events: all;
-}
-#back-to-top:hover {
-  box-shadow: 0 0 22px var(--cyan);
-  background: rgba(0,229,255,.1);
-}
+#back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+#back-to-top:hover { box-shadow: 0 0 22px var(--cyan); background: rgba(0,229,255,.1); }
 </style>
 </head>
 <body>
@@ -1062,13 +1050,13 @@ body.es th[data-l="es"] { display: table-cell !important; }
 
   <div class="lic-note rev">
     <strong data-l="en">Commercial Use:</strong><strong data-l="es">Uso Comercial:</strong>
-    <span data-l="en"> You MAY use the Software in commercial games sold for money. No additional royalties are required. Attribution ('Plugins by Ramsak / ramsak.itch.io') in your game credits is appreciated but not legally required.</span>
-    <span data-l="es"> PUEDES usar el Software en juegos comerciales vendidos por dinero. No se requieren regalías adicionales. Se agradece la atribución ('Plugins by Ramsak / ramsak.itch.io') en los créditos de tu juego, aunque no es legalmente obligatoria.</span>
+    <span data-l="en"> You MAY use the Software in commercial games sold for money. <a href="RSK_EULA.pdf" download style="color:var(--cyan);">&#8595; Download full EULA</a>. No additional royalties are required. Attribution ('Plugins by Ramsak / ramsak.itch.io') in your game credits is appreciated but not legally required.</span>
+    <span data-l="es"> PUEDES usar el Software en juegos comerciales vendidos por dinero. <a href="RSK_EULA.pdf" download style="color:var(--cyan);">&#8595; Descargar EULA completo</a>. No se requieren regalías adicionales. Se agradece la atribución ('Plugins by Ramsak / ramsak.itch.io') en los créditos de tu juego, aunque no es legalmente obligatoria.</span>
   </div>
 
   <div class="eula-box rev">
-    <h3 data-l="en">End User License Agreement — Summary</h3>
-    <h3 data-l="es">Acuerdo de Licencia de Usuario Final — Resumen</h3>
+    <h3 data-l="en">End User License Agreement — Summary &nbsp;<a href="RSK_EULA.pdf" download style="font-size:.75rem;font-family:var(--fm);color:var(--cyan);border:1px solid var(--cyan);padding:3px 10px;border-radius:4px;text-decoration:none;vertical-align:middle;">&#8595; Download PDF</a></h3>
+    <h3 data-l="es">Acuerdo de Licencia de Usuario Final — Resumen &nbsp;<a href="RSK_EULA.pdf" download style="font-size:.75rem;font-family:var(--fm);color:var(--cyan);border:1px solid var(--cyan);padding:3px 10px;border-radius:4px;text-decoration:none;vertical-align:middle;">&#8595; Descargar PDF</a></h3>
 
     <div class="eula-section">
       <h4 data-l="en">1. Grant of License</h4>
@@ -1707,23 +1695,19 @@ buildPlugins();
 buildChangelog();
 updateTabLabels();
 
-// Back to top button
 function checkScrollBtn() {
-  var scrolled = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
+  var s = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
   var btn = document.getElementById('back-to-top');
-  if (btn) btn.classList.toggle('visible', scrolled > 200);
+  if (btn) btn.classList.toggle('visible', s > 200);
 }
 window.addEventListener('scroll', checkScrollBtn);
 document.addEventListener('scroll', checkScrollBtn);
-// Also show after switching tabs if page is scrolled
 var _origOpenTab = openTab;
 openTab = function(id) { _origOpenTab(id); setTimeout(checkScrollBtn, 100); };
 
 </script>
 <button id="back-to-top" title="Back to top" onclick="document.documentElement.scrollTop=0;document.body.scrollTop=0;">
-  <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-    <polyline points="18 15 12 9 6 15"/>
-  </svg>
+  <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 </body>
 </html>
