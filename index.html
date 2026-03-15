@@ -556,6 +556,11 @@ tbody td:first-child { font-family: var(--fm); font-size: .77rem; color: var(--c
 .cl-plugin-name .cv { color: var(--gold); margin-left: 5px; }
 .cl-desc { font-size: .84rem; color: var(--text2); }
 
+@media(max-width:600px){
+  .cl-row { flex-direction: column; align-items: flex-start; gap: .4rem; }
+  .cl-plugin-name { min-width: unset; }
+}
+
 /* ═══════════════════════════════════════
    TAB 7 — SUPPORT
 ═══════════════════════════════════════ */
@@ -820,7 +825,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
     <button onclick="openTab('sup')" class="qn-tile rev">
       <span class="qn-icon">✉</span>
       <span class="qn-title" data-l="en">Support</span><span class="qn-title" data-l="es">Soporte</span>
-      <span class="qn-sub">rskstudio.support@gmail.com</span>
+      <span class="qn-sub"><a href="mailto:rskstudio.support@gmail.com">rskstudio.support@gmail.com</a></span>
     </button>
   </div>
 
@@ -1109,7 +1114,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
     <div class="sup-card rev">
       <h3 data-l="en">How to Request Support</h3>
       <h3 data-l="es">Cómo Solicitar Soporte</h3>
-      <a href="mailto:rskstudio.support@gmail.com" class="sup-email">rskstudio.support@gmail.com</a>
+      <a href="mailto:rskstudio.support@gmail.com">rskstudio.support@gmail.com</a>
       <p style="font-size:.84rem;color:var(--text2);margin-bottom:.7rem;" data-l="en">Please include in your message (use the RSK_Support_Template for a ready-to-fill form):</p>
       <p style="font-size:.84rem;color:var(--text2);margin-bottom:.7rem;" data-l="es">Por favor incluye en tu mensaje (usa el RSK_Support_Template para un formulario listo para rellenar):</p>
       <ul class="sup-list">
@@ -1210,7 +1215,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
 <!-- ════════════════════════════════════
      JAVASCRIPT
 ════════════════════════════════════ -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─────────────────────────────────────
 // DATA
 // ─────────────────────────────────────
