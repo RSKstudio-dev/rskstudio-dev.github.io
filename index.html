@@ -556,11 +556,6 @@ tbody td:first-child { font-family: var(--fm); font-size: .77rem; color: var(--c
 .cl-plugin-name .cv { color: var(--gold); margin-left: 5px; }
 .cl-desc { font-size: .84rem; color: var(--text2); }
 
-@media(max-width:600px){
-  .cl-row { flex-direction: column; align-items: flex-start; gap: .4rem; }
-  .cl-plugin-name { min-width: unset; }
-}
-
 /* ═══════════════════════════════════════
    TAB 7 — SUPPORT
 ═══════════════════════════════════════ */
@@ -825,7 +820,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
     <button onclick="openTab('sup')" class="qn-tile rev">
       <span class="qn-icon">✉</span>
       <span class="qn-title" data-l="en">Support</span><span class="qn-title" data-l="es">Soporte</span>
-      <span class="qn-sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8bf9f8e0f8fffeefe2e4a5f8fefbfbe4f9ffcbece6eae2e7a5e8e4e6">[email&#160;protected]</a></span>
+      <span class="qn-sub">rskstudio.support@gmail.com</span>
     </button>
   </div>
 
@@ -1114,7 +1109,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
     <div class="sup-card rev">
       <h3 data-l="en">How to Request Support</h3>
       <h3 data-l="es">Cómo Solicitar Soporte</h3>
-      <a href="/cdn-cgi/l/email-protection#f3818098808786979a9cdd808683839c8187b3949e929a9fdd909c9e" class="sup-email"><span class="__cf_email__" data-cfemail="ff8d8c948c8b8a9b9690d18c8a8f8f908d8bbf98929e9693d19c9092">[email&#160;protected]</span></a>
+      <a href="mailto:rskstudio.support@gmail.com" class="sup-email">rskstudio.support@gmail.com</a>
       <p style="font-size:.84rem;color:var(--text2);margin-bottom:.7rem;" data-l="en">Please include in your message (use the RSK_Support_Template for a ready-to-fill form):</p>
       <p style="font-size:.84rem;color:var(--text2);margin-bottom:.7rem;" data-l="es">Por favor incluye en tu mensaje (usa el RSK_Support_Template para un formulario listo para rellenar):</p>
       <ul class="sup-list">
@@ -1176,7 +1171,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
 <footer>
   <div style="margin-bottom:.3rem;">
     RSK Plugin Suite · by <a href="https://ramsak.itch.io" target="_blank" rel="noopener">Ramsak</a> ·
-    <a href="/cdn-cgi/l/email-protection#9eecedf5edeaebfaf7f1b0edebeeeef1eceadef9f3fff7f2b0fdf1f3"><span class="__cf_email__" data-cfemail="13616078606766777a7c3d606663637c616753747e727a7f3d707c7e">[email&#160;protected]</span></a>
+    <a href="mailto:rskstudio.support@gmail.com">rskstudio.support@gmail.com</a>
   </div>
   <div>
     <span data-l="en">© Ramsak · Non-transferable license · All rights reserved.</span>
@@ -1215,7 +1210,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
 <!-- ════════════════════════════════════
      JAVASCRIPT
 ════════════════════════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ─────────────────────────────────────
 // DATA
 // ─────────────────────────────────────
@@ -1670,4 +1665,20 @@ function buildChangelog() {
 // ─────────────────────────────────────
 // INTERSECTION OBSERVER
 // ─────────────────────────────────────
-const observer = new IntersectionObserver(entries =
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.rev').forEach(el => observer.observe(el));
+
+// ─────────────────────────────────────
+// INIT
+// ─────────────────────────────────────
+buildPlugins();
+buildChangelog();
+updateTabLabels();
+</script>
+</body>
+</html>
