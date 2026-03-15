@@ -781,10 +781,10 @@ body.es th[data-l="es"] { display: table-cell !important; }
       </div>
 
       <div class="hero-stats">
-        <div><div class="stat-n">14</div><div class="stat-l" data-l="en">Premium Plugins</div><div class="stat-l" data-l="es">Plugins Premium</div></div>
-        <div><div class="stat-n">11</div><div class="stat-l" data-l="en">Languages (SuperTool)</div><div class="stat-l" data-l="es">Idiomas (SuperTool)</div></div>
+        <div><div class="stat-n" data-target="14">0</div><div class="stat-l" data-l="en">Premium Plugins</div><div class="stat-l" data-l="es">Plugins Premium</div></div>
+        <div><div class="stat-n" data-target="11">0</div><div class="stat-l" data-l="en">Languages (SuperTool)</div><div class="stat-l" data-l="es">Idiomas (SuperTool)</div></div>
         <div><div class="stat-n">∞</div><div class="stat-l" data-l="en">Commercial Projects</div><div class="stat-l" data-l="es">Proyectos Comerciales</div></div>
-        <div><div class="stat-n">3</div><div class="stat-l" data-l="en">Platforms</div><div class="stat-l" data-l="es">Plataformas</div></div>
+        <div><div class="stat-n" data-target="3">0</div><div class="stat-l" data-l="en">Platforms</div><div class="stat-l" data-l="es">Plataformas</div></div>
       </div>
     </div>
 
@@ -1693,6 +1693,39 @@ document.querySelectorAll('.rev').forEach(el => observer.observe(el));
 buildPlugins();
 buildChangelog();
 updateTabLabels();
+
+// Animated counters
+function animateCounters() {
+  document.querySelectorAll('.stat-n[data-target]').forEach(function(el) {
+    var target = parseInt(el.getAttribute('data-target'));
+    var start = 0;
+    var duration = 1200;
+    var startTime = null;
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      // ease out
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  });
+}
+// Trigger when hero tab is visible
+var statsAnimated = false;
+var statsObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting && !statsAnimated) {
+      statsAnimated = true;
+      animateCounters();
+    }
+  });
+}, { threshold: 0.5 });
+var statsEl = document.querySelector('.hero-stats');
+if (statsEl) statsObserver.observe(statsEl);
+
 
 function checkScrollBtn() {
   var s = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
