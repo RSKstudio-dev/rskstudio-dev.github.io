@@ -697,30 +697,30 @@ body.es th[data-l="es"] { display: table-cell !important; }
   50%      { filter: drop-shadow(0 0 18px rgba(0,229,255,1)) drop-shadow(0 0 32px rgba(0,229,255,.5)); }
 }
 
-/* ── Back to top button ── */
+/* ── Back to top ── */
 #back-to-top {
   position: fixed;
-  bottom: 2rem; right: 2rem;
-  z-index: 500;
-  width: 44px; height: 44px;
+  bottom: 1.8rem; right: 1.8rem;
+  z-index: 9999;
+  width: 46px; height: 46px;
   background: var(--card);
-  border: 1px solid var(--border-lit);
+  border: 1.5px solid var(--cyan);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
-  opacity: 0; transform: translateY(10px);
-  transition: opacity .3s, transform .3s, box-shadow .2s, border-color .2s;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity .3s, transform .3s, box-shadow .2s;
   pointer-events: none;
+  box-shadow: 0 0 12px rgba(0,229,255,.2);
 }
 #back-to-top.visible {
   opacity: 1; transform: translateY(0);
   pointer-events: all;
 }
 #back-to-top:hover {
-  border-color: var(--cyan);
-  box-shadow: 0 0 16px var(--cyan-glow);
+  box-shadow: 0 0 22px var(--cyan);
+  background: rgba(0,229,255,.1);
 }
-#back-to-top svg { width: 18px; height: 18px; }
 </style>
 </head>
 <body>
@@ -1706,11 +1706,22 @@ document.querySelectorAll('.rev').forEach(el => observer.observe(el));
 buildPlugins();
 buildChangelog();
 updateTabLabels();
-</script>
 
-<!-- Back to top -->
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+// Back to top button
+function checkScrollBtn() {
+  var scrolled = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
+  var btn = document.getElementById('back-to-top');
+  if (btn) btn.classList.toggle('visible', scrolled > 200);
+}
+window.addEventListener('scroll', checkScrollBtn);
+document.addEventListener('scroll', checkScrollBtn);
+// Also show after switching tabs if page is scrolled
+var _origOpenTab = openTab;
+openTab = function(id) { _origOpenTab(id); setTimeout(checkScrollBtn, 100); };
+
+</script>
+<button id="back-to-top" title="Back to top" onclick="document.documentElement.scrollTop=0;document.body.scrollTop=0;">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
     <polyline points="18 15 12 9 6 15"/>
   </svg>
 </button>
