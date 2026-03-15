@@ -1700,17 +1700,15 @@ updateTabLabels();
 function animateCounters() {
   document.querySelectorAll('.stat-n[data-target]').forEach(function(el) {
     var target = parseInt(el.getAttribute('data-target'));
-    var duration = 1800;
-    var startTime = null;
-    function step(timestamp) {
-      if (!startTime) startTime = timestamp;
-      var progress = Math.min((timestamp - startTime) / duration, 1);
-      var eased = progress * progress;
-      el.textContent = Math.round(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target;
-    }
-    requestAnimationFrame(step);
+    var duration = 1000;
+    var interval = duration / target;
+    var current = 0;
+    el.textContent = 0;
+    var timer = setInterval(function() {
+      current++;
+      el.textContent = current;
+      if (current >= target) clearInterval(timer);
+    }, interval);
   });
 }
 var statsAnimated = false;
