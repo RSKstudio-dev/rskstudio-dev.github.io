@@ -715,7 +715,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
 <!-- ════════ TOP BAR ════════ -->
 <div id="topbar">
   <a href="#" class="tb-logo" onclick="openTab('hero'); return false;">
-    <span class="tb-logo-rsk">RSK</span>
+    <span class="tb-logo-rsk">RSK<sup style="font-size:.5em;opacity:.6;letter-spacing:0;">&#8482;</sup></span>
     <span class="tb-logo-sub">Plugin Suite<br>for RPG Maker MZ</span>
   </a>
 
@@ -756,7 +756,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
       <p class="hero-eyebrow" data-l="es">por Ramsak · ramsak.itch.io · v1.0</p>
 
       <h1 class="hero-h1">
-        <span class="rsk">RSK</span><br>
+        <span class="rsk">RSK<sup style="font-size:.3em;opacity:.6;vertical-align:super;letter-spacing:0;">&#8482;</sup></span><br>
         PLUGIN<br>SUITE
       </h1>
 
@@ -802,6 +802,9 @@ body.es th[data-l="es"] { display: table-cell !important; }
           <text x="100" y="108" text-anchor="middle" dominant-baseline="middle"
             font-family="Rajdhani,sans-serif" font-size="62" font-weight="900"
             fill="#00e5ff">RSK</text>
+        <text x="168" y="38" text-anchor="middle" dominant-baseline="middle"
+          font-family="Rajdhani,sans-serif" font-size="16" font-weight="700"
+          fill="#00e5ff" opacity=".7">&#8482;</text>
         </svg>
       </div>
     </div>
@@ -1694,33 +1697,26 @@ buildPlugins();
 buildChangelog();
 updateTabLabels();
 
-// Animated counters
 function animateCounters() {
   document.querySelectorAll('.stat-n[data-target]').forEach(function(el) {
     var target = parseInt(el.getAttribute('data-target'));
-    var start = 0;
-    var duration = 1200;
+    var duration = 1800;
     var startTime = null;
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
       var progress = Math.min((timestamp - startTime) / duration, 1);
-      // ease out
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target);
+      var eased = progress * progress;
+      el.textContent = Math.round(eased * target);
       if (progress < 1) requestAnimationFrame(step);
       else el.textContent = target;
     }
     requestAnimationFrame(step);
   });
 }
-// Trigger when hero tab is visible
 var statsAnimated = false;
 var statsObserver = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) {
-    if (e.isIntersecting && !statsAnimated) {
-      statsAnimated = true;
-      animateCounters();
-    }
+    if (e.isIntersecting && !statsAnimated) { statsAnimated = true; animateCounters(); }
   });
 }, { threshold: 0.5 });
 var statsEl = document.querySelector('.hero-stats');
