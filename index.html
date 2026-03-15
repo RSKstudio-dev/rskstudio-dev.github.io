@@ -696,6 +696,31 @@ body.es th[data-l="es"] { display: table-cell !important; }
   0%,100% { filter: drop-shadow(0 0 6px rgba(0,229,255,.7)); }
   50%      { filter: drop-shadow(0 0 18px rgba(0,229,255,1)) drop-shadow(0 0 32px rgba(0,229,255,.5)); }
 }
+
+/* ── Back to top button ── */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  z-index: 500;
+  width: 44px; height: 44px;
+  background: var(--card);
+  border: 1px solid var(--border-lit);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .3s, transform .3s, box-shadow .2s, border-color .2s;
+  pointer-events: none;
+}
+#back-to-top.visible {
+  opacity: 1; transform: translateY(0);
+  pointer-events: all;
+}
+#back-to-top:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 16px var(--cyan-glow);
+}
+#back-to-top svg { width: 18px; height: 18px; }
 </style>
 </head>
 <body>
@@ -710,21 +735,8 @@ body.es th[data-l="es"] { display: table-cell !important; }
   <div class="tb-spacer"></div>
 
   <div class="lang-wrap">
-    <button class="lang-btn on" id="lbtn-en" onclick="setLang('en')" title="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="24" height="12">
-  <clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath>
-  <clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath>
-  <g clip-path="url(#a)">
-    <path d="M0 0v30h60V0z" fill="#012169"/>
-    <path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/>
-    <path d="M0 0l60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/>
-    <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
-    <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
-  </g>
-</svg></button>
-    <button class="lang-btn"    id="lbtn-es" onclick="setLang('es')" title="Español"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16">
-  <rect width="3" height="2" fill="#c60b1e"/>
-  <rect y=".5" width="3" height="1" fill="#ffc400"/>
-</svg></button>
+    <button class="lang-btn on" id="lbtn-en" onclick="setLang('en')" title="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="24" height="12"><clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#a)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg></button>
+    <button class="lang-btn"    id="lbtn-es" onclick="setLang('es')" title="Español"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16"><rect width="3" height="2" fill="#c60b1e"/><rect y=".5" width="3" height="1" fill="#ffc400"/></svg></button>
   </div>
 
   <a href="https://ramsak.itch.io" target="_blank" rel="noopener" class="tb-itch">
@@ -1695,5 +1707,12 @@ buildPlugins();
 buildChangelog();
 updateTabLabels();
 </script>
+
+<!-- Back to top -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
 </body>
 </html>
