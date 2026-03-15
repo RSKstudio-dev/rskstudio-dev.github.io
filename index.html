@@ -555,7 +555,6 @@ tbody td:first-child { font-family: var(--fm); font-size: .77rem; color: var(--c
 }
 .cl-plugin-name .cv { color: var(--gold); margin-left: 5px; }
 .cl-desc { font-size: .84rem; color: var(--text2); }
-
 @media(max-width:600px){
   .cl-row { flex-direction: column; align-items: flex-start; gap: .4rem; }
   .cl-plugin-name { min-width: unset; }
@@ -709,51 +708,63 @@ body.es th[data-l="es"] { display: table-cell !important; }
 #back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
 #back-to-top:hover { box-shadow: 0 0 22px var(--cyan); background: rgba(0,229,255,.1); }
 
-/* ── NEW badge ── */
-.p-badge-new {
-  font-family: var(--fm); font-size: .55rem; font-weight: 700;
-  letter-spacing: .12em; text-transform: uppercase;
-  background: var(--cyan); color: #000;
-  padding: 2px 6px; border-radius: 3px;
-  margin-left: .4rem; vertical-align: middle;
-  animation: badge-pulse 2s ease-in-out infinite;
-}
-@keyframes badge-pulse {
-  0%,100% { box-shadow: 0 0 4px rgba(0,229,255,.6); }
-  50%      { box-shadow: 0 0 10px rgba(0,229,255,1); }
-}
+.p-badge-new { font-family:var(--fm);font-size:.55rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--cyan);color:#000;padding:2px 6px;border-radius:3px;margin-left:.4rem;vertical-align:middle;animation:badge-pulse 2s ease-in-out infinite; }
+@keyframes badge-pulse { 0%,100%{box-shadow:0 0 4px rgba(0,229,255,.6);}50%{box-shadow:0 0 10px rgba(0,229,255,1);} }
+@keyframes card-in { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);} }
+.p-card { animation: card-in .45s ease both; }
 
-/* ── Plugin card entrance ── */
-@keyframes card-in {
-  from { opacity: 0; transform: translateY(22px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.p-card {
-  animation: card-in .45s ease both;
-}
+.faq-list { display:flex; flex-direction:column; gap:.6rem; }
+.faq-item { background:var(--card); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color .2s; }
+.faq-item:hover { border-color:var(--border-lit); }
+.faq-q { width:100%; background:none; border:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.1rem 1.4rem; font-family:var(--fh); font-weight:600; font-size:.95rem; color:#fff; text-align:left; transition:color .2s; }
+.faq-q:hover { color:var(--cyan); }
+.faq-arr { color:var(--cyan); font-size:.7rem; transition:transform .25s; flex-shrink:0; }
+.faq-q.open .faq-arr { transform:rotate(90deg); }
+.faq-a { display:none; padding:0 1.4rem 1.1rem; }
+.faq-a.vis { display:block; }
+.faq-a p { font-size:.88rem; color:var(--text2); line-height:1.65; }
 
-/* ── FAQ ── */
-.faq-list { display: flex; flex-direction: column; gap: .6rem; }
-.faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: border-color .2s; }
-.faq-item:hover { border-color: var(--border-lit); }
-.faq-q {
-  width: 100%; background: none; border: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; padding: 1.1rem 1.4rem;
-  font-family: var(--fh); font-weight: 600; font-size: .95rem;
-  color: #fff; text-align: left; transition: color .2s;
+#loading-bar {
+  position: fixed; top: 0; left: 0; z-index: 99999;
+  height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--cyan), #7efff5, var(--cyan));
+  box-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan-glow);
+  transition: width .4s ease;
+  pointer-events: none;
 }
-.faq-q:hover { color: var(--cyan); }
-.faq-arr { color: var(--cyan); font-size: .7rem; transition: transform .25s; flex-shrink: 0; }
-.faq-q.open .faq-arr { transform: rotate(90deg); }
-.faq-a { display: none; padding: 0 1.4rem 1.1rem; }
-.faq-a.vis { display: block; }
-.faq-a p { font-size: .88rem; color: var(--text2); line-height: 1.65; }
+#loading-bar.done { opacity: 0; transition: width .3s ease, opacity .5s ease .3s; }
+
+#hero-canvas {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: 0; opacity: .5;
+}
+#tab-hero .container { position: relative; z-index: 1; }
+
+.ct { position: relative; }
+.ct::after {
+  content: attr(data-tip);
+  position: absolute; bottom: calc(100% + 6px); left: 50%;
+  transform: translateX(-50%);
+  background: var(--card2); border: 1px solid var(--border-lit);
+  color: var(--text); font-family: var(--fm); font-size: .65rem;
+  white-space: nowrap; padding: 4px 9px; border-radius: 5px;
+  pointer-events: none; opacity: 0;
+  transition: opacity .2s; z-index: 100;
+}
+.ct:hover::after { opacity: 1; }
+
+.filter-count {
+  display: inline-block; background: rgba(0,229,255,.15);
+  color: var(--cyan); font-family: var(--fm); font-size: .6rem;
+  padding: 1px 5px; border-radius: 3px; margin-left: 3px;
+}
 </style>
 </head>
 <body>
 
 <!-- ════════ TOP BAR ════════ -->
+<div id="loading-bar"></div>
 <div id="topbar">
   <a href="#" class="tb-logo" onclick="openTab('hero'); return false;">
     <span class="tb-logo-rsk">RSK<sup style="font-size:.5em;opacity:.6;letter-spacing:0;">&#8482;</sup></span>
@@ -788,6 +799,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
      TAB 00 — HOME / HERO
 ════════════════════════════════════ -->
 <div class="tab-panel on" id="tab-hero">
+<canvas id="hero-canvas"></canvas>
 <div class="container" style="position:relative; overflow:visible;">
 
 
@@ -844,9 +856,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
           <text x="100" y="108" text-anchor="middle" dominant-baseline="middle"
             font-family="Rajdhani,sans-serif" font-size="62" font-weight="900"
             fill="#00e5ff">RSK</text>
-        <text x="168" y="38" text-anchor="middle" dominant-baseline="middle"
-          font-family="Rajdhani,sans-serif" font-size="16" font-weight="700"
-          fill="#00e5ff" opacity=".7">&#8482;</text>
+        <text x="168" y="38" text-anchor="middle" dominant-baseline="middle" font-family="Rajdhani,sans-serif" font-size="16" font-weight="700" fill="#00e5ff" opacity=".7">&#8482;</text>
         </svg>
       </div>
     </div>
@@ -902,12 +912,12 @@ body.es th[data-l="es"] { display: table-cell !important; }
   <hr class="sec-rule">
 
   <div class="filter-bar">
-    <button class="filter-btn on" data-filter="all" onclick="filterPlugins(this,'all')" data-l="en">All</button>
-    <button class="filter-btn on" data-filter="all" onclick="filterPlugins(this,'all')" data-l="es">Todos</button>
-    <button class="filter-btn" data-filter="joiplay" onclick="filterPlugins(this,'joiplay')">JoiPlay</button>
-    <button class="filter-btn" data-filter="browser" onclick="filterPlugins(this,'browser')">Browser</button>
-    <button class="filter-btn" data-filter="maldives" onclick="filterPlugins(this,'maldives')">MalDives</button>
-    <button class="filter-btn" data-filter="vistella" onclick="filterPlugins(this,'vistella')">VisuStella</button>
+    <button class="filter-btn on" data-filter="all" onclick="filterPlugins(this,'all')" data-l="en">All <span class="filter-count" id="fc-all-en"></span></button>
+    <button class="filter-btn on" data-filter="all" onclick="filterPlugins(this,'all')" data-l="es">Todos <span class="filter-count" id="fc-all-es"></span></button>
+    <button class="filter-btn" data-filter="joiplay" onclick="filterPlugins(this,'joiplay')">Android / JoiPlay <span class="filter-count" id="fc-joiplay"></span></button>
+    <button class="filter-btn" data-filter="browser" onclick="filterPlugins(this,'browser')">Browser <span class="filter-count" id="fc-browser"></span></button>
+    <button class="filter-btn" data-filter="maldives" onclick="filterPlugins(this,'maldives')">MalDives <span class="filter-count" id="fc-maldives"></span></button>
+    <button class="filter-btn" data-filter="vistella" onclick="filterPlugins(this,'vistella')">VisuStella <span class="filter-count" id="fc-vistella"></span></button>
   </div>
 
   <div class="plugin-grid" id="pgrid"></div>
@@ -1158,10 +1168,6 @@ body.es th[data-l="es"] { display: table-cell !important; }
 <!-- ════════════════════════════════════
      TAB 06 — SUPPORT
 ════════════════════════════════════ -->
-
-<!-- ════════════════════════════════════
-     TAB 06 — FAQ
-════════════════════════════════════ -->
 <div class="tab-panel" id="tab-faq">
 <div class="container">
   <p class="sec-label" data-l="en">06 — Frequently Asked Questions</p>
@@ -1169,97 +1175,17 @@ body.es th[data-l="es"] { display: table-cell !important; }
   <h2 class="sec-title" data-l="en">Fre<em>quently Asked</em></h2>
   <h2 class="sec-title" data-l="es">Pre<em>guntas Frecuentes</em></h2>
   <hr class="sec-rule">
-
   <div class="faq-list">
-
-    <div class="faq-item rev">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-l="en">Can I use RSK plugins in commercial games?</span>
-        <span data-l="es">¿Puedo usar los plugins RSK en juegos comerciales?</span>
-        <span class="faq-arr">▶</span>
-      </button>
-      <div class="faq-a">
-        <p data-l="en">Yes. Your license allows unlimited commercial projects with no royalties. Attribution is appreciated but not required.</p>
-        <p data-l="es">Sí. Tu licencia permite proyectos comerciales ilimitados sin regalías. Se agradece la atribución pero no es obligatoria.</p>
-      </div>
-    </div>
-
-    <div class="faq-item rev">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-l="en">Do RSK plugins work on Android / JoiPlay / MalDives?</span>
-        <span data-l="es">¿Los plugins RSK funcionan en Android / JoiPlay / MalDives?</span>
-        <span class="faq-arr">▶</span>
-      </button>
-      <div class="faq-a">
-        <p data-l="en">Most do. Check the Compatibility tab for a full matrix. RSK_SeamlessWorld even includes an integrated mobile patch.</p>
-        <p data-l="es">La mayoría sí. Consulta la pestaña Compatibilidad para la matriz completa. RSK_SeamlessWorld incluye un parche móvil integrado.</p>
-      </div>
-    </div>
-
-    <div class="faq-item rev">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-l="en">Are RSK plugins compatible with VisuStella?</span>
-        <span data-l="es">¿Son compatibles los plugins RSK con VisuStella?</span>
-        <span class="faq-arr">▶</span>
-      </button>
-      <div class="faq-a">
-        <p data-l="en">Several plugins are VisuStella compatible — ZoomStudio, AtmosphereStudio, SeamlessWorld, and BubbleStudio. Place RSK plugins after VisuStella Core Engine in the load order.</p>
-        <p data-l="es">Varios plugins son compatibles con VisuStella: ZoomStudio, AtmosphereStudio, SeamlessWorld y BubbleStudio. Coloca los plugins RSK después del VisuStella Core Engine en el orden de carga.</p>
-      </div>
-    </div>
-
-    <div class="faq-item rev">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-l="en">How do I get updates?</span>
-        <span data-l="es">¿Cómo recibo las actualizaciones?</span>
-        <span class="faq-arr">▶</span>
-      </button>
-      <div class="faq-a">
-        <p data-l="en">Updates are delivered through your original purchase page on <a href="https://ramsak.itch.io" target="_blank" style="color:var(--cyan);">ramsak.itch.io</a>. You'll get an email from itch.io when a new version is available.</p>
-        <p data-l="es">Las actualizaciones se entregan a través de tu página de compra original en <a href="https://ramsak.itch.io" target="_blank" style="color:var(--cyan);">ramsak.itch.io</a>. Recibirás un email de itch.io cuando haya una nueva versión.</p>
-      </div>
-    </div>
-
-    <div class="faq-item rev">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-l="en">Can I use multiple RSK plugins together?</span>
-        <span data-l="es">¿Puedo usar varios plugins RSK juntos?</span>
-        <span class="faq-arr">▶</span>
-      </button>
-      <div class="faq-a">
-        <p data-l="en">Yes, they are designed to work together. The recommended load order is shown in the Quick Start tab.</p>
-        <p data-l="es">Sí, están diseñados para funcionar juntos. El orden de carga recomendado se muestra en la pestaña Inicio Rápido.</p>
-      </div>
-    </div>
-
-    <div class="faq-item rev">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-l="en">Can I redistribute or share the plugin files?</span>
-        <span data-l="es">¿Puedo redistribuir o compartir los archivos de plugins?</span>
-        <span class="faq-arr">▶</span>
-      </button>
-      <div class="faq-a">
-        <p data-l="en">No. You may NOT redistribute the raw .js files. You may include compiled plugins inside your released game.</p>
-        <p data-l="es">No. NO puedes redistribuir los archivos .js originales. Sí puedes incluir los plugins compilados dentro de tu juego publicado.</p>
-      </div>
-    </div>
-
-    <div class="faq-item rev">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-l="en">How do I contact support?</span>
-        <span data-l="es">¿Cómo contacto con el soporte?</span>
-        <span class="faq-arr">▶</span>
-      </button>
-      <div class="faq-a">
-        <p data-l="en">Send an email to <a href="mailto:rskstudio.support@gmail.com" style="color:var(--cyan);">rskstudio.support@gmail.com</a> using the RSK_Support_Template included in your purchase for faster resolution.</p>
-        <p data-l="es">Envía un email a <a href="mailto:rskstudio.support@gmail.com" style="color:var(--cyan);">rskstudio.support@gmail.com</a> usando el RSK_Support_Template incluido en tu compra para una resolución más rápida.</p>
-      </div>
-    </div>
-
+    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Can I use RSK plugins in commercial games?</span><span data-l="es">¿Puedo usar los plugins RSK en juegos comerciales?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Yes. Your license allows unlimited commercial projects with no royalties. Attribution is appreciated but not required.</p><p data-l="es">Sí. Tu licencia permite proyectos comerciales ilimitados sin regalías. Se agradece la atribución pero no es obligatoria.</p></div></div>
+    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Do RSK plugins work on Android / JoiPlay / MalDives?</span><span data-l="es">¿Los plugins RSK funcionan en Android / JoiPlay / MalDives?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Most do. Check the Compatibility tab for a full matrix. RSK_SeamlessWorld includes an integrated mobile patch.</p><p data-l="es">La mayoría sí. Consulta la pestaña Compatibilidad. RSK_SeamlessWorld incluye un parche móvil integrado.</p></div></div>
+    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Are RSK plugins compatible with VisuStella?</span><span data-l="es">¿Son compatibles con VisuStella?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Several are: ZoomStudio, AtmosphereStudio, SeamlessWorld, and BubbleStudio. Place RSK plugins after VisuStella Core Engine in load order.</p><p data-l="es">Varios sí: ZoomStudio, AtmosphereStudio, SeamlessWorld y BubbleStudio. Coloca los plugins RSK después del VisuStella Core Engine.</p></div></div>
+    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">How do I get updates?</span><span data-l="es">¿Cómo recibo las actualizaciones?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Through your original purchase page on <a href="https://ramsak.itch.io" target="_blank" style="color:var(--cyan);">ramsak.itch.io</a>. You'll get an email from itch.io when a new version is available.</p><p data-l="es">A través de tu página de compra en <a href="https://ramsak.itch.io" target="_blank" style="color:var(--cyan);">ramsak.itch.io</a>. Recibirás un email cuando haya nueva versión.</p></div></div>
+    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Can I use multiple RSK plugins together?</span><span data-l="es">¿Puedo combinar varios plugins RSK?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Yes, they are designed to work together. See the recommended load order in the Quick Start tab.</p><p data-l="es">Sí, están diseñados para funcionar juntos. Consulta el orden de carga en la pestaña Inicio Rápido.</p></div></div>
+    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Can I redistribute the plugin files?</span><span data-l="es">¿Puedo redistribuir los archivos?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">No. You may NOT redistribute the raw .js files. You may include compiled plugins inside your released game.</p><p data-l="es">No. NO puedes redistribuir los archivos .js. Sí puedes incluir los plugins compilados en tu juego publicado.</p></div></div>
+    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">How do I contact support?</span><span data-l="es">¿Cómo contacto con soporte?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Email <a href="mailto:rskstudio.support@gmail.com" style="color:var(--cyan);">rskstudio.support@gmail.com</a> using the RSK_Support_Template for faster resolution.</p><p data-l="es">Escribe a <a href="mailto:rskstudio.support@gmail.com" style="color:var(--cyan);">rskstudio.support@gmail.com</a> usando el RSK_Support_Template para una resolución más rápida.</p></div></div>
   </div>
 </div>
 </div>
-
 <div class="tab-panel" id="tab-sup">
 <div class="container">
   <p class="sec-label" data-l="en">06 — Support &amp; Contact</p>
@@ -1421,7 +1347,7 @@ const PLUGINS = [
                'Modos de inclinación 3D y diorama.',
                'Editor en vivo: ajusta inclinación, línea de horizonte y DoF en tiempo real.',
                'Compatible con VisuStella Core Engine.']},
-    cmds:['RSKZoom SetZoom [value]','RSKZoom EnableMode7','RSKZoom DisableMode7','RSKZoom OpenEditor','RSKZoom SetDoF [near] [far]'] },
+    badge:'NEW', cmds:['RSKZoom SetZoom [value]','RSKZoom EnableMode7','RSKZoom DisableMode7','RSKZoom OpenEditor','RSKZoom SetDoF [near] [far]'] },
 
   { id:'atmosphere', name:'RSK_AtmosphereStudio', ver:'v22.3',
     cat:{en:'Lights, Post-FX & Weather', es:'Luces, Post-FX y Clima'},
@@ -1440,7 +1366,7 @@ const PLUGINS = [
                'Proyección de sombras desde fuentes de luz.',
                'Superposiciones de textura procedural (ruido, scanlines, grano de película).',
                'Sonido ambiental de lluvia y viento integrado.']},
-    cmds:['RSKAtmo AddLight [x] [y] [radius] [color]','RSKAtmo RemoveLight [id]','RSKAtmo SetBloom [intensity]','RSKAtmo SetVignette [intensity]','RSKAtmo StartRain / StopRain'] },
+    badge:'NEW', cmds:['RSKAtmo AddLight [x] [y] [radius] [color]','RSKAtmo RemoveLight [id]','RSKAtmo SetBloom [intensity]','RSKAtmo SetVignette [intensity]','RSKAtmo StartRain / StopRain'] },
 
   { id:'nature', name:'RSK_NatureStudio', ver:'v5.5',
     cat:{en:'Water, Wind & Flora', es:'Agua, Viento y Flora'},
@@ -1457,7 +1383,7 @@ const PLUGINS = [
                'Reflejos en superficies de agua (reflejo del personaje y del mapa).',
                'Hierba mejorada con orden Z-layer correcto (Z-Fix).',
                'Cambios de paleta estacionales (presets de primavera, verano, otoño, invierno).']},
-    cmds:['RSKNature SetWindSpeed [0-10]','RSKNature SetWaterRipple [0-10]','RSKNature SetSeason [name]'] },
+    badge:'NEW', cmds:['RSKNature SetWindSpeed [0-10]','RSKNature SetWaterRipple [0-10]','RSKNature SetSeason [name]'] },
 
   { id:'movement', name:'RSK_MovementStudio', ver:'v10.4.0',
     cat:{en:'Pro Motion FX & Advanced Movement', es:'FX de Movimiento Pro y Movimiento Avanzado'},
@@ -1476,7 +1402,7 @@ const PLUGINS = [
                'Sacudida de pantalla en aterrizajes bruscos.',
                'Efectos de nube de polvo y líneas de velocidad.',
                'Editor visual (activable con tecla configurable).']},
-    cmds:['RSKMove SetMode [mode]','RSKMove SetTrail [0|1]','RSKMove OpenEditor'] },
+    badge:'NEW', cmds:['RSKMove SetMode [mode]','RSKMove SetTrail [0|1]','RSKMove OpenEditor'] },
 
   { id:'jump', name:'RSK_JumpStudio', ver:'v3.6.0',
     cat:{en:'2-Tile Jump System', es:'Sistema de Salto de 2 Tiles'},
@@ -1512,7 +1438,7 @@ const PLUGINS = [
                'Spawn libre en mapa: llama a monturas a la posición del jugador.',
                'Modificadores de velocidad, correr y habilidades mientras está montado.',
                'Editor visual para ajuste de offset de sprites.']},
-    cmds:['RSKMount Ride [eventId]','RSKMount Dismount','RSKMount SpawnMount [id] [x] [y]'] },
+    badge:'NEW', cmds:['RSKMount Ride [eventId]','RSKMount Dismount','RSKMount SpawnMount [id] [x] [y]'] },
 
   { id:'seamless', name:'RSK_SeamlessWorld', ver:'v14.1',
     cat:{en:'Infinite Seamless Map', es:'Mapa Sin Costuras Infinito'},
@@ -1531,7 +1457,7 @@ const PLUGINS = [
                '100% compatible con JoiPlay (Android), MalDives y navegador (NW.js).',
                'Parche móvil integrado — no se necesitan plugins adicionales.',
                'Compatible con VisuStella Core Engine.']},
-    cmds:['RSKWorld AddNeighbor [mapId] [direction]','RSKWorld RemoveNeighbor [mapId]','RSKWorld TeleportSeamless [mapId] [x] [y]'] },
+    badge:'NEW', cmds:['RSKWorld AddNeighbor [mapId] [direction]','RSKWorld RemoveNeighbor [mapId]','RSKWorld TeleportSeamless [mapId] [x] [y]'] },
 
   { id:'minimap', name:'RSK_MinimapStudio', ver:'v6.0.0',
     cat:{en:'Minimap PRO', es:'Minimapa PRO'},
@@ -1590,7 +1516,7 @@ const PLUGINS = [
                'Modo jardín: planta semillas, riégalas, espera etapas de crecimiento, cosecha.',
                'Rendimientos variables basados en suerte/estadísticas.',
                'Sonido y FX de partículas para cada acción.']},
-    cmds:['RSKHarvest PlantSeed [itemId] [x] [y]','RSKHarvest Water [x] [y]','RSKHarvest SetFishSpot [x] [y] [table]'] },
+    badge:'NEW', cmds:['RSKHarvest PlantSeed [itemId] [x] [y]','RSKHarvest Water [x] [y]','RSKHarvest SetFishSpot [x] [y] [table]'] },
 
   { id:'bubble', name:'RSK_BubbleStudio', ver:'v4.4.0',
     cat:{en:'Dialogue Bubbles & Popups', es:'Burbujas de Diálogo y Popups'},
@@ -1613,7 +1539,7 @@ const PLUGINS = [
                'FX de ráfaga de partículas al aparecer/cerrar la burbuja.',
                'Opciones de diálogo mostradas dentro de las burbujas.',
                'Compatible con VisuStella Message Core.']},
-    cmds:['RSKBubble Show [eventId] [text]','RSKBubble LootPopup [itemId] [qty]','RSKBubble SetNameTag [eventId] [name]','RSKBubble SetBust [actorId] [filename]'] },
+    badge:'NEW', cmds:['RSKBubble Show [eventId] [text]','RSKBubble LootPopup [itemId] [qty]','RSKBubble SetNameTag [eventId] [name]','RSKBubble SetBust [actorId] [filename]'] },
 
   { id:'mobile', name:'RSK_MobileController', ver:'v5.1',
     cat:{en:'Virtual Gamepad PRO', es:'Mando Virtual PRO'},
@@ -1651,7 +1577,7 @@ const PLUGINS = [
                'Canales SFX: asigna SFX a canales específicos para evitar solapamiento.',
                'Envolvente de volumen: fundido de entrada/salida a voluntad.',
                'Overlay del mezclador de audio en el juego (opcional).']},
-    cmds:['RSKAudio PlayLayer [slot] [filename] [volume]','RSKAudio FadeLayer [slot] [duration]','RSKAudio CrossFade [from] [to] [duration]','RSKAudio SetVolume [slot] [0-100]'] }
+    badge:'NEW', cmds:['RSKAudio PlayLayer [slot] [filename] [volume]','RSKAudio FadeLayer [slot] [duration]','RSKAudio CrossFade [from] [to] [duration]','RSKAudio SetVolume [slot] [0-100]'] }
 ];
 
 const CL_DATA = [
@@ -1759,10 +1685,10 @@ function openTab(id) {
 // ─────────────────────────────────────
 function compatBadges(compat) {
   return compat.map(c => {
-    if (c === 'joiplay') return '<span class="ct ct-j">Android / JoiPlay / MalDives</span>';
+    if (c === 'joiplay') return '<span class="ct ct-j" data-tip="Compatible with Android, JoiPlay & MalDives">Android / JoiPlay / MalDives</span>';
     if (c === 'maldives') return '';
-    if (c === 'browser') return '<span class="ct ct-b">Browser</span>';
-    if (c === 'vistella') return '<span class="ct ct-vs">VisuStella</span>';
+    if (c === 'browser') return '<span class="ct ct-b" data-tip="Works in Browser & NW.js desktop">Browser</span>';
+    if (c === 'vistella') return '<span class="ct ct-vs" data-tip="VisuStella Core Engine compatible">VisuStella</span>';
     return '';
   }).join('');
 }
@@ -1838,36 +1764,99 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.rev').forEach(el => observer.observe(el));
 
+
+(function() {
+  var bar = document.getElementById('loading-bar');
+  var w = 0;
+  var iv = setInterval(function() {
+    w += Math.random() * 18;
+    if (w > 85) w = 85;
+    bar.style.width = w + '%';
+  }, 120);
+  window.addEventListener('load', function() {
+    clearInterval(iv);
+    bar.style.width = '100%';
+    setTimeout(function() { bar.classList.add('done'); }, 400);
+  });
+})();
 buildPlugins();
 buildChangelog();
 updateTabLabels();
+updateFilterCounts();
+
+function updateFilterCounts() {
+  var filters = ['all','joiplay','browser','maldives','vistella'];
+  filters.forEach(function(f) {
+    var count = f === 'all' ? PLUGINS.length : PLUGINS.filter(function(p){ return p.compat.includes(f); }).length;
+    ['fc-' + f + '-en', 'fc-' + f + '-es', 'fc-' + f].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = count;
+    });
+  });
+}
+
+
+(function() {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  function createParticle() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5 + .5,
+      vx: (Math.random() - .5) * .4,
+      vy: (Math.random() - .5) * .4,
+      a: Math.random()
+    };
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  for (var i = 0; i < 60; i++) particles.push(createParticle());
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(function(p) {
+      p.x += p.vx; p.y += p.vy;
+      p.a += .005;
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,229,255,' + (.2 + .3 * Math.abs(Math.sin(p.a))) + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
 
 function toggleFaq(btn) {
-  var a = btn.nextElementSibling;
   btn.classList.toggle('open');
-  a.classList.toggle('vis');
+  btn.nextElementSibling.classList.toggle('vis');
 }
 
 
 function animateCounters() {
   document.querySelectorAll('.stat-n[data-target]').forEach(function(el) {
     var target = parseInt(el.getAttribute('data-target'));
-    var duration = 1000;
-    var interval = duration / target;
-    var current = 0;
-    el.textContent = 0;
+    var current = 0; el.textContent = 0;
     var timer = setInterval(function() {
-      current++;
-      el.textContent = current;
+      current++; el.textContent = current;
       if (current >= target) clearInterval(timer);
-    }, interval);
+    }, 1000 / target);
   });
 }
 var statsAnimated = false;
 var statsObserver = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting && !statsAnimated) { statsAnimated = true; animateCounters(); }
-  });
+  entries.forEach(function(e) { if (e.isIntersecting && !statsAnimated) { statsAnimated = true; animateCounters(); } });
 }, { threshold: 0.5 });
 var statsEl = document.querySelector('.hero-stats');
 if (statsEl) statsObserver.observe(statsEl);
