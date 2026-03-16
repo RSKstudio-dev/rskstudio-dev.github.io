@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RSK Plugin Suite — RPG Maker MZ by Ramsak</title>
 <meta name="description" content="14 Premium Plugins for RPG Maker MZ. Commercial use ✓ Android / JoiPlay / MalDives ✓ Browser ✓ by Ramsak">
+  <meta name="keywords" content="RPG Maker MZ plugins, RSK plugins, premium RPG Maker plugins, JoiPlay plugins, Android RPG Maker, VisuStella compatible, ramsak">
+  <meta name="author" content="Ramsak">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rskstudio-dev.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rskstudio-dev.github.io/">
+  <meta property="og:title" content="RSK Plugin Suite — 14 Premium Plugins for RPG Maker MZ">
+  <meta property="og:description" content="14 premium plugins for RPG Maker MZ by Ramsak. Commercial use ✓ Android / JoiPlay / MalDives ✓ Browser ✓">
+  <meta property="og:image" content="https://rskstudio-dev.github.io/logo_perfecto.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RSK Plugin Suite — 14 Premium Plugins for RPG Maker MZ">
+  <meta name="twitter:description" content="14 premium plugins for RPG Maker MZ. Commercial use ✓ Android / JoiPlay / MalDives ✓">
+  <meta name="twitter:image" content="https://rskstudio-dev.github.io/logo_perfecto.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -113,7 +126,7 @@ body::before {
   border-radius: 4px; transition: all .2s;
   letter-spacing: .08em;
 }
-.lang-btn.on { background: rgba(0,229,255,.15); border-radius: 4px; opacity: 1; box-shadow: 0 0 0 1.5px var(--cyan); }
+.lang-btn.on{background:rgba(0,229,255,.15);border-radius:4px;opacity:1;box-shadow:0 0 0 1.5px var(--cyan);}
 
 .tb-itch {
   display: flex; align-items: center; gap: .4rem;
@@ -154,11 +167,9 @@ body::before {
   flex-shrink: 0;
 }
 .tab-btn:hover { color: var(--text); }
-.tab-btn.on {
-  color: var(--cyan);
-  border-bottom-color: var(--cyan);
-  text-shadow: 0 0 10px var(--cyan-glow);
-}
+.tab-btn.on{color:var(--cyan);border-bottom-color:var(--cyan);text-shadow:0 0 10px var(--cyan-glow),0 0 20px var(--cyan-glow);background:rgba(0,229,255,.05);}
+.tab-btn.on .tab-num{color:var(--cyan);opacity:.8;}
+
 .tab-btn .tab-num {
   font-family: var(--fm); font-size: .58rem;
   color: var(--text3); margin-right: .3rem;
@@ -555,10 +566,7 @@ tbody td:first-child { font-family: var(--fm); font-size: .77rem; color: var(--c
 }
 .cl-plugin-name .cv { color: var(--gold); margin-left: 5px; }
 .cl-desc { font-size: .84rem; color: var(--text2); }
-@media(max-width:600px){
-  .cl-row { flex-direction: column; align-items: flex-start; gap: .4rem; }
-  .cl-plugin-name { min-width: unset; }
-}
+@media(max-width:600px){.cl-row{flex-direction:column;align-items:flex-start;gap:.4rem;}.cl-plugin-name{min-width:unset;}}
 
 /* ═══════════════════════════════════════
    TAB 7 — SUPPORT
@@ -695,60 +703,14 @@ body.es th[data-l="es"] { display: table-cell !important; }
   0%,100% { filter: drop-shadow(0 0 6px rgba(0,229,255,.7)); }
   50%      { filter: drop-shadow(0 0 18px rgba(0,229,255,1)) drop-shadow(0 0 32px rgba(0,229,255,.5)); }
 }
-
-#back-to-top {
-  position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 9999;
-  width: 46px; height: 46px; background: var(--card);
-  border: 1.5px solid var(--cyan); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; opacity: 0; transform: translateY(12px);
-  transition: opacity .3s, transform .3s, box-shadow .2s;
-  pointer-events: none; box-shadow: 0 0 12px rgba(0,229,255,.2);
-}
-#back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
-#back-to-top:hover { box-shadow: 0 0 22px var(--cyan); background: rgba(0,229,255,.1); }
-
-.p-badge-new { font-family:var(--fm);font-size:.55rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--cyan);color:#000;padding:2px 6px;border-radius:3px;margin-left:.4rem;vertical-align:middle;animation:badge-pulse 2s ease-in-out infinite; }
-@keyframes badge-pulse { 0%,100%{box-shadow:0 0 4px rgba(0,229,255,.6);}50%{box-shadow:0 0 10px rgba(0,229,255,1);} }
-@keyframes card-in { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);} }
-.p-card { animation: card-in .45s ease both; }
-
-.faq-list { display:flex; flex-direction:column; gap:.6rem; }
-.faq-item { background:var(--card); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color .2s; }
-.faq-item:hover { border-color:var(--border-lit); }
-.faq-q { width:100%; background:none; border:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.1rem 1.4rem; font-family:var(--fh); font-weight:600; font-size:.95rem; color:#fff; text-align:left; transition:color .2s; }
-.faq-q:hover { color:var(--cyan); }
-.faq-arr { color:var(--cyan); font-size:.7rem; transition:transform .25s; flex-shrink:0; }
-.faq-q.open .faq-arr { transform:rotate(90deg); }
-.faq-a { display:none; padding:0 1.4rem 1.1rem; }
-.faq-a.vis { display:block; }
-.faq-a p { font-size:.88rem; color:var(--text2); line-height:1.65; }
-
-#loading-bar { position:fixed;top:0;left:0;z-index:99999;height:3px;width:0%;background:linear-gradient(90deg,var(--cyan),#7efff5,var(--cyan));box-shadow:0 0 10px var(--cyan),0 0 20px var(--cyan-glow);transition:width .4s ease;pointer-events:none; }
-#loading-bar.done { opacity:0;transition:width .3s ease,opacity .5s ease .3s; }
-
-#hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.5;}
-#tab-hero .container{position:relative;z-index:1;}
-
-.ct{position:relative;}
-.ct::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--card2);border:1px solid var(--border-lit);color:var(--text);font-family:var(--fm);font-size:.65rem;white-space:nowrap;padding:4px 9px;border-radius:5px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:100;}
-.ct:hover::after{opacity:1;}
+#back-to-top{position:fixed;bottom:1.8rem;right:1.8rem;z-index:9999;width:46px;height:46px;background:var(--card);border:1.5px solid var(--cyan);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s,box-shadow .2s;pointer-events:none;box-shadow:0 0 12px rgba(0,229,255,.2);}#back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:all;}#back-to-top:hover{box-shadow:0 0 22px var(--cyan);background:rgba(0,229,255,.1);}
+.p-badge-new{font-family:var(--fm);font-size:.55rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--cyan);color:#000;padding:2px 6px;border-radius:3px;margin-left:.4rem;vertical-align:middle;animation:badge-pulse 2s ease-in-out infinite;}@keyframes badge-pulse{0%,100%{box-shadow:0 0 4px rgba(0,229,255,.6);}50%{box-shadow:0 0 10px rgba(0,229,255,1);}}@keyframes card-in{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}.p-card{animation:card-in .45s ease both;}
+.faq-list{display:flex;flex-direction:column;gap:.6rem;}.faq-item{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s;}.faq-item:hover{border-color:var(--border-lit);}.faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.4rem;font-family:var(--fh);font-weight:600;font-size:.95rem;color:#fff;text-align:left;transition:color .2s;}.faq-q:hover{color:var(--cyan);}.faq-arr{color:var(--cyan);font-size:.7rem;transition:transform .25s;flex-shrink:0;}.faq-q.open .faq-arr{transform:rotate(90deg);}.faq-a{display:none;padding:0 1.4rem 1.1rem;}.faq-a.vis{display:block;}.faq-a p{font-size:.88rem;color:var(--text2);line-height:1.65;}
+#loading-bar{position:fixed;top:0;left:0;z-index:99999;height:3px;width:0%;background:linear-gradient(90deg,var(--cyan),#7efff5,var(--cyan));box-shadow:0 0 10px var(--cyan),0 0 20px var(--cyan-glow);transition:width .4s ease;pointer-events:none;}#loading-bar.done{opacity:0;transition:width .3s ease,opacity .5s ease .3s;}
+#hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.5;}#tab-hero .container{position:relative;z-index:1;}
+.ct{position:relative;}.ct::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--card2);border:1px solid var(--border-lit);color:var(--text);font-family:var(--fm);font-size:.65rem;white-space:nowrap;padding:4px 9px;border-radius:5px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:100;}.ct:hover::after{opacity:1;}
 .filter-count{display:inline-block;background:rgba(0,229,255,.15);color:var(--cyan);font-family:var(--fm);font-size:.6rem;padding:1px 5px;border-radius:3px;margin-left:3px;}
-
-.tb-yt {
-  display: flex; align-items: center; gap: .4rem;
-  background: #ff0000; color: #fff;
-  border: none; border-radius: 6px;
-  font-family: var(--fh); font-weight: 700;
-  font-size: .78rem; letter-spacing: .08em;
-  text-transform: uppercase; padding: 7px 14px;
-  text-decoration: none; cursor: pointer;
-  transition: all .2s;
-  box-shadow: 0 0 16px rgba(255,0,0,.3);
-  flex-shrink: 0;
-}
-.tb-yt:hover { background: #cc0000; box-shadow: 0 0 24px rgba(255,0,0,.5); }
-.tb-yt svg { width: 16px; height: 16px; flex-shrink: 0; }
+.tb-yt{display:flex;align-items:center;gap:.4rem;background:#ff0000;color:#fff;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;text-decoration:none;cursor:pointer;transition:all .2s;box-shadow:0 0 16px rgba(255,0,0,.3);flex-shrink:0;}.tb-yt:hover{background:#cc0000;box-shadow:0 0 24px rgba(255,0,0,.5);}.tb-yt svg{width:16px;height:16px;flex-shrink:0;}
 </style>
 </head>
 <body>
@@ -847,7 +809,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
           <text x="100" y="108" text-anchor="middle" dominant-baseline="middle"
             font-family="Rajdhani,sans-serif" font-size="62" font-weight="900"
             fill="#00e5ff">RSK</text>
-        <text x="168" y="38" text-anchor="middle" dominant-baseline="middle" font-family="Rajdhani,sans-serif" font-size="16" font-weight="700" fill="#00e5ff" opacity=".7">&#8482;</text>
+<text x="168" y="38" text-anchor="middle" dominant-baseline="middle" font-family="Rajdhani,sans-serif" font-size="16" font-weight="700" fill="#00e5ff" opacity=".7">&#8482;</text>
         </svg>
       </div>
     </div>
@@ -966,14 +928,21 @@ body.es th[data-l="es"] { display: table-cell !important; }
 
     <div class="qs-card rev">
       <div class="qs-card-h">🌐 <span data-l="en">Multilingual Support</span><span data-l="es">Soporte Multilingüe</span></div>
-      <p style="font-size:.86rem;color:var(--text2);margin-bottom:.8rem;" data-l="en">RSK_SuperTool's visual interface is fully localized in <strong style="color:#fff">11 languages</strong>:</p>
-      <p style="font-size:.86rem;color:var(--text2);margin-bottom:.8rem;" data-l="es">La interfaz visual de RSK_SuperTool está completamente localizada en <strong style="color:#fff">11 idiomas</strong>:</p>
+      <p style="font-size:.86rem;color:var(--text2);margin-bottom:.8rem;" data-l="en">RSK_Plugins visual interface is fully localized in <strong style="color:#fff">11 languages</strong>:</p>
+      <p style="font-size:.86rem;color:var(--text2);margin-bottom:.8rem;" data-l="es">La interfaz visual de RSK_Plugins está completamente localizada en <strong style="color:#fff">11 idiomas</strong>:</p>
       <div class="lang-chips">
-        <span class="lang-chip">EN</span><span class="lang-chip">ES</span><span class="lang-chip">FR</span>
-        <span class="lang-chip">IT</span><span class="lang-chip">DE</span><span class="lang-chip">PT</span>
-        <span class="lang-chip">RU</span><span class="lang-chip">JP</span><span class="lang-chip">KR</span>
-        <span class="lang-chip">ZH-CN</span><span class="lang-chip">ZH-TW</span>
-      </div>
+<span class="lang-chip" title="English" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="28" height="14"><clipPath id="ca"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="cb"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#ca)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#cb)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg><span style="font-size:.6rem;color:var(--text2);">EN</span></span>
+<span class="lang-chip" title="Español" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="28" height="19"><rect width="3" height="2" fill="#c60b1e"/><rect y=".5" width="3" height="1" fill="#ffc400"/></svg><span style="font-size:.6rem;color:var(--text2);">ES</span></span>
+<span class="lang-chip" title="Português" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="28" height="19"><rect width="3" height="2" fill="#FF0000"/><rect width="1.2" height="2" fill="#006600"/><circle cx="1.2" cy="1" r=".4" fill="#FFFF00" stroke="#006600" stroke-width=".05"/></svg><span style="font-size:.6rem;color:var(--text2);">PT</span></span>
+<span class="lang-chip" title="Français" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="28" height="19"><rect width="3" height="2" fill="#ED2939"/><rect width="2" height="2" fill="#fff"/><rect width="1" height="2" fill="#002395"/></svg><span style="font-size:.6rem;color:var(--text2);">FR</span></span>
+<span class="lang-chip" title="Italiano" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="28" height="19"><rect width="3" height="2" fill="#CE2B37"/><rect width="2" height="2" fill="#fff"/><rect width="1" height="2" fill="#009246"/></svg><span style="font-size:.6rem;color:var(--text2);">IT</span></span>
+<span class="lang-chip" title="Deutsch" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" width="28" height="17"><rect width="5" height="3" fill="#000"/><rect y="1" width="5" height="2" fill="#D00"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg><span style="font-size:.6rem;color:var(--text2);">DE</span></span>
+<span class="lang-chip" title="Русский" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="28" height="19"><rect width="9" height="2" fill="#fff"/><rect y="2" width="9" height="2" fill="#00f"/><rect y="4" width="9" height="2" fill="#f00"/></svg><span style="font-size:.6rem;color:var(--text2);">RU</span></span>
+<span class="lang-chip" title="Українська" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1" width="28" height="14"><rect width="2" height=".5" fill="#005BBB"/><rect y=".5" width="2" height=".5" fill="#FFD500"/></svg><span style="font-size:.6rem;color:var(--text2);">UK</span></span>
+<span class="lang-chip" title="日本語" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" width="28" height="19"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="6" fill="#bc002d"/></svg><span style="font-size:.6rem;color:var(--text2);">JP</span></span>
+<span class="lang-chip" title="中文" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" width="28" height="19"><rect width="30" height="20" fill="#DE2910"/><polygon points="5,2 6.2,5.8 10,5.8 7,8 8.2,12 5,9.5 1.8,12 3,8 0,5.8 3.8,5.8" fill="#FFDE00"/></svg><span style="font-size:.6rem;color:var(--text2);">ZH</span></span>
+<span class="lang-chip" title="한국어" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" width="28" height="19"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="5" fill="#CD2E3A"/><path d="M15 5a5 5 0 0 1 0 10" fill="#003478"/></svg><span style="font-size:.6rem;color:var(--text2);">KO</span></span>
+</div>
     </div>
 
     <div class="qs-card rev">
@@ -1159,24 +1128,20 @@ body.es th[data-l="es"] { display: table-cell !important; }
 <!-- ════════════════════════════════════
      TAB 06 — SUPPORT
 ════════════════════════════════════ -->
-<div class="tab-panel" id="tab-faq">
-<div class="container">
-  <p class="sec-label" data-l="en">06 — Frequently Asked Questions</p>
-  <p class="sec-label" data-l="es">06 — Preguntas Frecuentes</p>
-  <h2 class="sec-title" data-l="en">Fre<em>quently Asked</em></h2>
-  <h2 class="sec-title" data-l="es">Pre<em>guntas Frecuentes</em></h2>
+<div class="tab-panel" id="tab-faq"><div class="container">
+  <p class="sec-label" data-l="en">06 — Frequently Asked Questions</p><p class="sec-label" data-l="es">06 — Preguntas Frecuentes</p>
+  <h2 class="sec-title" data-l="en">Fre<em>quently Asked</em></h2><h2 class="sec-title" data-l="es">Pre<em>guntas Frecuentes</em></h2>
   <hr class="sec-rule">
   <div class="faq-list">
     <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Can I use RSK plugins in commercial games?</span><span data-l="es">¿Puedo usar los plugins RSK en juegos comerciales?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Yes. Your license allows unlimited commercial projects with no royalties.</p><p data-l="es">Sí. Tu licencia permite proyectos comerciales ilimitados sin regalías.</p></div></div>
     <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Do RSK plugins work on Android / JoiPlay / MalDives?</span><span data-l="es">¿Funcionan en Android / JoiPlay / MalDives?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Most do. Check the Compatibility tab. RSK_SeamlessWorld includes an integrated mobile patch.</p><p data-l="es">La mayoría sí. Consulta la pestaña Compatibilidad. RSK_SeamlessWorld incluye un parche móvil integrado.</p></div></div>
-    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Are RSK plugins compatible with VisuStella?</span><span data-l="es">¿Son compatibles con VisuStella?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Several are: ZoomStudio, AtmosphereStudio, SeamlessWorld, and BubbleStudio. Place RSK plugins after VisuStella Core Engine in load order.</p><p data-l="es">Varios sí: ZoomStudio, AtmosphereStudio, SeamlessWorld y BubbleStudio. Colócalos después del VisuStella Core Engine.</p></div></div>
+    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Are RSK plugins compatible with VisuStella?</span><span data-l="es">¿Son compatibles con VisuStella?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Several are: ZoomStudio, AtmosphereStudio, SeamlessWorld, and BubbleStudio. Place RSK plugins after VisuStella Core Engine.</p><p data-l="es">Varios sí: ZoomStudio, AtmosphereStudio, SeamlessWorld y BubbleStudio. Colócalos después del VisuStella Core Engine.</p></div></div>
     <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">How do I get updates?</span><span data-l="es">¿Cómo recibo las actualizaciones?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Through your original purchase page on <a href="https://ramsak.itch.io" target="_blank" style="color:var(--cyan);">ramsak.itch.io</a>.</p><p data-l="es">A través de tu página de compra en <a href="https://ramsak.itch.io" target="_blank" style="color:var(--cyan);">ramsak.itch.io</a>.</p></div></div>
-    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Can I use multiple RSK plugins together?</span><span data-l="es">¿Puedo combinar varios plugins RSK?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Yes, they are designed to work together. See the recommended load order in the Quick Start tab.</p><p data-l="es">Sí, están diseñados para funcionar juntos. Ver orden de carga en Inicio Rápido.</p></div></div>
+    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Can I use multiple RSK plugins together?</span><span data-l="es">¿Puedo combinar varios plugins RSK?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Yes, designed to work together. See the recommended load order in Quick Start.</p><p data-l="es">Sí, diseñados para funcionar juntos. Ver orden de carga en Inicio Rápido.</p></div></div>
     <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Can I redistribute the plugin files?</span><span data-l="es">¿Puedo redistribuir los archivos?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">No. You may NOT redistribute the raw .js files. You may include compiled plugins in your released game.</p><p data-l="es">No. NO puedes redistribuir los archivos .js. Sí puedes incluir los plugins compilados en tu juego.</p></div></div>
     <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">How do I contact support?</span><span data-l="es">¿Cómo contacto con soporte?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Email <a href="mailto:rskstudio.support@gmail.com" style="color:var(--cyan);">rskstudio.support@gmail.com</a> using the RSK_Support_Template.</p><p data-l="es">Escribe a <a href="mailto:rskstudio.support@gmail.com" style="color:var(--cyan);">rskstudio.support@gmail.com</a> usando el RSK_Support_Template.</p></div></div>
   </div>
-</div>
-</div>
+</div></div>
 <div class="tab-panel" id="tab-sup">
 <div class="container">
   <p class="sec-label" data-l="en">06 — Support &amp; Contact</p>
@@ -1697,7 +1662,7 @@ function buildPlugins() {
     return `
       <div class="p-card" style="animation-delay:${i*60}ms">
         <div class="p-head">
-          <div class="p-name">${p.name}${p.badge ? '<span class="p-badge-new">' + p.badge + '</span>' : ''}</div>
+          <div class="p-name">${p.name}${p.badge?'<span class="p-badge-new">'+p.badge+'</span>':''}</div>
           <span class="p-ver">${p.ver}</span>
         </div>
         <div class="p-cat">${p.cat[lang]}</div>
@@ -1755,46 +1720,16 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.rev').forEach(el => observer.observe(el));
 
-(function(){var bar=document.getElementById("loading-bar");var w=0;var iv=setInterval(function(){w+=Math.random()*18;if(w>85)w=85;bar.style.width=w+"%";},120);window.addEventListener("load",function(){clearInterval(iv);bar.style.width="100%";setTimeout(function(){bar.classList.add("done");},400);});})();
 buildPlugins();
 buildChangelog();
 updateTabLabels();
-updateFilterCounts();
-function updateFilterCounts(){["all","joiplay","browser","maldives","vistella"].forEach(function(f){var n=f==="all"?PLUGINS.length:PLUGINS.filter(function(p){return p.compat.includes(f);}).length;["fc-"+f+"-en","fc-"+f+"-es","fc-"+f].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=n;});});}
-(function(){var c=document.getElementById('hero-canvas');if(!c)return;var ctx=c.getContext('2d');var pts=[];function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}function mk(){return{x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.5,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,a:Math.random()};}resize();window.addEventListener('resize',resize);for(var i=0;i<60;i++)pts.push(mk());function draw(){ctx.clearRect(0,0,c.width,c.height);pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.a+=.005;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(0,229,255,'+(0.2+0.3*Math.abs(Math.sin(p.a)))+')';ctx.fill();});requestAnimationFrame(draw);}draw();})();
+function updateFilterCounts(){["all","joiplay","browser","maldives","vistella"].forEach(function(f){var n=f==="all"?PLUGINS.length:PLUGINS.filter(function(p){return p.compat.includes(f);}).length;["fc-"+f+"-en","fc-"+f+"-es","fc-"+f].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=n;});});}updateFilterCounts();
+(function(){var c=document.getElementById("hero-canvas");if(!c)return;var ctx=c.getContext("2d");var pts=[];function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}function mk(){return{x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.5,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,a:Math.random()};}resize();window.addEventListener("resize",resize);for(var i=0;i<60;i++)pts.push(mk());function draw(){ctx.clearRect(0,0,c.width,c.height);pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.a+=.005;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle="rgba(0,229,255,"+(0.2+0.3*Math.abs(Math.sin(p.a)))+")";ctx.fill();});requestAnimationFrame(draw);}draw();})();
+(function(){var bar=document.getElementById("loading-bar");var w=0;var iv=setInterval(function(){w+=Math.random()*18;if(w>85)w=85;bar.style.width=w+"%";},120);window.addEventListener("load",function(){clearInterval(iv);bar.style.width="100%";setTimeout(function(){bar.classList.add("done");},400);});})();
 function toggleFaq(btn){btn.classList.toggle("open");btn.nextElementSibling.classList.toggle("vis");}
-
-function animateCounters() {
-  document.querySelectorAll('.stat-n[data-target]').forEach(function(el) {
-    var target = parseInt(el.getAttribute('data-target'));
-    var current = 0; el.textContent = 0;
-    var timer = setInterval(function() {
-      current++; el.textContent = current;
-      if (current >= target) clearInterval(timer);
-    }, 1000 / target);
-  });
-}
-var statsAnimated = false;
-var statsObserver = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) { if (e.isIntersecting && !statsAnimated) { statsAnimated = true; animateCounters(); } });
-}, { threshold: 0.5 });
-var statsEl = document.querySelector('.hero-stats');
-if (statsEl) statsObserver.observe(statsEl);
-
-
-function checkScrollBtn() {
-  var s = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
-  var btn = document.getElementById('back-to-top');
-  if (btn) btn.classList.toggle('visible', s > 200);
-}
-window.addEventListener('scroll', checkScrollBtn);
-document.addEventListener('scroll', checkScrollBtn);
-var _origOpenTab = openTab;
-openTab = function(id) { _origOpenTab(id); setTimeout(checkScrollBtn, 100); };
-
+function animateCounters(){document.querySelectorAll(".stat-n[data-target]").forEach(function(el){var t=parseInt(el.getAttribute("data-target")),c=0;el.textContent=0;var iv=setInterval(function(){c++;el.textContent=c;if(c>=t)clearInterval(iv);},1000/t);});}var _sA=false,_sO=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting&&!_sA){_sA=true;animateCounters();}});},{threshold:0.5});var _sE=document.querySelector(".hero-stats");if(_sE)_sO.observe(_sE);
+function checkScrollBtn(){var s=document.documentElement.scrollTop||document.body.scrollTop||window.pageYOffset;var btn=document.getElementById("back-to-top");if(btn)btn.classList.toggle("visible",s>200);}window.addEventListener("scroll",checkScrollBtn);document.addEventListener("scroll",checkScrollBtn);var _origOpenTab=openTab;openTab=function(id){_origOpenTab(id);setTimeout(checkScrollBtn,100);};
 </script>
-<button id="back-to-top" title="Back to top" onclick="document.documentElement.scrollTop=0;document.body.scrollTop=0;">
-  <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
+<button id="back-to-top" title="Back to top" onclick="document.documentElement.scrollTop=0;document.body.scrollTop=0;"><svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="18 15 12 9 6 15"/></svg></button>
 </body>
 </html>
