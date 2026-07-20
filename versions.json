@@ -1,0 +1,26 @@
+{
+  "launcher": "1.0.0",
+  "plugins": {
+    "RSK_I18N_Core": "1.0.0",
+    "RSK_License": "2.0.0",
+    "RSK_SplashScreen": "1.0.0",
+    "RSK_SuperTool": "1.0.0",
+    "RSK_BattleStudio": "1.0.0",
+    "RSK_BubbleStudio": "1.0.0",
+    "RSK_AtmosphereStudio": "1.0.0",
+    "RSK_SeamlessWorld": "1.0.0",
+    "RSK_ZoomStudio": "1.0.0",
+    "RSK_HarvestStudio": "1.0.0",
+    "RSK_PuzzleStudio": "1.0.0",
+    "RSK_TitleStudio": "1.0.0",
+    "RSK_MovementStudio": "1.0.0",
+    "RSK_MountStudio": "1.0.0",
+    "RSK_MinimapStudio": "1.0.0",
+    "RSK_SoundStudio": "1.0.0",
+    "RSK_JumpStudio": "1.0.0",
+    "RSK_NatureStudio": "1.0.0",
+    "RSK_InteractionStudio": "1.0.0",
+    "RSK_GamepadStudio": "1.0.0",
+    "RSK_TBSStudio": "1.0.0"
+  }
+}
