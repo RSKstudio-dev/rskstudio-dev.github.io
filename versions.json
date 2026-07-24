@@ -2,7 +2,7 @@
   "launcher": "1.0.0",
   "plugins": {
     "RSK_I18N_Core": "2.3.5",
-    "RSK_License": "2.0.0",
+    "RSK_License": "2.1.0",
     "RSK_SplashScreen": "3.2.0",
     "RSK_SuperTool": "19.1",
     "RSK_BattleStudio": "15.0",
