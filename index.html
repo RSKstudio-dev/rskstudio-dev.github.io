@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RSK Plugin Suite — 20 Premium Plugins for RPG Maker MZ by RSK Studio</title>
-<meta name="description" content="20 Premium Plugins for RPG Maker MZ. Commercial use ✓ Android / JoiPlay / MalDives ✓ Browser ✓ by RSK Studio">
+<title>RSK Plugin Suite — 21 Premium Plugins for RPG Maker MZ by RSK Studio</title>
+<meta name="description" content="21 Premium Plugins for RPG Maker MZ. Commercial use ✓ Android / JoiPlay / MalDives ✓ Browser ✓ by RSK Studio">
   <meta name="keywords" content="RPG Maker MZ plugins, RSK plugins, premium RPG Maker plugins, JoiPlay plugins, Android RPG Maker, VisuStella compatible, RSK Studio, rsk-studio">
   <meta name="author" content="RSK Studio">
   <meta name="robots" content="index, follow">
@@ -12,11 +12,11 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rskstudio-dev.github.io/">
   <meta property="og:title" content="RSK Plugin Suite — 20 Premium Plugins for RPG Maker MZ">
-  <meta property="og:description" content="20 premium plugins for RPG Maker MZ by RSK Studio. Commercial use ✓ Android / JoiPlay / MalDives ✓ Browser ✓">
+  <meta property="og:description" content="21 premium plugins for RPG Maker MZ by RSK Studio. Commercial use ✓ Android / JoiPlay / MalDives ✓ Browser ✓">
   <meta property="og:image" content="https://rskstudio-dev.github.io/logo_perfecto.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="RSK Plugin Suite — 20 Premium Plugins for RPG Maker MZ">
-  <meta name="twitter:description" content="20 premium plugins for RPG Maker MZ. Commercial use ✓ Android / JoiPlay / MalDives ✓">
+  <meta name="twitter:description" content="21 premium plugins for RPG Maker MZ. Commercial use ✓ Android / JoiPlay / MalDives ✓">
   <meta name="twitter:image" content="https://rskstudio-dev.github.io/logo_perfecto.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -213,6 +213,7 @@ body::before {
 @media(max-width:700px){
   .hero-wrap { grid-template-columns:1fr; text-align:center; }
   .hero-logo-col { display:flex; justify-content:center; }
+  .purchase-info { grid-template-columns:1fr !important; }
 }
 
 .hero-eyebrow {
@@ -710,6 +711,9 @@ body.es th[data-l="es"] { display: table-cell !important; }
 #hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.5;}#tab-hero .container{position:relative;z-index:1;}
 .ct{position:relative;}.ct::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--card2);border:1px solid var(--border-lit);color:var(--text);font-family:var(--fm);font-size:.65rem;white-space:nowrap;padding:4px 9px;border-radius:5px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:100;}.ct:hover::after{opacity:1;}
 .filter-count{display:inline-block;background:rgba(0,229,255,.15);color:var(--cyan);font-family:var(--fm);font-size:.6rem;padding:1px 5px;border-radius:3px;margin-left:3px;}
+
+.tb-steam{display:flex;align-items:center;gap:.4rem;background:#1b2838;color:#c7d5e0;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;text-decoration:none;cursor:pointer;transition:all .2s;box-shadow:0 0 16px rgba(27,40,56,.5);flex-shrink:0;}.tb-steam:hover{background:#2a475e;box-shadow:0 0 24px rgba(27,40,56,.8);color:#fff;}.tb-steam svg{width:16px;height:16px;flex-shrink:0;}
+.tb-manual{display:flex;align-items:center;gap:.4rem;background:transparent;color:var(--cyan);border:1px solid rgba(0,229,255,.25);border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;text-decoration:none;cursor:pointer;transition:all .2s;flex-shrink:0;}.tb-manual:hover{background:rgba(0,229,255,.08);border-color:var(--cyan);box-shadow:0 0 16px rgba(0,229,255,.15);}
 .tb-yt{display:flex;align-items:center;gap:.4rem;background:#ff0000;color:#fff;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;text-decoration:none;cursor:pointer;transition:all .2s;box-shadow:0 0 16px rgba(255,0,0,.3);flex-shrink:0;}.tb-yt:hover{background:#cc0000;box-shadow:0 0 24px rgba(255,0,0,.5);}.tb-yt svg{width:16px;height:16px;flex-shrink:0;}
 </style>
 </head>
@@ -731,6 +735,8 @@ body.es th[data-l="es"] { display: table-cell !important; }
   </div>
 
   <a href="https://www.youtube.com/@rsk_studio_official" target="_blank" rel="noopener" class="tb-yt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>YouTube</a>
+  <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" rel="noopener" class="tb-manual">Manual ↗</a>
+  <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener" class="tb-steam"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M11.98 0C5.36 0 .02 5.06.02 11.34L6.08 14c.57-.39 1.25-.62 1.99-.62l2.97-4.3v-.06c0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5h-.1l-4.24 3.02c0 .05.01.1.01.15 0 1.86-1.52 3.38-3.38 3.38-1.65 0-3.03-1.2-3.32-2.77L.15 14.96C1.52 19.85 6.3 23.5 11.98 23.5c6.9 0 12.5-5.37 12.5-12S18.88 0 11.98 0z"/></svg>Steam</a>
   <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" class="tb-itch">
     itch.io ↗
   </a>
@@ -769,26 +775,43 @@ body.es th[data-l="es"] { display: table-cell !important; }
 
       <p class="hero-tagline" data-l="en">Premium Plugins for RPG Maker MZ</p>
       <p class="hero-tagline" data-l="es">Plugins Premium para RPG Maker MZ</p>
-      <p class="hero-for" data-l="en">2026 · 20 Premium Plugins · Commercial Use ✓ · Android / JoiPlay / MalDives ✓ · Browser ✓</p>
-      <p class="hero-for" data-l="es">2026 · 20 Plugins Premium · Uso Comercial ✓ · Android / JoiPlay / MalDives ✓ · Navegador ✓</p>
+      <p class="hero-for" data-l="en">2026 · 21 Premium Plugins · RSK Studio Launcher · Steam & itch.io · Commercial Use ✓ · Android / JoiPlay / MalDives ✓</p>
+      <p class="hero-for" data-l="es">2026 · 21 Plugins Premium · RSK Studio Launcher · Steam e itch.io · Uso Comercial ✓ · Android / JoiPlay / MalDives ✓</p>
 
       <div class="badge-row">
-        <span class="badge b-cyan">⬡ Premium Plugins</span>
+        <span class="badge b-cyan">⬡ 21 Premium Plugins</span>
         <span class="badge b-gold">RPG Maker MZ</span>
         <span class="badge b-pink">Commercial Use ✓</span>
         <span class="badge b-purple">Android / JoiPlay / MalDives ✓</span>
         <span class="badge b-cyan">Browser / NW.js ✓</span>
+        <span class="badge b-cyan">🚀 RSK Studio Launcher</span>
       </div>
 
       <div class="hero-btns">
-        <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" class="btn-p" data-l="en">Get on itch.io ↗</a>
-        <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" class="btn-p" data-l="es">Conseguir en itch.io ↗</a>
+        <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener" class="btn-p" data-l="en">Get on Steam ↗</a>
+        <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" class="btn-p" style="background:var(--pink);box-shadow:0 0 20px var(--pink-dim);" data-l="en">Get on itch.io ↗</a>
+        <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener" class="btn-p" data-l="es">Conseguir en Steam ↗</a>
+        <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" class="btn-p" style="background:var(--pink);box-shadow:0 0 20px var(--pink-dim);" data-l="es">Conseguir en itch.io ↗</a>
         <button class="btn-s" onclick="openTab('plugins')" data-l="en">View All Plugins</button>
         <button class="btn-s" onclick="openTab('plugins')" data-l="es">Ver todos los Plugins</button>
       </div>
 
+      <!-- Purchase info -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:2rem;" class="purchase-info">
+        <div style="background:rgba(0,229,255,.04);border:1px solid rgba(0,229,255,.18);border-radius:8px;padding:1rem 1.2rem;">
+          <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;">🎮 <span data-l="en">Buy on Steam</span><span data-l="es">Comprar en Steam</span></div>
+          <p style="font-size:.82rem;color:var(--text2);line-height:1.6;" data-l="en">Get the <strong style="color:#fff;">RSK Studio Launcher</strong> + all <strong style="color:var(--cyan);">21 plugins unlocked</strong> instantly. License activates automatically — just open, select your project, and inject.</p>
+          <p style="font-size:.82rem;color:var(--text2);line-height:1.6;" data-l="es">Obtén el <strong style="color:#fff;">RSK Studio Launcher</strong> + los <strong style="color:var(--cyan);">21 plugins desbloqueados</strong> al instante. La licencia se activa automáticamente — abre, selecciona tu proyecto e inyecta.</p>
+        </div>
+        <div style="background:rgba(233,30,140,.04);border:1px solid rgba(233,30,140,.18);border-radius:8px;padding:1rem 1.2rem;">
+          <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--pink);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;">🛒 <span data-l="en">Buy on itch.io</span><span data-l="es">Comprar en itch.io</span></div>
+          <p style="font-size:.82rem;color:var(--text2);line-height:1.6;" data-l="en">Buy the full Suite or individual plugins. Download the Launcher, paste your download key, and activate. Up to <strong style="color:var(--pink);">3 activations</strong> per key.</p>
+          <p style="font-size:.82rem;color:var(--text2);line-height:1.6;" data-l="es">Compra la Suite completa o plugins individuales. Descarga el Launcher, pega tu download key y activa. Hasta <strong style="color:var(--pink);">3 activaciones</strong> por key.</p>
+        </div>
+      </div>
+
       <div class="hero-stats">
-        <div><div class="stat-n" data-target="20">0</div><div class="stat-l" data-l="en">Premium Plugins</div><div class="stat-l" data-l="es">Plugins Premium</div></div>
+        <div><div class="stat-n" data-target="21">0</div><div class="stat-l" data-l="en">Premium Plugins</div><div class="stat-l" data-l="es">Plugins Premium</div></div>
         <div><div class="stat-n" data-target="11">0</div><div class="stat-l" data-l="en">Languages (Plugins)</div><div class="stat-l" data-l="es">Idiomas (Plugins)</div></div>
         <div><div class="stat-n">∞</div><div class="stat-l" data-l="en">Commercial Projects</div><div class="stat-l" data-l="es">Proyectos Comerciales</div></div>
         <div><div class="stat-n" data-target="3">0</div><div class="stat-l" data-l="en">Platforms</div><div class="stat-l" data-l="es">Plataformas</div></div>
@@ -820,7 +843,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
     <button onclick="openTab('plugins')" class="qn-tile rev">
       <span class="qn-icon">⬡</span>
       <span class="qn-title" data-l="en">Plugins</span><span class="qn-title" data-l="es">Plugins</span>
-      <span class="qn-sub" data-l="en">20 premium plugins</span><span class="qn-sub" data-l="es">20 plugins premium</span>
+      <span class="qn-sub" data-l="en">21 premium plugins</span><span class="qn-sub" data-l="es">21 plugins premium</span>
     </button>
     <button onclick="openTab('qs')" class="qn-tile rev">
       <span class="qn-icon">▶</span>
@@ -842,6 +865,11 @@ body.es th[data-l="es"] { display: table-cell !important; }
       <span class="qn-title">Changelog</span>
       <span class="qn-sub">v1.0.0 — 2025</span>
     </button>
+    <button onclick="window.open('https://rskstudio-dev.github.io/manual.html','_blank')" class="qn-tile rev">
+      <span class="qn-icon">📖</span>
+      <span class="qn-title" data-l="en">Manual</span><span class="qn-title" data-l="es">Manual</span>
+      <span class="qn-sub" data-l="en">Installation guide (11 languages)</span><span class="qn-sub" data-l="es">Guía de instalación (11 idiomas)</span>
+    </button>
     <button onclick="openTab('sup')" class="qn-tile rev">
       <span class="qn-icon">✉</span>
       <span class="qn-title" data-l="en">Support</span><span class="qn-title" data-l="es">Soporte</span>
@@ -858,8 +886,8 @@ body.es th[data-l="es"] { display: table-cell !important; }
 <div class="tab-panel" id="tab-plugins">
 <div class="container">
   <p class="sec-label">01 — Plugins</p>
-  <h2 class="sec-title" data-l="en">All <em>20 Plugins</em></h2>
-  <h2 class="sec-title" data-l="es">Los <em>20 Plugins</em></h2>
+  <h2 class="sec-title" data-l="en">All <em>21 Plugins</em></h2>
+  <h2 class="sec-title" data-l="es">Los <em>21 Plugins</em></h2>
   <p class="sec-sub" data-l="en">Click any card to expand features and plugin commands. Filter by platform compatibility.</p>
   <p class="sec-sub" data-l="es">Haz clic en cualquier tarjeta para ver características y comandos. Filtra por compatibilidad de plataforma.</p>
   <hr class="sec-rule">
@@ -895,23 +923,23 @@ body.es th[data-l="es"] { display: table-cell !important; }
       <ol class="qs-steps">
         <li>
           <span class="sn">1</span>
-          <span data-l="en">Copy the desired <code>RSK_PluginName.js</code> files into your project's <code>/js/plugins/</code> folder.</span>
-          <span data-l="es">Copia los archivos <code>RSK_NombrePlugin.js</code> en la carpeta <code>/js/plugins/</code> de tu proyecto.</span>
+          <span data-l="en">Download the <strong>RSK Studio Launcher</strong> from <a href="https://store.steampowered.com/app/4580900" target="_blank" style="color:var(--cyan);">Steam</a> or <a href="https://rsk-studio.itch.io" target="_blank" style="color:var(--cyan);">itch.io</a>.</span>
+          <span data-l="es">Descarga el <strong>RSK Studio Launcher</strong> desde <a href="https://store.steampowered.com/app/4580900" target="_blank" style="color:var(--cyan);">Steam</a> o <a href="https://rsk-studio.itch.io" target="_blank" style="color:var(--cyan);">itch.io</a>.</span>
         </li>
         <li>
           <span class="sn">2</span>
-          <span data-l="en">Open RPG Maker MZ → <strong>Plugin Manager</strong> → Add Plugin → select the RSK plugin.</span>
-          <span data-l="es">Abre RPG Maker MZ → <strong>Administrador de Plugins</strong> → Añadir Plugin → selecciona el plugin RSK.</span>
+          <span data-l="en">Open the Launcher → <strong>Select your RPG Maker MZ project folder</strong> → Click <strong>INJECT RSK ENGINE</strong>.</span>
+          <span data-l="es">Abre el Launcher → <strong>Selecciona la carpeta de tu proyecto RPG Maker MZ</strong> → Clic en <strong>INYECTAR RSK ENGINE</strong>.</span>
         </li>
         <li>
           <span class="sn">3</span>
-          <span data-l="en">Configure parameters in the Plugin Manager panel and press <strong>OK</strong>.</span>
-          <span data-l="es">Configura los parámetros en el Administrador de Plugins y pulsa <strong>OK</strong>.</span>
+          <span data-l="en">Activate your license — <strong>automatic via Steam</strong>, or paste your itch.io download key in the License panel.</span>
+          <span data-l="es">Activa tu licencia — <strong>automática vía Steam</strong>, o pega tu download key de itch.io en el panel de Licencia.</span>
         </li>
         <li>
           <span class="sn">4</span>
-          <span data-l="en">Save your project. The plugin activates immediately in <strong>Test Play</strong>.</span>
-          <span data-l="es">Guarda el proyecto. El plugin se activa inmediatamente en <strong>Prueba de Juego</strong>.</span>
+          <span data-l="en">Open RPG Maker MZ → <strong>Plugin Manager</strong> (F10) → activate the plugins you need. Done!</span>
+          <span data-l="es">Abre RPG Maker MZ → <strong>Administrador de Plugins</strong> (F10) → activa los plugins que necesites. ¡Listo!</span>
         </li>
       </ol>
     </div>
@@ -921,6 +949,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
       <p style="font-size:.86rem;color:var(--text2);" data-l="en">Place RSK plugins <strong style="color:var(--cyan)">AFTER</strong> VisuStella Core Engine (if used). Order between other RSK plugins is flexible unless noted in individual docs.</p>
       <p style="font-size:.86rem;color:var(--text2);" data-l="es">Coloca los plugins RSK <strong style="color:var(--cyan)">DESPUÉS</strong> del VisuStella Core Engine (si lo usas). El orden entre otros plugins RSK es flexible salvo que se indique lo contrario.</p>
       <div class="order-box">
+        <span class="hl">RSK_I18N_Core</span> → <span class="hl">RSK_License</span> → <span class="hl">RSK_SplashScreen</span><br>
         <span class="hl">RSK_SuperTool</span> → <span class="hl">RSK_AtmosphereStudio</span> → <span class="hl">RSK_NatureStudio</span><br>
         <span class="hl">RSK_MovementStudio</span> → <span class="hl">RSK_JumpStudio</span> → <span class="hl">RSK_SeamlessWorld</span>
       </div>
@@ -1019,6 +1048,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
         <tr><td>RSK_TitleStudio</td>    <td class="ck">✓</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
         <tr><td>RSK_SplashScreen</td>   <td class="ck">✓</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
         <tr><td>RSK_InteractionStudio</td><td class="ck">✓</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
+        <tr><td>RSK_License</td>         <td class="ck">✓</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
         <tr><td>RSK_I18N_Core</td>      <td class="ck">✓</td><td class="ck">✓</td>    <td class="ck">✓</td></tr>
       </tbody>
     </table>
@@ -1142,7 +1172,8 @@ body.es th[data-l="es"] { display: table-cell !important; }
     <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Can I use RSK plugins in commercial games?</span><span data-l="es">¿Puedo usar los plugins RSK en juegos comerciales?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Yes. Your license allows unlimited commercial projects with no royalties.</p><p data-l="es">Sí. Tu licencia permite proyectos comerciales ilimitados sin regalías.</p></div></div>
     <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Do RSK plugins work on Android / JoiPlay / MalDives?</span><span data-l="es">¿Funcionan en Android / JoiPlay / MalDives?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Most do. Check the Compatibility tab. RSK_SeamlessWorld includes an integrated mobile patch.</p><p data-l="es">La mayoría sí. Consulta la pestaña Compatibilidad. RSK_SeamlessWorld incluye un parche móvil integrado.</p></div></div>
     <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Are RSK plugins compatible with VisuStella?</span><span data-l="es">¿Son compatibles con VisuStella?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Several are: ZoomStudio, AtmosphereStudio, SeamlessWorld, and BubbleStudio. Place RSK plugins after VisuStella Core Engine.</p><p data-l="es">Varios sí: ZoomStudio, AtmosphereStudio, SeamlessWorld y BubbleStudio. Colócalos después del VisuStella Core Engine.</p></div></div>
-    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">How do I get updates?</span><span data-l="es">¿Cómo recibo las actualizaciones?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Through your original purchase page on <a href="https://rsk-studio.itch.io" target="_blank" style="color:var(--cyan);">rsk-studio.itch.io</a>.</p><p data-l="es">A través de tu página de compra en <a href="https://rsk-studio.itch.io" target="_blank" style="color:var(--cyan);">rsk-studio.itch.io</a>.</p></div></div>
+    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">How do I get updates?</span><span data-l="es">¿Cómo recibo las actualizaciones?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Automatically via Steam, or through your purchase page on <a href="https://rsk-studio.itch.io" target="_blank" style="color:var(--cyan);">rsk-studio.itch.io</a>. Use the RSK Studio Launcher to check for updates.</p><p data-l="es">Automáticamente vía Steam, o a través de tu página de compra en <a href="https://rsk-studio.itch.io" target="_blank" style="color:var(--cyan);">rsk-studio.itch.io</a>. Usa el RSK Studio Launcher para comprobar actualizaciones.</p></div></div>
+    <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">What is the RSK Studio Launcher?</span><span data-l="es">¿Qué es el RSK Studio Launcher?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">A desktop app that manages your plugins: select your project, inject all 21 plugins with one click, activate your license, and check for updates. Available on <a href="https://store.steampowered.com/app/4580900" target="_blank" style="color:var(--cyan);">Steam</a> and <a href="https://rsk-studio.itch.io" target="_blank" style="color:var(--cyan);">itch.io</a>. See the <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" style="color:var(--cyan);">installation manual</a>.</p><p data-l="es">Una app de escritorio que gestiona tus plugins: selecciona tu proyecto, inyecta los 21 plugins con un clic, activa tu licencia, y comprueba actualizaciones. Disponible en <a href="https://store.steampowered.com/app/4580900" target="_blank" style="color:var(--cyan);">Steam</a> e <a href="https://rsk-studio.itch.io" target="_blank" style="color:var(--cyan);">itch.io</a>. Consulta el <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" style="color:var(--cyan);">manual de instalación</a>.</p></div></div>
     <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Can I use multiple RSK plugins together?</span><span data-l="es">¿Puedo combinar varios plugins RSK?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Yes, designed to work together. See the recommended load order in Quick Start.</p><p data-l="es">Sí, diseñados para funcionar juntos. Ver orden de carga en Inicio Rápido.</p></div></div>
     <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">Can I redistribute the plugin files?</span><span data-l="es">¿Puedo redistribuir los archivos?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">No. You may NOT redistribute the raw .js files. You may include compiled plugins in your released game.</p><p data-l="es">No. NO puedes redistribuir los archivos .js. Sí puedes incluir los plugins compilados en tu juego.</p></div></div>
     <div class="faq-item rev"><button class="faq-q" onclick="toggleFaq(this)"><span data-l="en">How do I contact support?</span><span data-l="es">¿Cómo contacto con soporte?</span><span class="faq-arr">▶</span></button><div class="faq-a"><p data-l="en">Email <a href="mailto:rskstudio.support@gmail.com" style="color:var(--cyan);">rskstudio.support@gmail.com</a> using the RSK_Support_Template.</p><p data-l="es">Escribe a <a href="mailto:rskstudio.support@gmail.com" style="color:var(--cyan);">rskstudio.support@gmail.com</a> usando el RSK_Support_Template.</p></div></div>
@@ -1192,16 +1223,16 @@ body.es th[data-l="es"] { display: table-cell !important; }
     <div class="sup-card rev">
       <h3 data-l="en">Updates &amp; Store</h3>
       <h3 data-l="es">Actualizaciones y Tienda</h3>
-      <p class="upd-text" data-l="en">Future updates are delivered through the original purchase page on <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">rsk-studio.itch.io</a>. You will receive a notification from itch.io when a new version is uploaded.</p>
-      <p class="upd-text" data-l="es">Las actualizaciones futuras se entregan a través de la página de compra original en <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">rsk-studio.itch.io</a>. Recibirás una notificación de itch.io cuando se suba una nueva versión.</p>
+      <p class="upd-text" data-l="en">Updates are delivered automatically via <strong style="color:var(--cyan)">Steam</strong>, or through the original purchase page on <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">rsk-studio.itch.io</a>. You will receive a notification from itch.io when a new version is uploaded.</p>
+      <p class="upd-text" data-l="es">Las actualizaciones se entregan automáticamente vía <strong style="color:var(--cyan)">Steam</strong>, o a través de la página de compra original en <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">rsk-studio.itch.io</a>. Recibirás una notificación de itch.io cuando se suba una nueva versión.</p>
       <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" class="btn-p" style="display:inline-block;margin-bottom:2rem;" data-l="en">Visit rsk-studio.itch.io ↗</a>
       <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" class="btn-p" style="display:inline-block;margin-bottom:2rem;" data-l="es">Visitar rsk-studio.itch.io ↗</a>
 
       <h3 style="margin-top:.5rem;" data-l="en">Included in Your Purchase</h3>
       <h3 style="margin-top:.5rem;" data-l="es">Incluido en tu Compra</h3>
       <ul class="sup-list" style="margin-top:.6rem;">
-        <li data-l="en">All 20 .js plugin files</li>
-        <li data-l="es">Los 20 archivos .js de plugins</li>
+        <li data-l="en">All 21 .js plugin files</li>
+        <li data-l="es">Los 21 archivos .js de plugins</li>
         <li data-l="en">RSK_Master_Manual.pdf (EN + ES)</li>
         <li data-l="es">RSK_Master_Manual.pdf (EN + ES)</li>
         <li data-l="en">RSK_EULA.pdf</li>
@@ -1222,7 +1253,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
 <!-- ════════ FOOTER ════════ -->
 <footer>
   <div style="margin-bottom:.3rem;">
-    RSK Plugin Suite · by <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">RSK Studio</a> · <a href="https://www.youtube.com/@rsk_studio_official" target="_blank" rel="noopener">YouTube</a> ·
+    RSK Plugin Suite · by <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">RSK Studio</a> · <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener">Steam</a> · <a href="https://www.youtube.com/@rsk_studio_official" target="_blank" rel="noopener">YouTube</a> · <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" rel="noopener">Manual</a> ·
     <a href="mailto:rskstudio.support@gmail.com">rskstudio.support@gmail.com</a>
   </div>
   <div>
@@ -1771,7 +1802,31 @@ const PLUGINS = [
                'Pantalla de Selección de Banderas antes del título (configurable).',
                'Cambio de Idioma en Tiempo de Ejecución sin reiniciar el juego.',
                'Flujo de trabajo exportar-importar CSV/JSON para traductores.']},
-    badge:'NEW', cmds:['RSKI18N SetLanguage [code]','RSKI18N ExportText','RSKI18N ImportText [filename]','RSKI18N DetectLanguage'] }
+    badge:'NEW', cmds:['RSKI18N SetLanguage [code]','RSKI18N ExportText','RSKI18N ImportText [filename]','RSKI18N DetectLanguage'] },
+
+  { id:'license', name:'RSK_License', ver:'v2.1.0',
+    cat:{en:'License Management System', es:'Sistema de Gestión de Licencias'},
+    desc:{en:'Automatic license validation system. Supports Steam auto-detection, itch.io download key activation, and offline manual key validation. Required for all paid plugins.',
+          es:'Sistema automático de validación de licencias. Soporta detección automática de Steam, activación por download key de itch.io, y validación offline de keys manuales. Requerido para todos los plugins de pago.'},
+    compat:['joiplay','maldives','browser','vistella'],
+    feats:{en:['Automatic Steam license detection and activation.',
+               'itch.io download key validation via secure cloud Worker.',
+               'Offline manual key validation (RSK-XXXXX format).',
+               'HMAC-signed license file (RSK_License.dat) for anti-tampering.',
+               'License expiration system for Steam (7-day grace period).',
+               'Multilingual license status banner in 11 languages.',
+               'Cumulative license system — multiple licenses stack.',
+               'SUITE license type unlocks all 18 paid plugins at once.'],
+           es:['Detección y activación automática de licencia Steam.',
+               'Validación de download key de itch.io mediante Worker seguro en la nube.',
+               'Validación offline de keys manuales (formato RSK-XXXXX).',
+               'Archivo de licencia firmado con HMAC (RSK_License.dat) anti-manipulación.',
+               'Sistema de expiración para Steam (período de gracia de 7 días).',
+               'Banner de estado de licencia multilingüe en 11 idiomas.',
+               'Sistema de licencias acumulables — múltiples licencias se apilan.',
+               'Licencia tipo SUITE desbloquea los 18 plugins de pago de una vez.']},
+    cmds:['RSK.License.guard("RSK_PluginName")','RSK.License.isAuthorized("RSK_PluginName")'] },
+
 ];
 
 
@@ -1835,7 +1890,10 @@ const CL_DATA = [
    es:'Motor de IA de NPCs — Máquinas de estado, horarios 24h, conos de visión, rutas de patrulla, IA perseguir/huir/vagar/seguir, presets de un clic.'},
   {name:'RSK_I18N_Core', ver:'v2.3.5',
    en:'Universal Localization Engine — 11 languages, AI-powered translation generator, auto database translation, flag screen, live switching, CSV/JSON workflow.',
-   es:'Motor de Localización Universal — 11 idiomas, generador de traducción IA, traducción automática BD, pantalla de banderas, cambio en vivo, flujo CSV/JSON.'}
+   es:'Motor de Localización Universal — 11 idiomas, generador de traducción IA, traducción automática BD, pantalla de banderas, cambio en vivo, flujo CSV/JSON.'},
+  {name:'RSK_License', ver:'v2.1.0',
+   en:'License Management System — HMAC-signed .dat, Steam auto-detection, itch.io cloud validation, offline manual keys, 7-day expiration, 11-language banners.',
+   es:'Sistema de Gestión de Licencias — .dat firmado con HMAC, detección automática Steam, validación cloud itch.io, keys manuales offline, expiración 7 días, banners 11 idiomas.'}
 ];
 
 
