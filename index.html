@@ -269,9 +269,14 @@ body::before {
   color: #fff; margin-bottom: .5rem;
 }
 .hero-h1 .rsk {
-  color: var(--cyan);
-  text-shadow: 0 0 40px var(--cyan-glow), 0 0 80px rgba(0,229,255,.2);
+  background: linear-gradient(135deg, #00e5ff 0%, #80f0ff 40%, #00e5ff 60%, #40d0ff 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rskShimmer 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px var(--cyan-glow));
 }
+@keyframes rskShimmer { 0%,100%{background-position:0% center} 50%{background-position:300% center} }
 .hero-tagline {
   font-family: var(--fh); font-size: 1.15rem;
   font-weight: 600; color: var(--gold);
@@ -340,11 +345,15 @@ body::before {
   width: 200px; height: 200px;
   border-radius: 50%;
   filter: drop-shadow(0 0 30px var(--cyan-glow));
-  animation: glow-pulse 3.5s ease-in-out infinite;
+  animation: glow-pulse 3.5s ease-in-out infinite, heroFloat 5s ease-in-out infinite;
 }
 @keyframes glow-pulse {
   0%,100% { filter: drop-shadow(0 0 20px var(--cyan-glow)); }
   50%      { filter: drop-shadow(0 0 50px var(--cyan)) brightness(1.1); }
+}
+@keyframes heroFloat {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-12px); }
 }
 
 /* Hero hex decoration */
@@ -381,7 +390,7 @@ body::before {
 .p-card {
   background: var(--card); border: 1px solid var(--border);
   border-radius: 10px; padding: 1.4rem 1.5rem;
-  transition: border-color .25s, transform .25s, box-shadow .25s;
+  transition: border-color .4s, transform .4s, box-shadow .4s;
   position: relative; overflow: hidden;
 }
 .p-card::after {
@@ -390,12 +399,21 @@ body::before {
   background: linear-gradient(90deg, transparent, var(--cyan), transparent);
   opacity: 0; transition: opacity .3s;
 }
+.p-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(0,229,255,.03) 48%, rgba(0,229,255,.05) 52%, transparent 70%);
+  background-size: 250% 100%; background-position: 100% 0;
+  opacity: 0; transition: opacity .4s; pointer-events: none;
+}
 .p-card:hover {
-  border-color: var(--border-lit);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 36px rgba(0,229,255,.07);
+  border-color: rgba(0,229,255,.25);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,229,255,.08), 0 0 1px rgba(0,229,255,.15);
 }
 .p-card:hover::after { opacity: 1; }
+.p-card:hover::before { opacity: 1; animation: cardShine 1.5s ease forwards; }
+@keyframes cardShine { 0%{background-position:100% 0} 100%{background-position:-50% 0} }
 
 .p-head { display: flex; justify-content: space-between; align-items: flex-start; gap: .5rem; margin-bottom: .4rem; }
 .p-name { font-family: var(--fh); font-size: 1rem; font-weight: 700; color: var(--cyan); }
