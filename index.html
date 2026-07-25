@@ -212,8 +212,48 @@ body::before {
 }
 @media(max-width:700px){
   .hero-wrap { grid-template-columns:1fr; text-align:center; }
-  .hero-logo-col { display:flex; justify-content:center; }
+  .hero-logo-col { display:flex; justify-content:center; order:-1; margin-bottom:1rem; }
   .purchase-info { grid-template-columns:1fr !important; }
+  /* Topbar mobile */
+  #topbar { padding:0 .8rem; gap:.5rem; height:50px; flex-wrap:nowrap; }
+  .tb-logo-sub { display:none; }
+  .tb-logo-rsk { font-size:1.2rem; }
+  .tb-steam, .tb-manual { display:none !important; }
+  .tb-itch { font-size:.7rem; padding:5px 10px; }
+  .tb-yt { font-size:.7rem; padding:5px 10px; }
+  .tb-yt span { display:none; }
+  /* Tab nav mobile */
+  .tab-btn { padding:0 .8rem; font-size:.72rem; height:40px; }
+  .tab-btn .tab-num { display:none; }
+  .tab-lbl { font-size:.72rem; }
+  /* Hero mobile */
+  .hero-title { font-size:2.8rem !important; }
+  .hero-subtitle { font-size:1.2rem !important; }
+  .hero-eyebrow { font-size:.6rem; }
+  .hero-for { font-size:.65rem !important; }
+  .badge-row { gap:.3rem; }
+  .badge { font-size:.6rem !important; padding:4px 8px !important; }
+  .hero-btns { flex-direction:column; gap:.5rem; }
+  .hero-btns .btn-p, .hero-btns .btn-s { width:100%; justify-content:center; }
+  .hero-stats { gap:1rem; }
+  .stat-n { font-size:1.8rem !important; }
+  /* Plugin grid mobile */
+  .p-grid { grid-template-columns:1fr !important; }
+  .p-card { padding:1rem !important; }
+  /* Filter buttons mobile */
+  .filter-bar { flex-wrap:wrap; gap:.3rem; }
+  .filter-btn { font-size:.65rem; padding:5px 8px; }
+  /* Price mobile */
+  .purchase-info > div { padding:.8rem 1rem !important; }
+  /* Quick nav tiles mobile */
+  .qn-grid { grid-template-columns:1fr 1fr !important; gap:.5rem !important; }
+  .qn-tile { padding:.8rem !important; }
+  .qn-icon { font-size:1.2rem !important; }
+  /* General section padding */
+  .tab-panel { padding:1.5rem 1rem !important; }
+  /* Compat table scroll */
+  .compat-wrap { overflow-x:auto; }
+  .compat-wrap table { min-width:500px; }
 }
 
 .hero-eyebrow {
