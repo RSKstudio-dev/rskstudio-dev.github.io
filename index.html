@@ -775,7 +775,7 @@ body.es th[data-l="es"] { display: table-cell !important; }
 .tb-theme:hover{border-color:var(--cyan);background:rgba(0,229,255,.06);box-shadow:0 0 12px rgba(0,229,255,.1)}
 
 /* ═══ LIGHT MODE ═══ */
-body.light{--bg:#f5f6fa;--bg2:#ebedf5;--card:rgba(255,255,255,.9);--border:rgba(180,190,210,.4);--border-lit:rgba(0,180,220,.3);--text:rgba(30,40,60,.85);--text2:rgba(50,60,80,.7);--text3:rgba(100,110,130,.5);--cyan:#0099bb;--cyan-glow:rgba(0,153,187,.2);--pink:#cc2255;--pink-dim:rgba(204,34,85,.15);--gold:#b8860b}
+body.light{--bg:#f5f6fa;--bg2:#ebedf5;--card:rgba(255,255,255,.9);--border:rgba(180,190,210,.4);--border-lit:rgba(0,180,220,.3);--text:rgba(30,40,60,.85);--text2:rgba(50,60,80,.7);--text3:rgba(100,110,130,.5);--cyan:#0099bb;--cyan-glow:rgba(0,153,187,.2);--pink:#cc2255;--pink-dim:rgba(204,34,85,.15);--gold:#b8860b;--text-strong:#1a2040}
 body.light{background:#e8eaf0;color:var(--text)}
 body.light #topbar{background:rgba(245,246,250,.96);border-bottom-color:rgba(180,190,210,.5)}
 body.light .tb-logo-rsk{color:var(--cyan)}
@@ -815,6 +815,31 @@ body.light .qn-title{color:#1a2040}
 body.light footer{border-top-color:var(--border);color:var(--text3)}
 body.light .theme-icon-dark{display:none!important}
 body.light .theme-icon-light{display:block!important}
+body.light .sec-h{color:#1a2040!important}
+body.light .sec-h em{color:var(--cyan)!important}
+body.light .faq-q{color:#1a2040!important}
+body.light .hero-eyebrow{color:var(--text3)}
+body.light .hero-for{color:var(--text2)!important}
+body.light .cover .sub{color:#1a2040}
+body.light strong[style*="color:#fff"]{color:#1a2040!important}
+body.light .qs-num{color:var(--cyan)}
+body.light .qs-step{color:#1a2040}
+body.light .compat-table th{color:#1a2040}
+body.light .compat-table td{color:var(--text2)}
+body.light .cl-plugin-name{color:#1a2040}
+body.light .sup-title{color:#1a2040}
+body.light .order-box{background:var(--card);border-color:var(--border);color:var(--text2)}
+body.light .order-box .hl{color:var(--cyan)}
+body.light .lic-card{background:var(--card);border-color:var(--border)}
+body.light .lic-title{color:#1a2040}
+body.light .lic-desc{color:var(--text2)}
+body.light .purchase-info>div{background:rgba(0,0,0,.02)!important;border-color:var(--border)!important}
+body.light .tb-steam{background:#1b2838;color:#c7d5e0}
+body.light .tb-manual{color:var(--cyan);border-color:rgba(0,153,187,.3)}
+body.light .p-badge-new{background:var(--cyan);color:#fff}
+body.light .p-badge-free{background:#00aa55!important;color:#fff!important}
+body.light .hero-logo-img{filter:drop-shadow(0 0 20px rgba(0,0,0,.15))!important}
+body.light a{color:var(--cyan)}
 .tb-manual{display:flex;align-items:center;gap:.4rem;background:transparent;color:var(--cyan);border:1px solid rgba(0,229,255,.25);border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;text-decoration:none;cursor:pointer;transition:all .2s;flex-shrink:0;}.tb-manual:hover{background:rgba(0,229,255,.08);border-color:var(--cyan);box-shadow:0 0 16px rgba(0,229,255,.15);}
 .tb-yt{display:flex;align-items:center;gap:.4rem;background:#ff0000;color:#fff;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;text-decoration:none;cursor:pointer;transition:all .2s;box-shadow:0 0 16px rgba(255,0,0,.3);flex-shrink:0;}.tb-yt:hover{background:#cc0000;box-shadow:0 0 24px rgba(255,0,0,.5);}.tb-yt svg{width:16px;height:16px;flex-shrink:0;}
 </style>
@@ -912,8 +937,8 @@ body.light .theme-icon-light{display:block!important}
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:2rem;" class="purchase-info">
         <div style="background:rgba(0,229,255,.04);border:1px solid rgba(0,229,255,.18);border-radius:8px;padding:1rem 1.2rem;">
           <div style="font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg><span data-l="en">Buy on Steam</span><span data-l="es">Comprar en Steam</span></div>
-          <p style="font-size:.82rem;color:var(--text2);line-height:1.6;" data-l="en">Get the <strong style="color:#fff;">RSK Studio Launcher</strong> + all <strong style="color:var(--cyan);">21 plugins unlocked</strong> instantly. License activates automatically — just open, select your project, and inject. Automatic updates via Steam.</p>
-          <p style="font-size:.82rem;color:var(--text2);line-height:1.6;" data-l="es">Obtén el <strong style="color:#fff;">RSK Studio Launcher</strong> + los <strong style="color:var(--cyan);">21 plugins desbloqueados</strong> al instante. La licencia se activa automáticamente — abre, selecciona tu proyecto e inyecta. Actualizaciones automáticas vía Steam.</p>
+          <p style="font-size:.82rem;color:var(--text2);line-height:1.6;" data-l="en">Get the <strong style="color:var(--text-strong,#fff);">RSK Studio Launcher</strong> + all <strong style="color:var(--cyan);">21 plugins unlocked</strong> instantly. License activates automatically — just open, select your project, and inject. Automatic updates via Steam.</p>
+          <p style="font-size:.82rem;color:var(--text2);line-height:1.6;" data-l="es">Obtén el <strong style="color:var(--text-strong,#fff);">RSK Studio Launcher</strong> + los <strong style="color:var(--cyan);">21 plugins desbloqueados</strong> al instante. La licencia se activa automáticamente — abre, selecciona tu proyecto e inyecta. Actualizaciones automáticas vía Steam.</p>
           <div style="margin-top:.6rem;font-size:.72rem;color:var(--text3);font-family:var(--fm);line-height:1.7;" data-l="en">✓ Automatic license · ✓ Auto updates · ✓ All 21 plugins · ✓ One purchase</div>
           <div style="margin-top:.6rem;font-size:.72rem;color:var(--text3);font-family:var(--fm);line-height:1.7;" data-l="es">✓ Licencia automática · ✓ Updates automáticos · ✓ 21 plugins · ✓ Una compra</div>
         </div>
@@ -1073,8 +1098,8 @@ body.light .theme-icon-light{display:block!important}
 
     <div class="qs-card rev">
       <div class="qs-card-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="vertical-align:middle;margin-right:6px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span data-l="en">Multilingual Support</span><span data-l="es">Soporte Multilingüe</span></div>
-      <p style="font-size:.86rem;color:var(--text2);margin-bottom:.8rem;" data-l="en">RSK_Plugins visual interface is fully localized in <strong style="color:#fff">11 languages</strong>:</p>
-      <p style="font-size:.86rem;color:var(--text2);margin-bottom:.8rem;" data-l="es">La interfaz visual de RSK_Plugins está completamente localizada en <strong style="color:#fff">11 idiomas</strong>:</p>
+      <p style="font-size:.86rem;color:var(--text2);margin-bottom:.8rem;" data-l="en">RSK_Plugins visual interface is fully localized in <strong style="color:var(--text-strong,#fff)">11 languages</strong>:</p>
+      <p style="font-size:.86rem;color:var(--text2);margin-bottom:.8rem;" data-l="es">La interfaz visual de RSK_Plugins está completamente localizada en <strong style="color:var(--text-strong,#fff)">11 idiomas</strong>:</p>
       <div class="lang-chips">
 <span class="lang-chip" title="English" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="28" height="14"><clipPath id="ca"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="cb"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#ca)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#cb)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg><span style="font-size:.6rem;color:var(--text2);">EN</span></span>
 <span class="lang-chip" title="Español" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="28" height="19"><rect width="3" height="2" fill="#c60b1e"/><rect y=".5" width="3" height="1" fill="#ffc400"/></svg><span style="font-size:.6rem;color:var(--text2);">ES</span></span>
