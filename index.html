@@ -875,6 +875,12 @@ body.light .lic-no .lic-h{color:#bb1144!important}
 body.light .lic-yes .lic-list li::before{color:#008844!important}
 body.light .lic-no .lic-list li::before{color:#bb1144!important}
 body.light .lic-note{color:#3a4560!important}
+body.light .sup-list li{color:#2a3550!important}
+body.light .sup-list li::before{color:var(--cyan)!important}
+body.light .lic-list li{color:#2a3550!important}
+body.light .lic-note{color:#3a4560!important}
+/* Discord button */
+.tb-discord{display:flex;align-items:center;gap:.4rem;background:#5865F2;color:#fff;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;text-decoration:none;cursor:pointer;transition:all .2s;box-shadow:0 0 16px rgba(88,101,242,.3);flex-shrink:0;}.tb-discord:hover{background:#4752C4;box-shadow:0 0 24px rgba(88,101,242,.5);color:#fff!important;}.tb-discord svg{width:16px;height:16px;flex-shrink:0;}
 body.light a{color:var(--cyan)!important}
 body.light .theme-icon-dark{display:none!important}
 body.light .theme-icon-light{display:inline!important}
@@ -909,6 +915,7 @@ body.light .tb-theme svg{color:var(--cyan)!important;stroke:currentColor!importa
   </button>
   <a href="https://www.youtube.com/@rsk_studio_official" target="_blank" rel="noopener" class="tb-yt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>YouTube</a>
   <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" rel="noopener" class="tb-manual">Manual ↗</a>
+  <a href="https://discord.gg/HeDrVZd7j" target="_blank" rel="noopener" class="tb-discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.87-.61 1.25a18.27 18.27 0 0 0-5.49 0 12.64 12.64 0 0 0-.62-1.25.08.08 0 0 0-.08-.04 19.74 19.74 0 0 0-4.89 1.52.07.07 0 0 0-.03.03C1.13 8.59.34 12.67.82 16.7a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 5.99 3.03.08.08 0 0 0 .08-.03c.46-.63.87-1.3 1.22-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1-.01-.13c.13-.09.25-.19.37-.29a.08.08 0 0 1 .08-.01c3.93 1.8 8.18 1.8 12.07 0a.08.08 0 0 1 .08.01c.12.1.25.2.37.29a.08.08 0 0 1 0 .13c-.6.35-1.22.65-1.87.9a.08.08 0 0 0-.04.11c.36.7.77 1.37 1.22 2a.08.08 0 0 0 .08.03 19.83 19.83 0 0 0 6-3.03.08.08 0 0 0 .03-.05c.56-5.8-.94-10.83-3.98-15.3a.06.06 0 0 0-.03-.03zM8.02 14.09c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.96-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.96 2.42-2.16 2.42zm7.97 0c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.96-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.95 2.42-2.16 2.42z"/></svg>Discord</a>
   <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener" class="tb-steam"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M11.98 0C5.36 0 .02 5.06.02 11.34L6.08 14c.57-.39 1.25-.62 1.99-.62l2.97-4.3v-.06c0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5h-.1l-4.24 3.02c0 .05.01.1.01.15 0 1.86-1.52 3.38-3.38 3.38-1.65 0-3.03-1.2-3.32-2.77L.15 14.96C1.52 19.85 6.3 23.5 11.98 23.5c6.9 0 12.5-5.37 12.5-12S18.88 0 11.98 0z"/></svg>Steam</a>
   <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" class="tb-itch">
     itch.io ↗
@@ -1437,7 +1444,7 @@ body.light .tb-theme svg{color:var(--cyan)!important;stroke:currentColor!importa
 <!-- ════════ FOOTER ════════ -->
 <footer>
   <div style="margin-bottom:.3rem;">
-    RSK Plugin Suite · by <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">RSK Studio</a> · <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener">Steam</a> · <a href="https://www.youtube.com/@rsk_studio_official" target="_blank" rel="noopener">YouTube</a> · <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" rel="noopener">Manual</a> ·
+    RSK Plugin Suite · by <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">RSK Studio</a> · <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener">Steam</a> · <a href="https://www.youtube.com/@rsk_studio_official" target="_blank" rel="noopener">YouTube</a> · <a href="https://discord.gg/HeDrVZd7j" target="_blank" rel="noopener">Discord</a> · <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" rel="noopener">Manual</a> ·
     <a href="mailto:rskstudio.support@gmail.com">rskstudio.support@gmail.com</a>
   </div>
   <div>
