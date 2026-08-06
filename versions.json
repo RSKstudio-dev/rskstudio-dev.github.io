@@ -21,6 +21,10 @@
     "RSK_NatureStudio": "10.0",
     "RSK_InteractionStudio": "2.1.0",
     "RSK_GamepadStudio": "7.4",
-    "RSK_TBSStudio": "2.0.2"
+    "RSK_TBSStudio": "2.0.2",
+    "RSK_TBS_HUD": "1.7.0",
+    "RSK_TBSMultiplayer": "2.3.0",
+    "RSK_TBSTitleNewGame": "1.3.0",
+    "RSK_TBSArena": "1.0.0"
   }
 }
