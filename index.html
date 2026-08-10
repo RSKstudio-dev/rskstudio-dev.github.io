@@ -64,7 +64,9 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .sec-title em{font-style:normal;color:var(--cyan)}
 .sec-sub{color:var(--text2);max-width:640px;font-size:.92rem;margin-bottom:2.5rem}
 .sec-rule{border:none;border-top:1px solid var(--border);margin-bottom:2.5rem}
-#tab-hero{background:var(--bg)}
+#tab-hero{background:var(--bg);position:relative}
+#tab-hero::before{content:'';position:absolute;inset:0;background:url('hero-bg.jpg') center/cover no-repeat;opacity:.15;pointer-events:none}
+.hero-banner{width:100%;max-width:700px;height:auto;border-radius:8px;margin-bottom:1rem;filter:drop-shadow(0 4px 20px rgba(0,0,0,.4))}
 .hero-wrap{position:relative;padding:4rem 0 2rem}
 .hero-logo-col{display:none}
 .hero-text{position:relative;z-index:1}
@@ -77,6 +79,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .tb-itch{font-size:.7rem;padding:5px 10px}.tb-yt{font-size:.7rem;padding:5px 10px}.tb-yt span{display:none}
 .tab-btn{padding:0 .8rem;font-size:.72rem;height:40px}.tab-btn .tab-num{display:none}.tab-lbl{font-size:.72rem}
 .hero-h1{font-size:3.2rem!important}
+.hero-banner{max-width:100%!important;border-radius:6px!important;margin-bottom:.8rem!important}
 .hero-tagline{font-size:.85rem!important;letter-spacing:.08em!important}
 .hero-for{font-size:.62rem!important}
 .hero-eyebrow{display:none!important}
@@ -119,7 +122,8 @@ footer{padding:1.2rem .8rem!important;font-size:.6rem!important;line-height:1.8!
 .hero-logo-spinner{display:inline-block}
 .hero-logo-img{width:420px;height:420px;border-radius:0;filter:none;animation:heroFloat 8s ease-in-out infinite;cursor:default}
 @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
-#tab-plugins{background:var(--bg2)}
+#tab-plugins{background:var(--bg2);position:relative}
+#tab-plugins::before{content:'';position:absolute;inset:0;background:url('plugins-bg.jpg') center/cover no-repeat;opacity:.06;pointer-events:none}
 .filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem}
 .filter-btn{background:var(--card);border:1px solid var(--border);border-radius:5px;cursor:pointer;font-family:var(--fm);font-size:.65rem;color:var(--text2);padding:5px 13px;letter-spacing:.07em;text-transform:uppercase;transition:all .2s}
 .filter-btn:hover{border-color:var(--border-lit);color:var(--text)}
@@ -177,7 +181,8 @@ tbody tr:hover{background:rgba(0,229,255,.025)}
 tbody td{padding:.62rem 1rem}
 tbody td:first-child{font-family:var(--fm);font-size:.77rem;color:var(--cyan)}
 .ck{color:var(--green)}.ds{color:var(--text3);font-size:.75rem}
-#tab-lic{background:var(--bg)}
+#tab-lic{background:var(--bg);position:relative}
+#tab-lic::before{content:'';position:absolute;inset:0;background:url('license-bg.jpg') center/cover no-repeat;opacity:.08;pointer-events:none}
 .lic-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:1.5rem}
 @media(max-width:600px){.lic-grid{grid-template-columns:1fr}}
 .lic-card{border-radius:10px;padding:1.5rem 1.7rem;border:1px solid}
@@ -343,11 +348,7 @@ body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{
       </div>
     </div>
     <div class="hero-text">
-      <p class="hero-eyebrow" data-l="en">by RSK Studio · rsk-studio.itch.io · 2026</p>
-      <p class="hero-eyebrow" data-l="es">por RSK Studio · rsk-studio.itch.io · 2026</p>
-      <h1 class="hero-h1"><span class="rsk">RSK<sup style="font-size:.3em;opacity:.6;vertical-align:super;letter-spacing:0;">&#8482;</sup></span><br>STUDIO</h1>
-      <p class="hero-tagline" data-l="en">Premium Plugins for RPG Maker MZ</p>
-      <p class="hero-tagline" data-l="es">Plugins Premium para RPG Maker MZ</p>
+      <img src="Banner_launcher.jpg" alt="RSK Studio — Professional Plugin Development for RPG Maker" class="hero-banner">
       <p class="hero-for" data-l="en">2026 · 22 Premium Plugins · RSK Studio Launcher · Steam & itch.io · Commercial Use ✓ · Android / JoiPlay / MalDives ✓</p>
       <p class="hero-for" data-l="es">2026 · 22 Plugins Premium · RSK Studio Launcher · Steam e itch.io · Uso Comercial ✓ · Android / JoiPlay / MalDives ✓</p>
       <div class="badge-row">
