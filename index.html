@@ -66,14 +66,12 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .sec-rule{border:none;border-top:1px solid var(--border);margin-bottom:2.5rem}
 #tab-hero{background:var(--bg)}
 .hero-wrap{position:relative;padding:4rem 0 2rem}
-.hero-logo-col{position:absolute;right:-30px;top:50%;transform:translateY(-50%);pointer-events:none;z-index:0;opacity:.12}
+.hero-logo-col{display:none}
 .hero-text{position:relative;z-index:1}
 @media(max-width:700px){
-.hero-logo-col{right:-60px;opacity:.08;top:40%}
 .purchase-info{grid-template-columns:1fr!important}
 #topbar{padding:0 .8rem;gap:.5rem;height:50px;flex-wrap:nowrap}
 .tb-logo-sub{display:none}.tb-logo-rsk{font-size:1.2rem}.tb-logo-icon{width:26px;height:26px}
-.hero-logo-img{width:280px!important;height:280px!important}
 .tb-steam,.tb-manual{display:none!important}
 .tb-itch{font-size:.7rem;padding:5px 10px}.tb-yt{font-size:.7rem;padding:5px 10px}.tb-yt span{display:none}
 .tab-btn{padding:0 .8rem;font-size:.72rem;height:40px}.tab-btn .tab-num{display:none}.tab-lbl{font-size:.72rem}
@@ -253,8 +251,7 @@ body.light .p-card:hover,body.light .faq-item:hover{border-color:var(--border-li
 body.light .filter-btn{background:var(--card);border-color:var(--border);color:#5a6580!important}body.light .filter-btn.active{border-color:var(--cyan);color:var(--cyan)!important}
 body.light .faq-a{background:var(--bg2)}body.light .purchase-info>div{background:rgba(0,0,0,.02)!important;border-color:var(--border)!important}
 body.light .cl-row{border-bottom-color:var(--border)}body.light footer{border-top-color:var(--border);color:#5a6580}body.light footer a{color:var(--cyan)!important}
-body.light .hero-logo-img{filter:none!important}
-body.light .hero-logo-col{opacity:.08!important}
+body.light .hero-logo-col{display:none!important}
 body.light .hero-h1{color:#1a2040!important}body.light .hero-h1 .rsk{-webkit-text-fill-color:var(--cyan)!important;background:none!important;filter:none!important}
 body.light .hero-tagline{color:var(--gold)!important}body.light .hero-for{color:#3a4560!important}body.light .hero-eyebrow{color:#5a6580!important}
 body.light .sec-title{color:#1a2040!important}body.light .sec-title em{color:var(--cyan)!important}body.light .sec-sub{color:#3a4560!important}
