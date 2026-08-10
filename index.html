@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 :root {
   --bg:#06071a;--bg2:#090b20;--bg3:#0c0f2a;--card:#0e1130;--card2:#111440;
   --cyan:#00e5ff;--cyan-dim:rgba(0,229,255,.12);--cyan-glow:rgba(0,229,255,.5);
@@ -35,7 +35,7 @@ html { scroll-behavior: smooth; }
   --text:#c8d8f0;--text2:#7a90b8;--text3:#3d5070;--grid:rgba(0,229,255,.03);
   --fn:'Exo 2',sans-serif;--fm:'Share Tech Mono',monospace;--fh:'Rajdhani',sans-serif;
 }
-body{background:var(--bg);color:var(--text);font-family:var(--fn);font-size:15px;line-height:1.65;overflow-x:hidden;min-height:100vh}
+body{background:var(--bg);color:var(--text);font-family:var(--fn);font-size:15px;line-height:1.65;overflow-x:hidden;min-height:100vh;max-width:100vw}
 body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;pointer-events:none;z-index:0}
 #topbar{position:sticky;top:0;z-index:200;background:rgba(6,7,26,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 1.5rem;height:56px;gap:1rem}
 .tb-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;flex-shrink:0}
@@ -211,7 +211,7 @@ tbody td:first-child{font-family:var(--fm);font-size:.77rem;color:var(--cyan)}
 @media(max-width:680px){.sup-grid{grid-template-columns:1fr}}
 .sup-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.8rem}
 .sup-card h3{font-family:var(--fh);font-weight:700;font-size:1rem;color:#fff;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem}
-.sup-email{display:inline-block;font-family:var(--fm);font-size:.95rem;color:var(--cyan);text-decoration:none;margin-bottom:1.2rem;transition:text-shadow .2s}
+.sup-email{display:inline-block;font-family:var(--fm);font-size:.95rem;color:var(--cyan);text-decoration:none;margin-bottom:1.2rem;transition:text-shadow .2s;word-break:break-all}
 .sup-email:hover{text-shadow:0 0 16px var(--cyan)}
 .sup-list{list-style:none;display:flex;flex-direction:column;gap:.45rem}
 .sup-list li{font-size:.85rem;color:var(--text);padding-left:1.3rem;position:relative}
@@ -223,7 +223,8 @@ tbody td:first-child{font-family:var(--fm);font-size:.77rem;color:var(--cyan)}
 .upd-text a:hover{text-decoration:underline}
 footer{border-top:1px solid var(--border);background:rgba(6,7,26,.95);padding:2rem;text-align:center;font-family:var(--fm);font-size:.68rem;color:var(--text2);letter-spacing:.07em;position:relative;z-index:1}
 footer a{color:var(--cyan);text-decoration:none}
-footer a:hover{text-decoration:underline}
+footer a:hover{text-decoration:underline;color:var(--cyan)!important}
+footer a[title]:hover{color:var(--cyan)!important;filter:drop-shadow(0 0 6px var(--cyan-glow))}
 body:not(.es) [data-l="es"]{display:none!important}
 body.es [data-l="en"]{display:none!important}
 body.es p[data-l="es"],body.es h2[data-l="es"],body.es h3[data-l="es"],body.es h4[data-l="es"],body.es div[data-l="es"],body.es li[data-l="es"]{display:block!important}
@@ -292,7 +293,7 @@ body.light [style*="background:#7c3aed"]{color:#fff!important}body.light a{color
 body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{display:inline!important}body.light .tb-theme{color:var(--cyan)!important}body.light .tb-theme svg{color:var(--cyan)!important;stroke:currentColor!important}
 .tb-manual{display:flex;align-items:center;gap:.4rem;background:transparent;color:var(--cyan);border:1px solid rgba(0,229,255,.25);border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;text-decoration:none;cursor:pointer;transition:all .2s;flex-shrink:0}.tb-manual:hover{background:rgba(0,229,255,.08);border-color:var(--cyan);box-shadow:0 0 16px rgba(0,229,255,.15)}
 .tb-yt{display:flex;align-items:center;gap:.4rem;background:#ff0000;color:#fff;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;text-decoration:none;cursor:pointer;transition:all .2s;box-shadow:0 0 16px rgba(255,0,0,.3);flex-shrink:0}.tb-yt:hover{background:#cc0000;box-shadow:0 0 24px rgba(255,0,0,.5)}.tb-yt svg{width:16px;height:16px;flex-shrink:0}
-.qn-tile{display:flex;flex-direction:column;align-items:flex-start;gap:.25rem;padding:1.2rem 1.4rem;background:var(--card);border:1px solid var(--border);border-radius:10px;cursor:pointer;text-align:left;transition:border-color .2s,transform .2s,box-shadow .2s;text-decoration:none}
+.qn-tile{display:flex;flex-direction:column;align-items:flex-start;gap:.25rem;padding:1.2rem 1.4rem;background:var(--card);border:1px solid var(--border);border-radius:10px;cursor:pointer;text-align:left;transition:border-color .2s,transform .2s,box-shadow .2s;text-decoration:none;overflow:hidden}
 .qn-tile:hover{border-color:var(--border-lit);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,229,255,.07)}
 .qn-icon{font-size:1.3rem;color:var(--cyan);font-family:var(--fm);line-height:1;margin-bottom:.2rem}
 .qn-title{font-family:var(--fh);font-weight:700;font-size:.92rem;color:#fff;text-transform:uppercase;letter-spacing:.06em}
@@ -430,7 +431,7 @@ body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{
     <button onclick="openTab('lic')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></span><span class="qn-title" data-l="en">License</span><span class="qn-title" data-l="es">Licencia</span><span class="qn-sub" data-l="en">Commercial use info</span><span class="qn-sub" data-l="es">Info uso comercial</span></button>
     <button onclick="openTab('cl')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><span class="qn-title">Changelog</span><span class="qn-sub">v1.0.0 — 2025</span></button>
     <button onclick="window.open('https://rskstudio-dev.github.io/manual.html','_blank')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></span><span class="qn-title" data-l="en">Manual</span><span class="qn-title" data-l="es">Manual</span><span class="qn-sub" data-l="en">Installation guide (11 languages)</span><span class="qn-sub" data-l="es">Guía de instalación (11 idiomas)</span></button>
-    <button onclick="openTab('sup')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="qn-title" data-l="en">Support</span><span class="qn-title" data-l="es">Soporte</span><span class="qn-sub"><a href="mailto:rskstudio.support@gmail.com">rskstudio.support@gmail.com</a></span></button>
+    <button onclick="openTab('sup')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="qn-title" data-l="en">Support</span><span class="qn-title" data-l="es">Soporte</span><span class="qn-sub" data-l="en">Email &amp; contact</span><span class="qn-sub" data-l="es">Email y contacto</span></button>
   </div>
 </div>
 </div>
@@ -574,14 +575,14 @@ body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{
 </div></div>
 
 <footer>
-  <div style="margin-bottom:.5rem;">
-    <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">RSK Studio</a> · 
-    <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener">Steam</a> · 
-    <a href="https://www.youtube.com/@rsk_studio_official" target="_blank" rel="noopener">YouTube</a> · 
-    <a href="https://discord.gg/HeDrVZd7j" target="_blank" rel="noopener">Discord</a> · 
-    <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" rel="noopener">Manual</a>
+  <div style="display:flex;justify-content:center;gap:1.2rem;margin-bottom:.8rem;flex-wrap:wrap;align-items:center;">
+    <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" title="itch.io" style="color:var(--cyan);transition:color .2s;display:flex;align-items:center"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M3.13 1.338C2.08 1.96.02 4.328 0 4.95v1.03c0 1.303.997 2.399 2.232 2.399 1.38 0 2.476-1.086 2.476-2.399 0 1.313 1.015 2.399 2.395 2.399 1.38 0 2.382-1.086 2.382-2.399 0 1.313 1.093 2.399 2.473 2.399h.044c1.38 0 2.473-1.086 2.473-2.399 0 1.313 1.002 2.399 2.382 2.399 1.38 0 2.395-1.086 2.395-2.399 0 1.313 1.096 2.399 2.476 2.399C22.003 8.379 23 7.283 23 5.98V4.95c-.02-.622-2.08-2.99-3.13-3.612C18.96.878 14.67.747 12 .747c-2.67 0-6.96.131-7.87.591zM2.2 10.6c-.37.27-.762.47-1.2.555v9.563c.03 1.29 1.09 2.432 2.382 2.535l2.713.09c1.705.054 3.21-.915 3.455-2.685l.37-2.583c.136-.974 1.93-.974 2.066 0l.37 2.583c.245 1.77 1.75 2.739 3.455 2.685l2.713-.09c1.292-.103 2.352-1.245 2.382-2.535V11.155c-.438-.085-.83-.285-1.2-.555-.607.464-1.32.723-2.076.723a2.86 2.86 0 0 1-2.159-.895 2.86 2.86 0 0 1-2.218.895 2.86 2.86 0 0 1-2.2-.895c-.57.567-1.348.895-2.2.895-.854 0-1.63-.328-2.2-.895a2.86 2.86 0 0 1-2.218.895A2.86 2.86 0 0 1 2.2 10.6z"/></svg></a>
+    <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener" title="Steam" style="color:var(--text2);transition:color .2s;display:flex;align-items:center"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M11.98 0C5.36 0 .02 5.06.02 11.34L6.08 14c.57-.39 1.25-.62 1.99-.62l2.97-4.3v-.06c0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5h-.1l-4.24 3.02c0 .05.01.1.01.15 0 1.86-1.52 3.38-3.38 3.38-1.65 0-3.03-1.2-3.32-2.77L.15 14.96C1.52 19.85 6.3 23.5 11.98 23.5c6.9 0 12.5-5.37 12.5-12S18.88 0 11.98 0z"/></svg></a>
+    <a href="https://www.youtube.com/@rsk_studio_official" target="_blank" rel="noopener" title="YouTube" style="color:var(--text2);transition:color .2s;display:flex;align-items:center"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+    <a href="https://discord.gg/HeDrVZd7j" target="_blank" rel="noopener" title="Discord" style="color:var(--text2);transition:color .2s;display:flex;align-items:center"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.87-.61 1.25a18.27 18.27 0 0 0-5.49 0 12.64 12.64 0 0 0-.62-1.25.08.08 0 0 0-.08-.04 19.74 19.74 0 0 0-4.89 1.52.07.07 0 0 0-.03.03C1.13 8.59.34 12.67.82 16.7a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 5.99 3.03.08.08 0 0 0 .08-.03c.46-.63.87-1.3 1.22-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1-.01-.13c.13-.09.25-.19.37-.29a.08.08 0 0 1 .08-.01c3.93 1.8 8.18 1.8 12.07 0a.08.08 0 0 1 .08.01c.12.1.25.2.37.29a.08.08 0 0 1 0 .13c-.6.35-1.22.65-1.87.9a.08.08 0 0 0-.04.11c.36.7.77 1.37 1.22 2a.08.08 0 0 0 .08.03 19.83 19.83 0 0 0 6-3.03.08.08 0 0 0 .03-.05c.56-5.8-.94-10.83-3.98-15.3a.06.06 0 0 0-.03-.03zM8.02 14.09c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.96-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.96 2.42-2.16 2.42zm7.97 0c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.96-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.95 2.42-2.16 2.42z"/></svg></a>
+    <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" rel="noopener" title="Manual" style="color:var(--text2);transition:color .2s;display:flex;align-items:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></a>
+    <a href="mailto:rskstudio.support@gmail.com" title="Email" style="color:var(--text2);transition:color .2s;display:flex;align-items:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
   </div>
-  <div style="margin-bottom:.3rem;"><a href="mailto:rskstudio.support@gmail.com">rskstudio.support@gmail.com</a></div>
   <div style="opacity:.5;"><span data-l="en">© 2026 RSK Studio · All rights reserved</span><span data-l="es">© 2026 RSK Studio · Todos los derechos reservados</span></div>
 </footer>
 <script>
