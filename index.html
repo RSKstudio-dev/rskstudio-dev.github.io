@@ -65,14 +65,15 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .sec-sub{color:var(--text2);max-width:640px;font-size:.92rem;margin-bottom:2.5rem}
 .sec-rule{border:none;border-top:1px solid var(--border);margin-bottom:2.5rem}
 #tab-hero{background:var(--bg)}
-.hero-wrap{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:start;padding:4rem 0 2rem}
+.hero-wrap{position:relative;padding:4rem 0 2rem}
+.hero-logo-col{position:absolute;right:-30px;top:50%;transform:translateY(-50%);pointer-events:none;z-index:0;opacity:.12}
+.hero-text{position:relative;z-index:1}
 @media(max-width:700px){
-.hero-wrap{grid-template-columns:1fr;text-align:center}
-.hero-logo-col{display:flex;justify-content:center;order:-1;margin-bottom:1rem}
+.hero-logo-col{right:-60px;opacity:.08;top:40%}
 .purchase-info{grid-template-columns:1fr!important}
 #topbar{padding:0 .8rem;gap:.5rem;height:50px;flex-wrap:nowrap}
 .tb-logo-sub{display:none}.tb-logo-rsk{font-size:1.2rem}.tb-logo-icon{width:26px;height:26px}
-.hero-logo-img{width:180px!important;height:180px!important}
+.hero-logo-img{width:280px!important;height:280px!important}
 .tb-steam,.tb-manual{display:none!important}
 .tb-itch{font-size:.7rem;padding:5px 10px}.tb-yt{font-size:.7rem;padding:5px 10px}.tb-yt span{display:none}
 .tab-btn{padding:0 .8rem;font-size:.72rem;height:40px}.tab-btn .tab-num{display:none}.tab-lbl{font-size:.72rem}
@@ -110,16 +111,9 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 @media(max-width:700px){.hero-stats{justify-content:center}}
 .stat-n{font-family:var(--fh);font-size:2.2rem;font-weight:900;color:var(--cyan);line-height:1}
 .stat-l{font-family:var(--fm);font-size:.6rem;color:var(--text2);text-transform:uppercase;letter-spacing:.12em;margin-top:3px}
-.hero-logo-col{position:relative}
-.hero-logo-col::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:340px;height:340px;background:radial-gradient(circle,rgba(0,229,255,.1) 0%,rgba(0,229,255,.04) 35%,transparent 65%);border-radius:50%;animation:aura-pulse 4s ease-in-out infinite;pointer-events:none}
-@keyframes aura-pulse{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}
-.hero-logo-spinner{animation:logoSpin 120s linear infinite;display:inline-block;position:relative;z-index:1}
-.hero-logo-spinner:hover{animation-play-state:running}
-.hero-logo-img{width:280px;height:280px;border-radius:0;filter:drop-shadow(0 0 20px rgba(0,229,255,.3)) drop-shadow(0 0 60px rgba(0,229,255,.1));animation:logo-glow 3.5s ease-in-out infinite,heroFloat 5s ease-in-out infinite;transition:transform .4s ease,filter .4s ease;cursor:pointer}
-.hero-logo-spinner:hover .hero-logo-img{animation-play-state:paused,paused;transform:scale(1.06);filter:drop-shadow(0 0 30px rgba(0,229,255,.5)) drop-shadow(0 0 80px rgba(0,229,255,.2)) brightness(1.08)}
-@keyframes logo-glow{0%,100%{filter:drop-shadow(0 0 20px rgba(0,229,255,.3)) drop-shadow(0 0 60px rgba(0,229,255,.1))}50%{filter:drop-shadow(0 0 35px rgba(0,229,255,.5)) drop-shadow(0 0 80px rgba(0,229,255,.15)) brightness(1.05)}}
-@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes logoSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.hero-logo-spinner{display:inline-block}
+.hero-logo-img{width:420px;height:420px;border-radius:0;filter:none;animation:heroFloat 8s ease-in-out infinite;cursor:default}
+@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
 #tab-plugins{background:var(--bg2)}
 .filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem}
 .filter-btn{background:var(--card);border:1px solid var(--border);border-radius:5px;cursor:pointer;font-family:var(--fm);font-size:.65rem;color:var(--text2);padding:5px 13px;letter-spacing:.07em;text-transform:uppercase;transition:all .2s}
@@ -259,8 +253,8 @@ body.light .p-card:hover,body.light .faq-item:hover{border-color:var(--border-li
 body.light .filter-btn{background:var(--card);border-color:var(--border);color:#5a6580!important}body.light .filter-btn.active{border-color:var(--cyan);color:var(--cyan)!important}
 body.light .faq-a{background:var(--bg2)}body.light .purchase-info>div{background:rgba(0,0,0,.02)!important;border-color:var(--border)!important}
 body.light .cl-row{border-bottom-color:var(--border)}body.light footer{border-top-color:var(--border);color:#5a6580}body.light footer a{color:var(--cyan)!important}
-body.light .hero-logo-img{filter:drop-shadow(0 0 15px rgba(0,0,0,.12)) drop-shadow(0 0 40px rgba(0,119,153,.08))!important;animation:heroFloat 5s ease-in-out infinite!important}
-body.light .hero-logo-col::before{background:radial-gradient(circle,rgba(0,119,153,.06) 0%,transparent 60%)!important}
+body.light .hero-logo-img{filter:none!important}
+body.light .hero-logo-col{opacity:.08!important}
 body.light .hero-h1{color:#1a2040!important}body.light .hero-h1 .rsk{-webkit-text-fill-color:var(--cyan)!important;background:none!important;filter:none!important}
 body.light .hero-tagline{color:var(--gold)!important}body.light .hero-for{color:#3a4560!important}body.light .hero-eyebrow{color:#5a6580!important}
 body.light .sec-title{color:#1a2040!important}body.light .sec-title em{color:var(--cyan)!important}body.light .sec-sub{color:#3a4560!important}
@@ -337,7 +331,12 @@ body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{
 <div class="tab-panel on" id="tab-hero">
 <canvas id="hero-canvas"></canvas>
 <div class="container" style="position:relative; overflow:visible;">
-  <div class="hero-wrap" style="overflow:visible;">
+  <div class="hero-wrap">
+    <div class="hero-logo-col">
+      <div class="hero-logo-spinner">
+        <img class="hero-logo-img" id="hero-logo-img" src="Logo_HD.png" alt="" onerror="this.style.display='none';">
+      </div>
+    </div>
     <div class="hero-text">
       <p class="hero-eyebrow" data-l="en">by RSK Studio · rsk-studio.itch.io · 2026</p>
       <p class="hero-eyebrow" data-l="es">por RSK Studio · rsk-studio.itch.io · 2026</p>
@@ -418,15 +417,7 @@ body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{
         <div><div class="stat-n" data-target="3">0</div><div class="stat-l" data-l="en">Platforms</div><div class="stat-l" data-l="es">Plataformas</div></div>
       </div>
     </div>
-    <div class="hero-logo-col" style="overflow:visible;">
-      <div class="hero-logo-spinner">
-        <img class="hero-logo-img" id="hero-logo-img" src="Logo_HD.png" alt="RSK Plugin Suite" onerror="this.style.display='none'; document.getElementById('hero-logo-svg').style.display='flex';">
-      </div>
-      <div id="hero-logo-svg" class="hex-logo-wrap" style="display:none;">
-        <div class="hex-logo-glow"></div>
-        <svg class="hex-logo-svg" width="180" height="180" viewBox="0 0 200 200"><polygon points="100,10 185,55 185,145 100,190 15,145 15,55" fill="#0a0c24" stroke="#00e5ff" stroke-width="2.5"/><polygon points="100,28 168,68 168,132 100,172 32,132 32,68" fill="none" stroke="#00e5ff" stroke-width=".8" opacity=".4"/><text x="100" y="108" text-anchor="middle" dominant-baseline="middle" font-family="Rajdhani,sans-serif" font-size="62" font-weight="900" fill="#00e5ff">RSK</text><text x="168" y="38" text-anchor="middle" dominant-baseline="middle" font-family="Rajdhani,sans-serif" font-size="16" font-weight="700" fill="#00e5ff" opacity=".7">&#8482;</text></svg>
-      </div>
-    </div>
+
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.8rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--border);">
     <button onclick="openTab('plugins')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5z"/></svg></span><span class="qn-title" data-l="en">Plugins</span><span class="qn-title" data-l="es">Plugins</span><span class="qn-sub" data-l="en">22 premium plugins</span><span class="qn-sub" data-l="es">22 plugins premium</span></button>
