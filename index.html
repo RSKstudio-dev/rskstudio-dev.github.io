@@ -68,8 +68,11 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 #tab-hero::before{content:'';position:absolute;inset:0;background:url('hero-bg.jpg') center/cover no-repeat;opacity:.15;pointer-events:none}
 .hero-banner{width:100%;max-width:100%;height:auto;border-radius:8px;margin-bottom:1.2rem;filter:drop-shadow(0 4px 20px rgba(0,0,0,.4));transition:transform .5s ease,filter .5s ease;cursor:pointer;display:block}
 .hero-banner:hover{transform:scale(1.015);filter:drop-shadow(0 4px 30px rgba(0,229,255,.2)) brightness(1.08)}
-.hero-banner-wrap{position:relative;margin-bottom:1.5rem}
+.hero-banner-wrap{position:relative;margin-bottom:1.5rem;overflow:hidden;border-radius:8px}
 .hero-banner-wrap::after{content:'';position:absolute;bottom:-8px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.3;border-radius:2px}
+.hero-banner-wrap::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(0,229,255,.08) 45%,rgba(255,255,255,.06) 50%,rgba(0,229,255,.08) 55%,transparent 60%);background-size:300% 100%;animation:bannerSweep 5s ease-in-out infinite}
+@keyframes bannerSweep{0%,100%{background-position:150% 0}50%{background-position:-50% 0}}
+.banner-particles{position:absolute;inset:0;z-index:1;pointer-events:none}
 .hero-wrap{position:relative;padding:4rem 0 2rem}
 .hero-logo-col{display:none}
 .hero-text{position:relative;z-index:1}
@@ -363,6 +366,7 @@ body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{
     </div>
     <div class="hero-text">
       <div class="hero-banner-wrap">
+        <canvas class="banner-particles" id="banner-particles"></canvas>
         <img src="Banner_launcher.jpg" alt="RSK Studio — Professional Plugin Development for RPG Maker" class="hero-banner">
       </div>
       <p class="hero-for" data-l="en">2026 · 22 Premium Plugins · RSK Studio Launcher · Steam & itch.io · Commercial Use ✓ · Android / JoiPlay / MalDives ✓</p>
@@ -724,6 +728,7 @@ function toggleFaq(btn){btn.classList.toggle("open");btn.nextElementSibling.clas
 function animateCounters(){document.querySelectorAll(".stat-n[data-target]").forEach(function(el){var t=parseInt(el.getAttribute("data-target")),c=0;el.textContent=0;var iv=setInterval(function(){c++;el.textContent=c;if(c>=t)clearInterval(iv);},1000/t);});}var _sA=false,_sO=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting&&!_sA){_sA=true;animateCounters();_sO.disconnect();}});});_sO.observe(document.querySelector(".hero-stats"));
 function toggleTheme(){document.body.classList.toggle('light');var isLight=document.body.classList.contains('light');localStorage.setItem('rsk-theme',isLight?'light':'dark');}
 (function(){var saved=localStorage.getItem('rsk-theme');if(saved==='light')document.body.classList.add('light');})();
+(function(){var bc=document.getElementById("banner-particles");if(!bc)return;var bctx=bc.getContext("2d");var bpts=[];function bresize(){var wrap=bc.parentElement;bc.width=wrap.offsetWidth;bc.height=wrap.offsetHeight;}function bmk(){return{x:Math.random()*bc.width,y:Math.random()*bc.height,r:Math.random()*1.8+.3,vx:(Math.random()-.5)*.2,vy:-(Math.random()*.3+.1),a:Math.random()*Math.PI*2,life:Math.random()};}bresize();window.addEventListener("resize",bresize);for(var i=0;i<35;i++)bpts.push(bmk());function bdraw(){bctx.clearRect(0,0,bc.width,bc.height);bpts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.a+=.02;p.life+=.003;if(p.y<-5||p.life>1){p.x=Math.random()*bc.width;p.y=bc.height+5;p.life=0;}var alpha=0.3+0.4*Math.abs(Math.sin(p.a));alpha*=(1-p.life);bctx.beginPath();bctx.arc(p.x,p.y,p.r,0,Math.PI*2);bctx.fillStyle="rgba(0,229,255,"+alpha+")";bctx.fill();bctx.beginPath();bctx.arc(p.x,p.y,p.r*3,0,Math.PI*2);bctx.fillStyle="rgba(0,229,255,"+(alpha*.15)+")";bctx.fill();});requestAnimationFrame(bdraw);}bdraw();})();
 </script>
 </body>
 </html>
