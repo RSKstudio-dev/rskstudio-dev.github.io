@@ -69,8 +69,8 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .hero-banner{width:100%;max-width:100%;height:auto;border-radius:8px;margin-bottom:1.2rem;filter:drop-shadow(0 4px 20px rgba(0,0,0,.4));transition:transform .5s ease,filter .5s ease;cursor:pointer;display:block}
 .hero-banner:hover{transform:scale(1.015);filter:drop-shadow(0 4px 30px rgba(0,229,255,.2)) brightness(1.08)}
 .hero-banner-wrap{position:relative;margin-bottom:1.5rem;overflow:hidden;border-radius:8px}
-.hero-banner-wrap::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 42%,rgba(0,229,255,.05) 46%,rgba(255,255,255,.04) 50%,rgba(0,229,255,.05) 54%,transparent 58%);background-size:300% 100%;animation:bannerSweep 5s ease-in-out infinite}
-@keyframes bannerSweep{0%,100%{background-position:150% 0}50%{background-position:-50% 0}}
+.hero-banner-wrap::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 44%,rgba(255,255,255,.04) 49%,rgba(255,255,255,.06) 50%,rgba(255,255,255,.04) 51%,transparent 56%);background-size:400% 100%;animation:bannerSweep 6s ease-in-out infinite}
+@keyframes bannerSweep{0%,85%,100%{background-position:200% 0}40%,45%{background-position:-100% 0}}
 .banner-particles{position:absolute;inset:0;z-index:1;pointer-events:none;background:transparent}
 .hero-wrap{position:relative;padding:4rem 0 2rem}
 .hero-logo-col{display:none}
@@ -89,7 +89,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .hero-for{font-size:.62rem!important}
 .hero-eyebrow{display:none!important}
 .badge-row{gap:.35rem}.badge{font-size:.55rem!important;padding:3px 7px!important}
-.hero-btns{flex-direction:column;gap:.5rem}.hero-btns .btn-p,.hero-btns .btn-s{width:100%;justify-content:center}
+.hero-btns{flex-direction:row;flex-wrap:wrap;gap:.5rem}.hero-btns .btn-p{flex:1;min-width:0;justify-content:center}.hero-btns .btn-s{width:100%;justify-content:center}
 .hero-stats{gap:1rem}.stat-n{font-size:1.8rem!important}
 .p-grid{grid-template-columns:1fr!important}.p-card{padding:1rem!important}
 .filter-bar{flex-wrap:wrap;gap:.3rem}.filter-btn{font-size:.65rem;padding:5px 8px}
