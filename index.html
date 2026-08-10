@@ -69,9 +69,9 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .hero-banner{width:100%;max-width:100%;height:auto;border-radius:8px;margin-bottom:1.2rem;filter:drop-shadow(0 4px 20px rgba(0,0,0,.4));transition:transform .5s ease,filter .5s ease;cursor:pointer;display:block}
 .hero-banner:hover{transform:scale(1.015);filter:drop-shadow(0 4px 30px rgba(0,229,255,.2)) brightness(1.08)}
 .hero-banner-wrap{position:relative;margin-bottom:1.5rem;overflow:hidden;border-radius:8px}
-.hero-banner-wrap::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(0,229,255,.08) 45%,rgba(255,255,255,.06) 50%,rgba(0,229,255,.08) 55%,transparent 60%);background-size:300% 100%;animation:bannerSweep 5s ease-in-out infinite}
+.hero-banner-wrap::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 42%,rgba(0,229,255,.05) 46%,rgba(255,255,255,.04) 50%,rgba(0,229,255,.05) 54%,transparent 58%);background-size:300% 100%;animation:bannerSweep 5s ease-in-out infinite}
 @keyframes bannerSweep{0%,100%{background-position:150% 0}50%{background-position:-50% 0}}
-.banner-particles{position:absolute;inset:0;z-index:1;pointer-events:none}
+.banner-particles{position:absolute;inset:0;z-index:1;pointer-events:none;background:transparent}
 .hero-wrap{position:relative;padding:4rem 0 2rem}
 .hero-logo-col{display:none}
 .hero-text{position:relative;z-index:1}
@@ -286,9 +286,9 @@ body.light .filter-btn{background:var(--card);border-color:var(--border);color:#
 body.light .faq-a{background:var(--bg2)}body.light .purchase-info>div{background:rgba(0,0,0,.02)!important;border-color:var(--border)!important}
 body.light .cl-row{border-bottom-color:var(--border)}body.light footer{border-top-color:var(--border);color:#5a6580;background:rgba(240,242,248,.95)!important}body.light footer a{color:#5a6580!important}body.light footer a:hover{color:var(--cyan)!important;filter:drop-shadow(0 0 6px rgba(0,119,153,.3))!important}
 body.light .hero-logo-col{display:none!important}
-body.light #tab-hero::before{opacity:.08!important}
-body.light #tab-plugins::before{opacity:.04!important}
-body.light #tab-lic::before{opacity:.05!important}
+body.light #tab-hero::before{opacity:.18!important;mix-blend-mode:multiply}
+body.light #tab-plugins::before{opacity:.1!important;mix-blend-mode:multiply}
+body.light #tab-lic::before{opacity:.12!important;mix-blend-mode:multiply}
 body.light #hero-canvas{opacity:.25!important}
 body.light .banner-particles{opacity:.4!important}
 body.light .hero-banner-wrap::before{background:linear-gradient(105deg,transparent 40%,rgba(0,119,153,.06) 45%,rgba(255,255,255,.08) 50%,rgba(0,119,153,.06) 55%,transparent 60%)!important}
