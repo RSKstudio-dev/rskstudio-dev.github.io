@@ -79,7 +79,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .hero-h1{font-size:3.2rem!important}
 .hero-tagline{font-size:.85rem!important;letter-spacing:.08em!important}
 .hero-for{font-size:.62rem!important}
-.hero-eyebrow{font-size:.6rem!important}
+.hero-eyebrow{display:none!important}
 .badge-row{gap:.35rem}.badge{font-size:.55rem!important;padding:3px 7px!important}
 .hero-btns{flex-direction:column;gap:.5rem}.hero-btns .btn-p,.hero-btns .btn-s{width:100%;justify-content:center}
 .hero-stats{gap:1rem}.stat-n{font-size:1.8rem!important}
@@ -91,6 +91,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .container{padding:1.5rem 1rem 3rem!important}
 #hero-canvas{height:100%!important;opacity:.3!important}
 .sec-title{font-size:1.6rem!important}
+footer{padding:1.2rem .8rem!important;font-size:.6rem!important;line-height:1.8!important}
 }
 .hero-eyebrow{font-family:var(--fm);font-size:.7rem;color:var(--cyan);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1rem;opacity:.8}
 .hero-h1{font-family:var(--fh);font-size:clamp(3rem,7vw,5.5rem);font-weight:900;line-height:.9;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:.5rem}
@@ -573,8 +574,15 @@ body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{
 </div></div>
 
 <footer>
-  <div style="margin-bottom:.3rem;">RSK Plugin Suite · by <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">RSK Studio</a> · <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener">Steam</a> · <a href="https://www.youtube.com/@rsk_studio_official" target="_blank" rel="noopener">YouTube</a> · <a href="https://discord.gg/HeDrVZd7j" target="_blank" rel="noopener">Discord</a> · <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" rel="noopener">Manual</a> · <a href="mailto:rskstudio.support@gmail.com">rskstudio.support@gmail.com</a></div>
-  <div><span data-l="en">© 2026 RSK Studio · Non-transferable license · All rights reserved.</span><span data-l="es">© 2026 RSK Studio · Licencia no transferible · Todos los derechos reservados.</span></div>
+  <div style="margin-bottom:.5rem;">
+    <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">RSK Studio</a> · 
+    <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener">Steam</a> · 
+    <a href="https://www.youtube.com/@rsk_studio_official" target="_blank" rel="noopener">YouTube</a> · 
+    <a href="https://discord.gg/HeDrVZd7j" target="_blank" rel="noopener">Discord</a> · 
+    <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" rel="noopener">Manual</a>
+  </div>
+  <div style="margin-bottom:.3rem;"><a href="mailto:rskstudio.support@gmail.com">rskstudio.support@gmail.com</a></div>
+  <div style="opacity:.5;"><span data-l="en">© 2026 RSK Studio · All rights reserved</span><span data-l="es">© 2026 RSK Studio · Todos los derechos reservados</span></div>
 </footer>
 <script>
 const PLUGINS = [
