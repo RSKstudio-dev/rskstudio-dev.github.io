@@ -69,22 +69,30 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .hero-logo-col{display:none}
 .hero-text{position:relative;z-index:1}
 @media(max-width:700px){
+.hero-wrap{padding:1.5rem 0 1rem!important}
+.hero-eyebrow{text-align:center}
 .purchase-info{grid-template-columns:1fr!important}
 #topbar{padding:0 .8rem;gap:.5rem;height:50px;flex-wrap:nowrap}
 .tb-logo-sub{display:none}.tb-logo-rsk{font-size:1.2rem}.tb-logo-icon{width:26px;height:26px}
-.tb-steam,.tb-manual{display:none!important}
+.tb-steam,.tb-manual,.tb-discord{display:none!important}
 .tb-itch{font-size:.7rem;padding:5px 10px}.tb-yt{font-size:.7rem;padding:5px 10px}.tb-yt span{display:none}
 .tab-btn{padding:0 .8rem;font-size:.72rem;height:40px}.tab-btn .tab-num{display:none}.tab-lbl{font-size:.72rem}
-.hero-title{font-size:2.8rem!important}.hero-subtitle{font-size:1.2rem!important}.hero-eyebrow{font-size:.6rem}.hero-for{font-size:.65rem!important}
-.badge-row{gap:.3rem}.badge{font-size:.6rem!important;padding:4px 8px!important}
+.hero-h1{font-size:3.2rem!important;text-align:center}
+.hero-tagline{text-align:center;font-size:1rem!important}
+.hero-for{font-size:.65rem!important;text-align:center}
+.badge-row{gap:.4rem;justify-content:center}
+.badge{font-size:.58rem!important;padding:4px 8px!important}
 .hero-btns{flex-direction:column;gap:.5rem}.hero-btns .btn-p,.hero-btns .btn-s{width:100%;justify-content:center}
-.hero-stats{gap:1rem}.stat-n{font-size:1.8rem!important}
+.hero-stats{gap:1rem;justify-content:center}.stat-n{font-size:1.8rem!important}
 .p-grid{grid-template-columns:1fr!important}.p-card{padding:1rem!important}
 .filter-bar{flex-wrap:wrap;gap:.3rem}.filter-btn{font-size:.65rem;padding:5px 8px}
 .purchase-info>div{padding:.8rem 1rem!important}
-.qn-grid{grid-template-columns:1fr 1fr!important;gap:.5rem!important}.qn-tile{padding:.8rem!important}.qn-icon{font-size:1.2rem!important}
+.qn-tile{padding:.8rem!important}.qn-icon{font-size:1.2rem!important}
 .tab-panel{padding:1.5rem 1rem!important}
+.container{padding:1.5rem 1rem 3rem!important}
 .compat-wrap{overflow-x:auto}.compat-wrap table{min-width:500px}
+#hero-canvas{height:100%!important;opacity:.3!important}
+.sec-title{font-size:1.6rem!important}
 }
 .hero-eyebrow{font-family:var(--fm);font-size:.7rem;color:var(--cyan);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1rem;opacity:.8}
 .hero-h1{font-family:var(--fh);font-size:clamp(3rem,7vw,5.5rem);font-weight:900;line-height:.9;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:.5rem}
@@ -416,7 +424,7 @@ body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{
     </div>
 
   </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.8rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--border);">
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.8rem;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border);">
     <button onclick="openTab('plugins')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5z"/></svg></span><span class="qn-title" data-l="en">Plugins</span><span class="qn-title" data-l="es">Plugins</span><span class="qn-sub" data-l="en">22 premium plugins</span><span class="qn-sub" data-l="es">22 plugins premium</span></button>
     <button onclick="openTab('qs')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><polygon points="5,3 19,12 5,21" fill="currentColor" opacity=".3"/><polygon points="5,3 19,12 5,21"/></svg></span><span class="qn-title" data-l="en">Quick Start</span><span class="qn-title" data-l="es">Inicio Rápido</span><span class="qn-sub" data-l="en">Install in 4 steps</span><span class="qn-sub" data-l="es">Instala en 4 pasos</span></button>
     <button onclick="openTab('compat')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></span><span class="qn-title" data-l="en">Compatibility</span><span class="qn-title" data-l="es">Compatibilidad</span><span class="qn-sub" data-l="en">Platform matrix</span><span class="qn-sub" data-l="es">Matriz de plataformas</span></button>
