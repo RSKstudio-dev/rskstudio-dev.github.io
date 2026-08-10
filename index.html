@@ -69,7 +69,6 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .hero-banner{width:100%;max-width:100%;height:auto;border-radius:8px;margin-bottom:1.2rem;filter:drop-shadow(0 4px 20px rgba(0,0,0,.4));transition:transform .5s ease,filter .5s ease;cursor:pointer;display:block}
 .hero-banner:hover{transform:scale(1.015);filter:drop-shadow(0 4px 30px rgba(0,229,255,.2)) brightness(1.08)}
 .hero-banner-wrap{position:relative;margin-bottom:1.5rem;overflow:hidden;border-radius:8px}
-.hero-banner-wrap::after{content:'';position:absolute;bottom:-8px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.3;border-radius:2px}
 .hero-banner-wrap::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(0,229,255,.08) 45%,rgba(255,255,255,.06) 50%,rgba(0,229,255,.08) 55%,transparent 60%);background-size:300% 100%;animation:bannerSweep 5s ease-in-out infinite}
 @keyframes bannerSweep{0%,100%{background-position:150% 0}50%{background-position:-50% 0}}
 .banner-particles{position:absolute;inset:0;z-index:1;pointer-events:none}
@@ -131,6 +130,11 @@ footer{padding:1.2rem .8rem!important;font-size:.6rem!important;line-height:1.8!
 #tab-plugins{background:var(--bg2);position:relative}
 #tab-plugins::before{content:'';position:absolute;inset:0;background:url('plugins-bg.jpg') center/cover no-repeat;opacity:.06;pointer-events:none}
 .filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.search-wrap{position:relative;margin-bottom:1rem;max-width:320px}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none}
+.search-input{width:100%;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:8px 12px 8px 36px;font-family:var(--fm);font-size:.78rem;color:var(--text);letter-spacing:.05em;outline:none;transition:border-color .2s,box-shadow .2s}
+.search-input:focus{border-color:var(--cyan);box-shadow:0 0 12px rgba(0,229,255,.1)}
+.search-input::placeholder{color:var(--text3)}
 .filter-btn{background:var(--card);border:1px solid var(--border);border-radius:5px;cursor:pointer;font-family:var(--fm);font-size:.65rem;color:var(--text2);padding:5px 13px;letter-spacing:.07em;text-transform:uppercase;transition:all .2s}
 .filter-btn:hover{border-color:var(--border-lit);color:var(--text)}
 .filter-btn.on{border-color:var(--cyan);color:var(--cyan);background:var(--cyan-dim)}
@@ -280,8 +284,20 @@ body.light .p-card,body.light .faq-item,body.light .qs-card,body.light .sup-card
 body.light .p-card:hover,body.light .faq-item:hover{border-color:var(--border-lit);box-shadow:0 4px 16px rgba(0,0,0,.08)}
 body.light .filter-btn{background:var(--card);border-color:var(--border);color:#5a6580!important}body.light .filter-btn.active{border-color:var(--cyan);color:var(--cyan)!important}
 body.light .faq-a{background:var(--bg2)}body.light .purchase-info>div{background:rgba(0,0,0,.02)!important;border-color:var(--border)!important}
-body.light .cl-row{border-bottom-color:var(--border)}body.light footer{border-top-color:var(--border);color:#5a6580}body.light footer a{color:var(--cyan)!important}
+body.light .cl-row{border-bottom-color:var(--border)}body.light footer{border-top-color:var(--border);color:#5a6580;background:rgba(240,242,248,.95)!important}body.light footer a{color:#5a6580!important}body.light footer a:hover{color:var(--cyan)!important;filter:drop-shadow(0 0 6px rgba(0,119,153,.3))!important}
 body.light .hero-logo-col{display:none!important}
+body.light #tab-hero::before{opacity:.08!important}
+body.light #tab-plugins::before{opacity:.04!important}
+body.light #tab-lic::before{opacity:.05!important}
+body.light #hero-canvas{opacity:.25!important}
+body.light .banner-particles{opacity:.4!important}
+body.light .hero-banner-wrap::before{background:linear-gradient(105deg,transparent 40%,rgba(0,119,153,.06) 45%,rgba(255,255,255,.08) 50%,rgba(0,119,153,.06) 55%,transparent 60%)!important}
+body.light .search-input{background:#fff!important;border-color:var(--border)!important;color:#1a2040!important}
+body.light .search-input:focus{border-color:var(--cyan)!important}
+body.light .search-icon{color:#8a9ab8!important}
+body.light .p-pack-label{background:rgba(255,160,40,.08)!important;color:#b87800!important;border-color:rgba(255,160,40,.25)!important}
+body.light .p-card-tbs{border-color:rgba(200,130,30,.25)!important}
+body.light .p-card-tbs:hover{border-color:rgba(200,130,30,.4)!important}
 body.light .hero-h1{color:#1a2040!important}body.light .hero-h1 .rsk{-webkit-text-fill-color:var(--cyan)!important;background:none!important;filter:none!important}
 body.light .hero-tagline{color:var(--gold)!important}body.light .hero-for{color:#3a4560!important}body.light .hero-eyebrow{color:#5a6580!important}
 body.light .sec-title{color:#1a2040!important}body.light .sec-title em{color:var(--cyan)!important}body.light .sec-sub{color:#3a4560!important}
@@ -462,6 +478,10 @@ body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{
   <h2 class="sec-title" data-l="en">All <em>RSK Studio Plugins</em></h2><h2 class="sec-title" data-l="es">Todos los <em>Plugins RSK Studio</em></h2>
   <p class="sec-sub" data-l="en">Click any card to expand features and plugin commands. Filter by platform compatibility.</p><p class="sec-sub" data-l="es">Haz clic en cualquier tarjeta para ver características y comandos. Filtra por compatibilidad de plataforma.</p>
   <hr class="sec-rule">
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" class="search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="plugin-search" class="search-input" placeholder="" data-ph-en="Search plugins..." data-ph-es="Buscar plugins..." oninput="searchPlugins(this.value)">
+  </div>
   <div class="filter-bar">
     <button class="filter-btn on" data-filter="all" onclick="filterPlugins(this,'all')" data-l="en">All <span class="filter-count" id="fc-all-en"></span></button><button class="filter-btn on" data-filter="all" onclick="filterPlugins(this,'all')" data-l="es">Todos <span class="filter-count" id="fc-all-es"></span></button>
     <button class="filter-btn filter-btn-suite" data-filter="suite" onclick="filterPlugins(this,'suite')">Engine Suite <span class="filter-count" id="fc-suite"></span></button>
@@ -709,11 +729,13 @@ const CL_DATA = [
 
 let lang='en';let curTab='hero';let curFilter='all';
 const TAB_LABELS={hero:{en:'Home',es:'Inicio'},plugins:{en:'Plugins',es:'Plugins'},qs:{en:'Quick Start',es:'Inicio Rápido'},compat:{en:'Compatibility',es:'Compatibilidad'},lic:{en:'License',es:'Licencia'},cl:{en:'Changelog',es:'Changelog'},faq:{en:'FAQ',es:'FAQ'},sup:{en:'Support',es:'Soporte'}};
-function updateTabLabels(){Object.keys(TAB_LABELS).forEach(id=>{const btn=document.getElementById('tnav-'+id);if(btn){const lbl=btn.querySelector('.tab-lbl');if(lbl)lbl.textContent=TAB_LABELS[id][lang];}});}
+function updateTabLabels(){Object.keys(TAB_LABELS).forEach(id=>{const btn=document.getElementById('tnav-'+id);if(btn){const lbl=btn.querySelector('.tab-lbl');if(lbl)lbl.textContent=TAB_LABELS[id][lang];}});var si=document.getElementById('plugin-search');if(si)si.placeholder=si.getAttribute('data-ph-'+lang)||'';}
+var searchTerm='';
+function searchPlugins(val){searchTerm=val.toLowerCase();buildPlugins();}
 function setLang(l){lang=l;document.body.classList.toggle('es',l==='es');document.getElementById('lbtn-en').classList.toggle('on',l==='en');document.getElementById('lbtn-es').classList.toggle('on',l==='es');updateTabLabels();buildPlugins();buildChangelog();}
 function openTab(id){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('on'));document.getElementById('tab-'+id).classList.add('on');document.getElementById('tnav-'+id).classList.add('on');curTab=id;window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>{document.querySelectorAll('#tab-'+id+' .rev').forEach(el=>{observer.observe(el);});},50);}
 function compatBadges(compat){return compat.map(c=>{if(c==='joiplay')return'<span class="ct ct-j" data-tip="Compatible with Android, JoiPlay & MalDives">Android / JoiPlay / MalDives</span>';if(c==='maldives')return'';if(c==='browser')return'<span class="ct ct-b" data-tip="Works in Browser & NW.js desktop">Browser</span>';if(c==='vistella')return'<span class="ct ct-vs" data-tip="VisuStella Core Engine compatible">VisuStella</span>';return'';}).join('');}
-function buildPlugins(){const grid=document.getElementById('pgrid');const filtered=getFiltered();grid.innerHTML=filtered.map((p,i)=>{const thumbHtml=p.thumb?'<div class="p-thumb-wrap"><img src="'+p.thumb+'" alt="'+p.name+'" class="p-thumb" loading="lazy"></div>':'';const packClass=p.pack==='tbs'?' p-card-tbs':'';const packLabel=p.pack==='tbs'?'<span class="p-pack-label">'+(lang==='en'?'TBS EXPANSION':'EXPANSI\u00d3N TBS')+'</span>':'';const linkOpen=p.url?'<a href="'+p.url+'" target="_blank" rel="noopener" class="p-card-link">':'';const linkClose=p.url?'</a>':'';return linkOpen+'<div class="p-card'+packClass+'" style="animation-delay:'+i*60+'ms">'+thumbHtml+'<div class="p-info">'+packLabel+'<div class="p-head"><div class="p-name">'+p.name+(p.badge?'<span class="p-badge-new'+(p.badge==='FREE'?' p-badge-free':'')+'">'+p.badge+'</span>':'')+'</div><span class="p-ver">'+p.ver+'</span></div><div class="p-cat">'+p.cat[lang]+'</div><div class="p-compat">'+compatBadges(p.compat)+'</div></div></div>'+linkClose;}).join('');grid.querySelectorAll('.rev').forEach(el=>observer.observe(el));}
+function buildPlugins(){const grid=document.getElementById('pgrid');var filtered=getFiltered();if(searchTerm){filtered=filtered.filter(p=>p.name.toLowerCase().includes(searchTerm)||p.cat.en.toLowerCase().includes(searchTerm)||p.cat.es.toLowerCase().includes(searchTerm));}grid.innerHTML=filtered.map((p,i)=>{const thumbHtml=p.thumb?'<div class="p-thumb-wrap"><img src="'+p.thumb+'" alt="'+p.name+'" class="p-thumb" loading="lazy"></div>':'';const packClass=p.pack==='tbs'?' p-card-tbs':'';const packLabel=p.pack==='tbs'?'<span class="p-pack-label">'+(lang==='en'?'TBS EXPANSION':'EXPANSI\u00d3N TBS')+'</span>':'';const linkOpen=p.url?'<a href="'+p.url+'" target="_blank" rel="noopener" class="p-card-link">':'';const linkClose=p.url?'</a>':'';return linkOpen+'<div class="p-card'+packClass+'" style="animation-delay:'+i*60+'ms">'+thumbHtml+'<div class="p-info">'+packLabel+'<div class="p-head"><div class="p-name">'+p.name+(p.badge?'<span class="p-badge-new'+(p.badge==='FREE'?' p-badge-free':'')+'">'+p.badge+'</span>':'')+'</div><span class="p-ver">'+p.ver+'</span></div><div class="p-cat">'+p.cat[lang]+'</div><div class="p-compat">'+compatBadges(p.compat)+'</div></div></div>'+linkClose;}).join('');grid.querySelectorAll('.rev').forEach(el=>observer.observe(el));}
 function toggleCard(btn){const body=btn.nextElementSibling;const open=btn.classList.toggle('open');body.classList.toggle('vis',open);}
 function filterPlugins(btn,filter){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');curFilter=filter;buildPlugins();}
 function getFiltered(){if(curFilter==='all')return PLUGINS;if(curFilter==='suite')return PLUGINS.filter(p=>!p.pack||p.pack!=='tbs');if(curFilter==='tbs')return PLUGINS.filter(p=>p.pack==='tbs');return PLUGINS.filter(p=>p.compat.includes(curFilter));}
