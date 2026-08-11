@@ -69,8 +69,6 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .hero-banner{width:100%;max-width:100%;height:auto;border-radius:0;margin-bottom:0;transition:transform .5s ease,filter .5s ease;cursor:pointer;display:block}
 .hero-banner:hover{transform:scale(1.015);filter:brightness(1.08)}
 .hero-banner-wrap{position:relative;margin-bottom:1.5rem;overflow:hidden;border-radius:8px}
-.hero-banner-wrap::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background-image:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.04) 47%,rgba(255,255,255,.07) 50%,rgba(255,255,255,.04) 53%,transparent 58%);background-size:400% 100%;animation:bannerSweep 12s linear infinite}
-@keyframes bannerSweep{0%{background-position:200% 0}12%{background-position:-100% 0}12.01%{background-position:200% 0}100%{background-position:200% 0}}
 .banner-particles{position:absolute;inset:0;z-index:1;pointer-events:none}
 .hero-wrap{position:relative;padding:4rem 0 2rem}
 .hero-logo-col{display:none}
@@ -291,7 +289,6 @@ body.light #tab-hero::before{opacity:.18!important;mix-blend-mode:multiply}
 body.light #tab-plugins::before{opacity:.1!important;mix-blend-mode:multiply}
 body.light #tab-lic::before{opacity:.12!important;mix-blend-mode:multiply}
 body.light #hero-canvas{opacity:.25!important}
-body.light .hero-banner-wrap::before{background-image:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.25) 44%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.25) 56%,transparent 62%)!important}
 body.light .search-input{background:#fff!important;border-color:var(--border)!important;color:#1a2040!important}
 body.light .search-input:focus{border-color:var(--cyan)!important}
 body.light .search-icon{color:#8a9ab8!important}
@@ -428,8 +425,8 @@ body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{
         <div style="font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.08em;margin-bottom:.5rem"><span style="color:#7c3aed" data-l="en">⚔ TBS MULTIPLAYER PACK</span><span style="color:#7c3aed" data-l="es">⚔ PACK TBS MULTIJUGADOR</span><span style="font-family:var(--fm);font-size:.8rem;color:var(--text3);margin-left:.8rem">$39.99</span></div>
         <p style="font-size:.82rem;color:var(--text2);line-height:1.6;margin-bottom:.6rem" data-l="en">Turn your TBS game into a competitive online experience. PvP Arena, ELO matchmaking, dedicated WebSocket server, lobby system, and enhanced battle HUD. Requires RSK_TBSStudio (included in Suite).</p>
         <p style="font-size:.82rem;color:var(--text2);line-height:1.6;margin-bottom:.6rem" data-l="es">Convierte tu juego TBS en una experiencia competitiva online. Arena PvP, matchmaking ELO, servidor WebSocket dedicado, sistema de lobbies y HUD de batalla mejorado. Requiere RSK_TBSStudio (incluido en la Suite).</p>
-        <div style="font-size:.72rem;color:var(--text3);font-family:var(--fm);line-height:1.7" data-l="en">Includes: RSK_TBSArena · RSK_TBSMultiplayer · RSK_TBSServer · RSK_TBSTitleNewGame · RSK_TBS_HUD</div>
-        <div style="font-size:.72rem;color:var(--text3);font-family:var(--fm);line-height:1.7" data-l="es">Incluye: RSK_TBSArena · RSK_TBSMultiplayer · RSK_TBSServer · RSK_TBSTitleNewGame · RSK_TBS_HUD</div>
+        <div style="font-size:.72rem;color:var(--text3);font-family:var(--fm);line-height:1.7" data-l="en">Includes: RSK_TBSStudio · RSK_TBSArena · RSK_TBSMultiplayer · RSK_TBSServer · RSK_TBSTitleNewGame · RSK_TBS_HUD</div>
+        <div style="font-size:.72rem;color:var(--text3);font-family:var(--fm);line-height:1.7" data-l="es">Incluye: RSK_TBSStudio · RSK_TBSArena · RSK_TBSMultiplayer · RSK_TBSServer · RSK_TBSTitleNewGame · RSK_TBS_HUD</div>
         <div style="margin-top:.8rem;display:flex;gap:.6rem;flex-wrap:wrap">
           <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;background:#7c3aed;color:#fff;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;text-decoration:none;transition:all .2s;box-shadow:0 0 16px rgba(124,58,237,.2)" data-l="en">Get on itch.io ↗</a>
           <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;background:#7c3aed;color:#fff;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;text-decoration:none;transition:all .2s;box-shadow:0 0 16px rgba(124,58,237,.2)" data-l="es">Conseguir en itch.io ↗</a>
