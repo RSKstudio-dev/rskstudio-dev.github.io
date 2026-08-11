@@ -66,8 +66,8 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .sec-rule{border:none;border-top:1px solid var(--border);margin-bottom:2.5rem}
 #tab-hero{background:var(--bg);position:relative}
 #tab-hero::before{content:'';position:absolute;inset:0;background:url('hero-bg.jpg') center/cover no-repeat;opacity:.15;pointer-events:none}
-.hero-banner{width:100%;max-width:100%;height:auto;border-radius:8px;margin-bottom:1.2rem;filter:drop-shadow(0 4px 20px rgba(0,0,0,.4));transition:transform .5s ease,filter .5s ease;cursor:pointer;display:block}
-.hero-banner:hover{transform:scale(1.015);filter:drop-shadow(0 4px 30px rgba(0,229,255,.2)) brightness(1.08)}
+.hero-banner{width:100%;max-width:100%;height:auto;border-radius:0;margin-bottom:0;transition:transform .5s ease,filter .5s ease;cursor:pointer;display:block}
+.hero-banner:hover{transform:scale(1.015);filter:brightness(1.08)}
 .hero-banner-wrap{position:relative;margin-bottom:1.5rem;overflow:hidden;border-radius:8px 8px 0 0}
 .hero-banner-wrap::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 44%,rgba(255,255,255,.04) 49%,rgba(255,255,255,.06) 50%,rgba(255,255,255,.04) 51%,transparent 56%);background-size:400% 100%;animation:bannerSweep 6s ease-in-out infinite}
 @keyframes bannerSweep{0%,85%,100%{background-position:200% 0}40%,45%{background-position:-100% 0}}
