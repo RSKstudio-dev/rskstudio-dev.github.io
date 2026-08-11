@@ -78,13 +78,14 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 @media(max-width:700px){
 .hero-wrap{padding:1.5rem 0 1rem!important}
 .purchase-info{grid-template-columns:1fr!important}
-#topbar{padding:0 .8rem;gap:.5rem;height:50px;flex-wrap:nowrap}
-.tb-logo-studio{display:none}.tb-logo-rsk{font-size:1.2rem}.tb-logo-icon{width:26px;height:26px}
+#topbar{padding:0 .8rem;gap:.5rem;height:50px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+#topbar::-webkit-scrollbar{display:none}
+.tb-logo-rsk{font-size:1.2rem}.tb-logo-icon{width:26px;height:26px}
 .tb-steam,.tb-manual,.tb-discord{display:none!important}
 .tb-itch{font-size:.7rem;padding:5px 10px}.tb-yt{font-size:.7rem;padding:5px 10px}.tb-yt span{display:none}
 .tab-btn{padding:0 .8rem;font-size:.72rem;height:40px}.tab-btn .tab-num{display:none}.tab-lbl{font-size:.72rem}
 .hero-h1{font-size:3.2rem!important}
-.hero-banner{max-width:100%!important;border-radius:6px!important;margin-bottom:.8rem!important}
+.hero-banner-wrap{margin-bottom:1rem!important}
 .hero-tagline{font-size:.85rem!important;letter-spacing:.08em!important}
 .hero-for{font-size:.62rem!important}
 .hero-eyebrow{display:none!important}
@@ -290,7 +291,7 @@ body.light #tab-hero::before{opacity:.18!important;mix-blend-mode:multiply}
 body.light #tab-plugins::before{opacity:.1!important;mix-blend-mode:multiply}
 body.light #tab-lic::before{opacity:.12!important;mix-blend-mode:multiply}
 body.light #hero-canvas{opacity:.25!important}
-body.light .hero-banner-wrap::before{background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.18) 46%,rgba(255,255,255,.3) 50%,rgba(255,255,255,.18) 54%,transparent 60%)!important}
+body.light .hero-banner-wrap::before{background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.2) 44%,rgba(255,255,255,.35) 50%,rgba(255,255,255,.2) 56%,transparent 62%)!important}
 body.light .search-input{background:#fff!important;border-color:var(--border)!important;color:#1a2040!important}
 body.light .search-input:focus{border-color:var(--cyan)!important}
 body.light .search-icon{color:#8a9ab8!important}
