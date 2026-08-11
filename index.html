@@ -69,7 +69,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .hero-banner{width:100%;max-width:100%;height:auto;border-radius:0;margin-bottom:0;transition:transform .5s ease,filter .5s ease;cursor:pointer;display:block}
 .hero-banner:hover{transform:scale(1.015);filter:brightness(1.08)}
 .hero-banner-wrap{position:relative;margin-bottom:1.5rem;overflow:hidden;border-radius:8px}
-.hero-banner-wrap::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.06) 47%,rgba(255,255,255,.1) 50%,rgba(255,255,255,.06) 53%,transparent 58%);background-size:400% 100%;animation:bannerSweep 5s ease-in-out infinite}
+.hero-banner-wrap::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.04) 47%,rgba(255,255,255,.07) 50%,rgba(255,255,255,.04) 53%,transparent 58%);background-size:400% 100%;animation:bannerSweep 5s ease-in-out infinite}
 @keyframes bannerSweep{0%,85%,100%{background-position:200% 0}40%,45%{background-position:-100% 0}}
 .banner-particles{position:absolute;inset:0;z-index:1;pointer-events:none}
 .hero-wrap{position:relative;padding:4rem 0 2rem}
@@ -290,7 +290,7 @@ body.light #tab-hero::before{opacity:.18!important;mix-blend-mode:multiply}
 body.light #tab-plugins::before{opacity:.1!important;mix-blend-mode:multiply}
 body.light #tab-lic::before{opacity:.12!important;mix-blend-mode:multiply}
 body.light #hero-canvas{opacity:.25!important}
-body.light .hero-banner-wrap::before{background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.1) 46%,rgba(255,255,255,.2) 50%,rgba(255,255,255,.1) 54%,transparent 60%)!important}
+body.light .hero-banner-wrap::before{background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.18) 46%,rgba(255,255,255,.3) 50%,rgba(255,255,255,.18) 54%,transparent 60%)!important}
 body.light .search-input{background:#fff!important;border-color:var(--border)!important;color:#1a2040!important}
 body.light .search-input:focus{border-color:var(--cyan)!important}
 body.light .search-icon{color:#8a9ab8!important}
@@ -466,7 +466,6 @@ body.light .theme-icon-dark{display:none!important}body.light .theme-icon-light{
     <button onclick="openTab('compat')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></span><span class="qn-title" data-l="en">Compatibility</span><span class="qn-title" data-l="es">Compatibilidad</span><span class="qn-sub" data-l="en">Platform matrix</span><span class="qn-sub" data-l="es">Matriz de plataformas</span></button>
     <button onclick="openTab('lic')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></span><span class="qn-title" data-l="en">License</span><span class="qn-title" data-l="es">Licencia</span><span class="qn-sub" data-l="en">Commercial use info</span><span class="qn-sub" data-l="es">Info uso comercial</span></button>
     <button onclick="openTab('cl')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><span class="qn-title">Changelog</span><span class="qn-sub">v1.0.0 — 2025</span></button>
-    <button onclick="window.open('https://rskstudio-dev.github.io/manual.html','_blank')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></span><span class="qn-title" data-l="en">Manual</span><span class="qn-title" data-l="es">Manual</span><span class="qn-sub" data-l="en">Installation guide (11 languages)</span><span class="qn-sub" data-l="es">Guía de instalación (11 idiomas)</span></button>
     <button onclick="openTab('sup')" class="qn-tile rev"><span class="qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="qn-title" data-l="en">Support</span><span class="qn-title" data-l="es">Soporte</span><span class="qn-sub" data-l="en">Email &amp; contact</span><span class="qn-sub" data-l="es">Email y contacto</span></button>
   </div>
 </div>
