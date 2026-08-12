@@ -101,6 +101,19 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 #hero-canvas{height:100%!important;opacity:.3!important}
 .sec-title{font-size:1.6rem!important}
 footer{padding:1.2rem .8rem!important;font-size:.6rem!important;line-height:1.8!important}
+.price-strip{width:100%}.price-strip .price-offer{font-size:.58rem!important;letter-spacing:.12em!important}
+.price-strip+.hero-btns,.hero-btns{margin-top:.8rem}
+#banner-particles,#hero-canvas{display:none!important}
+.product-title{font-size:1.1rem!important}
+.product-subtitle{font-size:.55rem!important;letter-spacing:.06em!important}
+.qs-steps-hero{padding:1.2rem!important}
+.qs-steps-h{font-size:.9rem!important;margin-bottom:1.2rem!important}
+.qs-step{flex-direction:row!important;text-align:left!important;gap:.8rem;padding:.6rem 0;border-bottom:1px solid rgba(30,42,86,.3)}
+.qs-step:last-child{border-bottom:none}
+.qs-step-num{width:44px!important;height:44px!important;margin-bottom:0!important;flex-shrink:0}
+.qs-step-num svg{width:20px!important;height:20px!important}
+.qs-step-desc{max-width:none!important}
+.cr-cell{justify-content:flex-start!important}
 }
 .hero-eyebrow{font-family:var(--fm);font-size:.7rem;color:var(--cyan);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1rem;opacity:.8}
 .hero-h1{font-family:var(--fh);font-size:clamp(3rem,7vw,5.5rem);font-weight:900;line-height:.9;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:.5rem}
@@ -567,9 +580,9 @@ body.light .compat-row{background:transparent}body.light .compat-row:hover{backg
         <span class="badge b-cyan">Browser / NW.js ✓</span>
         <span class="badge b-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="vertical-align:middle;margin-right:4px"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>RSK Studio Launcher</span>
       </div>
-      <div style="margin-bottom:.6rem;margin-top:.5rem">
-        <span style="font-family:var(--fh);font-size:1.6rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#fff" data-l="en">RSK Studio — <span style="color:var(--cyan)">Engine Suite</span></span><span style="font-family:var(--fh);font-size:1.6rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#fff" data-l="es">RSK Studio — <span style="color:var(--cyan)">Engine Suite</span></span>
-        <div style="font-family:var(--fm);font-size:.68rem;color:var(--text2);letter-spacing:.1em;margin-top:.2rem" data-l="en">22 PREMIUM PLUGINS · ASSETS · MUSIC · LAUNCHER</div><div style="font-family:var(--fm);font-size:.68rem;color:var(--text2);letter-spacing:.1em;margin-top:.2rem" data-l="es">22 PLUGINS PREMIUM · ASSETS · MÚSICA · LAUNCHER</div>
+      <div style="margin-bottom:.6rem;margin-top:.5rem" class="product-title-wrap">
+        <span class="product-title" style="font-family:var(--fh);font-size:1.6rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#fff" data-l="en">RSK Studio — <span style="color:var(--cyan)">Engine Suite</span></span><span class="product-title" style="font-family:var(--fh);font-size:1.6rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#fff" data-l="es">RSK Studio — <span style="color:var(--cyan)">Engine Suite</span></span>
+        <div class="product-subtitle" style="font-family:var(--fm);font-size:.68rem;color:var(--text2);letter-spacing:.1em;margin-top:.2rem" data-l="en">22 PREMIUM PLUGINS · ASSETS · MUSIC · LAUNCHER</div><div class="product-subtitle" style="font-family:var(--fm);font-size:.68rem;color:var(--text2);letter-spacing:.1em;margin-top:.2rem" data-l="es">22 PLUGINS PREMIUM · ASSETS · MÚSICA · LAUNCHER</div>
       </div>
       <div class="price-strip">
         <div class="price-discount">-25%</div>
