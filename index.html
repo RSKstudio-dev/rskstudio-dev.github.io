@@ -196,11 +196,12 @@ code{font-family:var(--fm);font-size:.78rem;background:rgba(0,229,255,.06);borde
 #tab-compat::before{content:'';position:absolute;inset:0;background:url('bg-compat.jpg') center/cover no-repeat;opacity:.06;pointer-events:none}
 .compat-grid{display:flex;flex-direction:column;gap:0}
 .compat-header{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0;border-bottom:2px solid var(--border);padding:.7rem 1rem}
-.compat-header span{font-family:var(--fh);font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;font-size:.72rem}
+.compat-header span{font-family:var(--fh);font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;text-align:center}
+.compat-header span:first-child{text-align:left}
 .compat-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0;border-bottom:1px solid rgba(30,42,86,.5);padding:.62rem 1rem;transition:background .15s}
 .compat-row:hover{background:rgba(0,229,255,.025)}
 .compat-row .cr-name{font-family:var(--fm);font-size:.77rem;color:var(--cyan)}
-.compat-row .cr-cell{font-size:.84rem}
+.compat-row .cr-cell{font-size:.84rem;text-align:center}
 .compat-row .ck{color:var(--green)}.compat-row .ds{color:var(--text3);font-size:.75rem}
 @media(max-width:700px){
 .compat-header{display:none}
@@ -244,6 +245,48 @@ tbody td:first-child{font-family:var(--fm);font-size:.77rem;color:var(--cyan)}
 .eula-section h4{font-family:var(--fh);font-weight:600;font-size:.88rem;color:var(--cyan);margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.07em}
 .eula-section p{font-size:.84rem;color:var(--text2);line-height:1.6}
 .eula-section p strong{color:var(--red)}
+.lic-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+@media(max-width:700px){.lic-highlights{grid-template-columns:1fr 1fr}}
+.lic-hl{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1rem;text-align:center;transition:border-color .2s}
+.lic-hl:hover{border-color:var(--border-lit)}
+.lic-hl-icon{font-size:1.4rem;margin-bottom:.4rem;display:block}
+.lic-hl-val{font-family:var(--fh);font-weight:900;font-size:1.1rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.05em;line-height:1.1}
+.lic-hl-label{font-family:var(--fm);font-size:.6rem;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem}
+.lic-card-new{border-radius:10px;padding:1.6rem 1.8rem;border:1px solid;position:relative;overflow:hidden}
+.lic-card-new::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.lic-card-yes{border-color:rgba(74,222,128,.2);background:rgba(34,197,94,.03)}
+.lic-card-yes::before{background:linear-gradient(90deg,#22c55e,#4ade80)}
+.lic-card-no{border-color:rgba(248,113,113,.2);background:rgba(239,68,68,.03)}
+.lic-card-no::before{background:linear-gradient(90deg,#ef4444,#f87171)}
+.lic-card-h{font-family:var(--fh);font-weight:700;font-size:.92rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.1rem;display:flex;align-items:center;gap:.5rem}
+.lic-card-yes .lic-card-h{color:var(--green)}.lic-card-no .lic-card-h{color:var(--red)}
+.lic-item{display:flex;align-items:flex-start;gap:.6rem;padding:.5rem 0;font-size:.84rem;color:var(--text);line-height:1.5}
+.lic-item-icon{flex-shrink:0;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;margin-top:1px}
+.lic-card-yes .lic-item-icon{background:rgba(74,222,128,.1);color:var(--green)}
+.lic-card-no .lic-item-icon{background:rgba(248,113,113,.1);color:var(--red)}
+.lic-commercial{background:linear-gradient(135deg,rgba(0,229,255,.04),rgba(74,222,128,.04));border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:1.4rem 1.6rem;margin-bottom:1.8rem;display:flex;align-items:flex-start;gap:1rem}
+.lic-commercial-icon{width:44px;height:44px;border-radius:10px;background:rgba(74,222,128,.08);color:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lic-commercial-text{flex:1}
+.lic-commercial-title{font-family:var(--fh);font-weight:700;font-size:.9rem;color:var(--green);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem}
+.lic-commercial-desc{font-size:.84rem;color:var(--text2);line-height:1.6}
+.eula-card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.eula-card-header{padding:1.4rem 1.6rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem}
+.eula-card-header h3{font-family:var(--fh);font-weight:700;font-size:1rem;color:#fff;text-transform:uppercase;letter-spacing:.08em;margin:0}
+.eula-card-header svg{color:var(--cyan);flex-shrink:0}
+.eula-sections{padding:0}
+.eula-sec{padding:1.2rem 1.6rem;border-bottom:1px solid rgba(30,42,86,.4)}
+.eula-sec:last-child{border-bottom:none}
+.eula-sec h4{font-family:var(--fh);font-weight:600;font-size:.85rem;color:var(--cyan);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.07em}
+.eula-sec p{font-size:.82rem;color:var(--text2);line-height:1.6}
+.eula-sec p strong{color:var(--red)}
+.eula-footer{background:rgba(0,229,255,.02);border-top:1px solid var(--border);padding:1rem 1.6rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+.eula-footer span{font-family:var(--fm);font-size:.72rem;color:var(--text3);letter-spacing:.06em}
+body.light .lic-hl{background:var(--card)}body.light .lic-hl-val{color:var(--cyan)!important}
+body.light .lic-card-new{background:rgba(255,255,255,.6)}body.light .lic-card-yes{border-color:rgba(34,197,94,.25)}body.light .lic-card-no{border-color:rgba(239,68,68,.25)}
+body.light .lic-card-h{color:#1a2040!important}body.light .lic-card-yes .lic-card-h{color:#008844!important}body.light .lic-card-no .lic-card-h{color:#bb1144!important}
+body.light .lic-item{color:#2a3550!important}
+body.light .lic-commercial{background:rgba(255,255,255,.5);border-color:var(--border)}
+body.light .eula-card{background:var(--card)}body.light .eula-card-header h3{color:#1a2040!important}body.light .eula-sec p{color:#3a4560!important}
 #tab-cl{background:var(--bg2);position:relative}
 #tab-cl::before{content:'';position:absolute;inset:0;background:url('bg-changelog.jpg') center/cover no-repeat;opacity:.07;pointer-events:none}
 .cl-ver-badge{display:inline-block;background:var(--card2);border:1px solid var(--cyan);border-radius:6px;padding:5px 16px;font-family:var(--fm);font-size:.76rem;color:var(--cyan);letter-spacing:.12em;margin-bottom:1.6rem}
@@ -636,18 +679,55 @@ body.light .compat-row{background:transparent}body.light .compat-row:hover{backg
 <div class="tab-panel" id="tab-lic"><div class="container">
   <p class="sec-label" data-l="en">04 — License / EULA</p><p class="sec-label" data-l="es">04 — Licencia / ALUF</p>
   <h2 class="sec-title" data-l="en"><em>License</em> &amp; EULA</h2><h2 class="sec-title" data-l="es"><em>Licencia</em> y ALUF</h2>
+  <p class="sec-sub" data-l="en">One license, unlimited games, zero royalties. Everything you need to know.</p><p class="sec-sub" data-l="es">Una licencia, juegos ilimitados, cero regalías. Todo lo que necesitas saber.</p>
   <hr class="sec-rule">
-  <div class="lic-grid">
-    <div class="lic-card lic-yes rev"><div class="lic-h" data-l="en">✓ Allowed</div><div class="lic-h" data-l="es">✓ Permitido</div><ul class="lic-list"><li data-l="en">Use in unlimited personal and commercial games.</li><li data-l="es">Uso en proyectos personales y comerciales ilimitados.</li><li data-l="en">Include compiled plugins in released games (desktop, mobile, browser).</li><li data-l="es">Incluir plugins compilados en juegos publicados (escritorio, móvil, navegador).</li><li data-l="en">Use in the Software in an unlimited number of personal projects.</li><li data-l="es">Usar el Software en un número ilimitado de proyectos personales.</li><li data-l="en">No royalties required. Attribution appreciated but not legally required.</li><li data-l="es">Sin regalías adicionales. Se agradece la atribución aunque no es legalmente obligatoria.</li></ul></div>
-    <div class="lic-card lic-no rev"><div class="lic-h" data-l="en">✕ Prohibited</div><div class="lic-h" data-l="es">✕ Prohibido</div><ul class="lic-list"><li data-l="en">Reselling, sublicensing, renting, or transferring the Software or your license.</li><li data-l="es">Revender, sublicenciar, alquilar o transferir el Software o tu licencia.</li><li data-l="en">Redistributing raw .js source files (free or paid) on any platform.</li><li data-l="es">Redistribuir los archivos fuente .js originales (gratis o de pago) en cualquier plataforma.</li><li data-l="en">Packaging plugins in bundles or asset packs for resale.</li><li data-l="es">Empaquetar plugins en bundles o packs de assets para reventa.</li><li data-l="en">Removing copyright notices, author credits, or version tags from the source.</li><li data-l="es">Eliminar avisos de copyright, créditos de autor o etiquetas de versión del código.</li></ul></div>
+
+  <div class="lic-highlights rev">
+    <div class="lic-hl"><span class="lic-hl-icon">🛡️</span><div class="lic-hl-val" data-l="en">Non-Exclusive</div><div class="lic-hl-val" data-l="es">No Exclusiva</div><div class="lic-hl-label" data-l="en">License Type</div><div class="lic-hl-label" data-l="es">Tipo de Licencia</div></div>
+    <div class="lic-hl"><span class="lic-hl-icon">🔑</span><div class="lic-hl-val" data-l="en">3 per Key</div><div class="lic-hl-val" data-l="es">3 por Key</div><div class="lic-hl-label" data-l="en">Activations</div><div class="lic-hl-label" data-l="es">Activaciones</div></div>
+    <div class="lic-hl"><span class="lic-hl-icon">♾️</span><div class="lic-hl-val" data-l="en">Unlimited</div><div class="lic-hl-val" data-l="es">Ilimitados</div><div class="lic-hl-label" data-l="en">Projects</div><div class="lic-hl-label" data-l="es">Proyectos</div></div>
+    <div class="lic-hl"><span class="lic-hl-icon">💰</span><div class="lic-hl-val" data-l="en">$0 Royalties</div><div class="lic-hl-val" data-l="es">$0 Regalías</div><div class="lic-hl-label" data-l="en">Per Game</div><div class="lic-hl-label" data-l="es">Por Juego</div></div>
   </div>
-  <div class="lic-note rev"><strong data-l="en">Commercial Use:</strong><strong data-l="es">Uso Comercial:</strong><span data-l="en"> You MAY use the Software in commercial games sold for money. No additional royalties are required. Attribution ('Plugins by RSK Studio / rsk-studio.itch.io') in your game credits is appreciated but not legally required.</span><span data-l="es"> PUEDES usar el Software en juegos comerciales vendidos por dinero. No se requieren regalías adicionales. Se agradece la atribución ('Plugins by RSK Studio / rsk-studio.itch.io') en los créditos de tu juego, aunque no es legalmente obligatoria.</span></div>
-  <div class="eula-box rev"><h3 data-l="en">End User License Agreement — Summary</h3><h3 data-l="es">Acuerdo de Licencia de Usuario Final — Resumen</h3>
-    <div class="eula-section"><h4 data-l="en">1. Grant of License</h4><h4 data-l="es">1. Concesión de Licencia</h4><p data-l="en">RSK Studio ('RSK Studio') grants you a non-exclusive, non-transferable license to install and use the Software on your personal computers to develop RPG Maker MZ games, and to include the compiled Software in games you distribute commercially or for free, in unlimited projects.</p><p data-l="es">RSK Studio ('RSK Studio') te concede una licencia limitada, no exclusiva e intransferible para instalar y usar el Software en tus ordenadores personales para desarrollar juegos con RPG Maker MZ, e incluir el Software compilado en juegos que distribuyas comercialmente o de forma gratuita, en proyectos ilimitados.</p></div>
-    <div class="eula-section"><h4 data-l="en">4. Updates &amp; Support</h4><h4 data-l="es">4. Actualizaciones y Soporte</h4><p data-l="en">Future updates, if any, will be provided through the original purchase page on rsk-studio.itch.io at RSK Studio's discretion. The Author is not obligated to provide updates or support but will make reasonable efforts to do so.</p><p data-l="es">Las actualizaciones futuras, si las hubiera, se proporcionarán a través de la página de compra original en rsk-studio.itch.io a discreción dRSK Studio. El Autor no está obligado a proporcionar actualizaciones o soporte, aunque hará esfuerzos razonables.</p></div>
-    <div class="eula-section"><h4 data-l="en">5. Disclaimer of Warranties</h4><h4 data-l="es">5. Exclusión de Garantías</h4><p data-l="en"><strong>THE SOFTWARE IS PROVIDED 'AS IS' WITHOUT WARRANTY OF ANY KIND. THE AUTHOR DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE OR FIT FOR ANY PARTICULAR PURPOSE.</strong></p><p data-l="es"><strong>EL SOFTWARE SE PROPORCIONA 'TAL CUAL' SIN GARANTÍA DE NINGÚN TIPO. EL AUTOR NO GARANTIZA QUE EL SOFTWARE ESTÉ LIBRE DE ERRORES.</strong></p></div>
-    <div class="eula-section"><h4 data-l="en">7. Termination</h4><h4 data-l="es">7. Rescisión</h4><p data-l="en">This license terminates automatically if you breach any term. Upon termination you must destroy all copies of the Software in your possession.</p><p data-l="es">Esta licencia se rescinde automáticamente si incumples algún término. Tras la rescisión debes destruir todas las copias del Software en tu poder.</p></div>
-    <p style="font-size:.78rem;color:var(--text2);margin-top:1rem;font-family:var(--fm);" data-l="en">Full EULA included as <a href="RSK_EULA.pdf" download style="color:var(--cyan);">RSK_EULA.pdf</a> with your purchase. Effective 2025.</p><p style="font-size:.78rem;color:var(--text2);margin-top:1rem;font-family:var(--fm);" data-l="es">ALUF completo incluido como <a href="RSK_EULA.pdf" download style="color:var(--cyan);">RSK_EULA.pdf</a> con tu compra. Vigente desde 2025.</p>
+
+  <div class="lic-grid" style="margin-bottom:1.8rem">
+    <div class="lic-card-new lic-card-yes rev">
+      <div class="lic-card-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span data-l="en">Allowed</span><span data-l="es">Permitido</span></div>
+      <div class="lic-item"><span class="lic-item-icon">✓</span><span data-l="en">Use in unlimited personal and commercial games.</span><span data-l="es">Uso en proyectos personales y comerciales ilimitados.</span></div>
+      <div class="lic-item"><span class="lic-item-icon">✓</span><span data-l="en">Include compiled plugins in released games (desktop, mobile, browser).</span><span data-l="es">Incluir plugins compilados en juegos publicados (escritorio, móvil, navegador).</span></div>
+      <div class="lic-item"><span class="lic-item-icon">✓</span><span data-l="en">Use the Software in an unlimited number of personal projects.</span><span data-l="es">Usar el Software en un número ilimitado de proyectos personales.</span></div>
+      <div class="lic-item"><span class="lic-item-icon">✓</span><span data-l="en">No royalties required. Attribution appreciated but not legally required.</span><span data-l="es">Sin regalías adicionales. Atribución apreciada pero no legalmente obligatoria.</span></div>
+    </div>
+    <div class="lic-card-new lic-card-no rev">
+      <div class="lic-card-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><span data-l="en">Prohibited</span><span data-l="es">Prohibido</span></div>
+      <div class="lic-item"><span class="lic-item-icon">✕</span><span data-l="en">Reselling, sublicensing, renting, or transferring the Software or your license.</span><span data-l="es">Revender, sublicenciar, alquilar o transferir el Software o tu licencia.</span></div>
+      <div class="lic-item"><span class="lic-item-icon">✕</span><span data-l="en">Redistributing raw .js source files (free or paid) on any platform.</span><span data-l="es">Redistribuir los archivos fuente .js originales (gratis o de pago) en cualquier plataforma.</span></div>
+      <div class="lic-item"><span class="lic-item-icon">✕</span><span data-l="en">Packaging plugins in bundles or asset packs for resale.</span><span data-l="es">Empaquetar plugins en bundles o packs de assets para reventa.</span></div>
+      <div class="lic-item"><span class="lic-item-icon">✕</span><span data-l="en">Removing copyright notices, author credits, or version tags from the source.</span><span data-l="es">Eliminar avisos de copyright, créditos de autor o etiquetas de versión del código.</span></div>
+    </div>
+  </div>
+
+  <div class="lic-commercial rev">
+    <div class="lic-commercial-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/><circle cx="12" cy="14" r="2"/><path d="M12 16v2"/></svg></div>
+    <div class="lic-commercial-text">
+      <div class="lic-commercial-title" data-l="en">Commercial Use — Fully Allowed</div><div class="lic-commercial-title" data-l="es">Uso Comercial — Totalmente Permitido</div>
+      <p class="lic-commercial-desc" data-l="en">You MAY use the Software in commercial games sold for money. No additional royalties are required. Attribution (<em>'Plugins by RSK Studio / rsk-studio.itch.io'</em>) in your game credits is appreciated but not legally required.</p><p class="lic-commercial-desc" data-l="es">PUEDES usar el Software en juegos comerciales vendidos por dinero. No se requieren regalías adicionales. La atribución (<em>'Plugins by RSK Studio / rsk-studio.itch.io'</em>) en los créditos de tu juego es apreciada pero no legalmente obligatoria.</p>
+    </div>
+  </div>
+
+  <div class="eula-card rev">
+    <div class="eula-card-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><h3 data-l="en">End User License Agreement — Summary</h3><h3 data-l="es">Acuerdo de Licencia de Usuario Final — Resumen</h3></div>
+    <div class="eula-sections">
+      <div class="eula-sec"><h4 data-l="en">1. Grant of License</h4><h4 data-l="es">1. Concesión de Licencia</h4><p data-l="en">RSK Studio grants you a non-exclusive, non-transferable license to install and use the Software on your personal computers to develop RPG Maker MZ games, and to include the compiled Software in games you distribute commercially or for free, in unlimited projects.</p><p data-l="es">RSK Studio te concede una licencia limitada, no exclusiva e intransferible para instalar y usar el Software en tus ordenadores personales para desarrollar juegos con RPG Maker MZ, e incluir el Software compilado en juegos que distribuyas comercialmente o de forma gratuita, en proyectos ilimitados.</p></div>
+      <div class="eula-sec"><h4 data-l="en">2. Activation &amp; Seats</h4><h4 data-l="es">2. Activación y Puestos</h4><p data-l="en">Each license key allows up to <strong style="color:var(--cyan)">3 simultaneous activations</strong>. Steam purchases activate automatically. itch.io purchases are activated via your download key in the RSK Studio Launcher. Licenses work offline once activated.</p><p data-l="es">Cada clave de licencia permite hasta <strong style="color:var(--cyan)">3 activaciones simultáneas</strong>. Las compras en Steam se activan automáticamente. Las compras en itch.io se activan con tu download key en el RSK Studio Launcher. Las licencias funcionan offline una vez activadas.</p></div>
+      <div class="eula-sec"><h4 data-l="en">3. Player License</h4><h4 data-l="es">3. Licencia del Jugador</h4><p data-l="en">Your released game works <strong style="color:var(--cyan)">perfectly without any license</strong>. Players will never see a license prompt, banner, or any RSK-related message. The license is only for you, the developer, during development.</p><p data-l="es">Tu juego publicado funciona <strong style="color:var(--cyan)">perfectamente sin licencia</strong>. Los jugadores nunca verán un aviso de licencia, banner ni ningún mensaje relacionado con RSK. La licencia es solo para ti, el desarrollador, durante el desarrollo.</p></div>
+      <div class="eula-sec"><h4 data-l="en">4. Updates &amp; Support</h4><h4 data-l="es">4. Actualizaciones y Soporte</h4><p data-l="en">Future updates will be provided through Steam (automatic) or the original purchase page on rsk-studio.itch.io. RSK Studio will make reasonable efforts to provide updates and support.</p><p data-l="es">Las actualizaciones futuras se proporcionarán a través de Steam (automáticas) o la página de compra original en rsk-studio.itch.io. RSK Studio hará esfuerzos razonables para proporcionar actualizaciones y soporte.</p></div>
+      <div class="eula-sec"><h4 data-l="en">5. Disclaimer of Warranties</h4><h4 data-l="es">5. Exclusión de Garantías</h4><p data-l="en"><strong>THE SOFTWARE IS PROVIDED 'AS IS' WITHOUT WARRANTY OF ANY KIND. THE AUTHOR DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE OR FIT FOR ANY PARTICULAR PURPOSE.</strong></p><p data-l="es"><strong>EL SOFTWARE SE PROPORCIONA 'TAL CUAL' SIN GARANTÍA DE NINGÚN TIPO. EL AUTOR NO GARANTIZA QUE EL SOFTWARE ESTÉ LIBRE DE ERRORES.</strong></p></div>
+      <div class="eula-sec"><h4 data-l="en">6. Termination</h4><h4 data-l="es">6. Rescisión</h4><p data-l="en">This license terminates automatically if you breach any term. Upon termination you must destroy all copies of the Software in your possession.</p><p data-l="es">Esta licencia se rescinde automáticamente si incumples algún término. Tras la rescisión debes destruir todas las copias del Software en tu poder.</p></div>
+    </div>
+    <div class="eula-footer">
+      <span data-l="en">Full EULA included with your purchase · Effective 2025</span><span data-l="es">ALUF completo incluido con tu compra · Vigente desde 2025</span>
+      <a href="RSK_EULA.pdf" download class="sup-doc-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-l="en">Download RSK_EULA.pdf</span><span data-l="es">Descargar RSK_EULA.pdf</span></a>
+    </div>
   </div>
 </div></div>
 
