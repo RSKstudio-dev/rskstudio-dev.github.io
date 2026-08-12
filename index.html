@@ -295,6 +295,14 @@ tbody td:first-child{font-family:var(--fm);font-size:.77rem;color:var(--cyan)}
 .sup-ch-btn-cyan{background:var(--cyan);color:#000}.sup-ch-btn-cyan:hover{background:#fff;box-shadow:0 0 16px var(--cyan-glow)}
 .sup-ch-btn-discord{background:#5865F2;color:#fff}.sup-ch-btn-discord:hover{background:#4752C4;box-shadow:0 0 16px rgba(88,101,242,.3)}
 .sup-ch-btn-steam{background:#1b2838;color:#c7d5e0}.sup-ch-btn-steam:hover{background:#2a475e;box-shadow:0 0 16px rgba(27,40,56,.5)}
+.price-strip{display:inline-flex;align-items:center;gap:0;border-radius:8px;overflow:hidden;border:1px solid rgba(0,229,255,.15);margin-bottom:1.2rem;background:var(--card)}
+.price-discount{background:var(--cyan);color:#000;font-family:var(--fh);font-weight:900;font-size:1.3rem;padding:.6rem 1rem;display:flex;align-items:center;justify-content:center;letter-spacing:-.02em;line-height:1;align-self:stretch}
+.price-values{display:flex;flex-direction:column;padding:.45rem 1rem;gap:.1rem}
+.price-old{font-family:var(--fm);font-size:.72rem;color:var(--text3);text-decoration:line-through;letter-spacing:.05em;line-height:1}
+.price-new{font-family:var(--fh);font-size:1.5rem;font-weight:900;color:#fff;line-height:1;letter-spacing:-.01em}
+.price-offer{font-family:var(--fm);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;padding:.5rem 1.2rem;display:flex;align-items:center;color:var(--cyan);text-shadow:0 0 10px rgba(0,229,255,.5);animation:offerGlow 2.5s ease-in-out infinite;border-left:1px solid rgba(0,229,255,.1)}
+@media(max-width:700px){.price-strip{flex-wrap:wrap}.price-offer{border-left:none;border-top:1px solid rgba(0,229,255,.1);width:100%;justify-content:center;padding:.4rem .8rem}.price-discount{font-size:1.1rem;padding:.5rem .8rem}.price-new{font-size:1.3rem}}
+body.light .price-strip{background:var(--card);border-color:var(--border)}body.light .price-discount{background:var(--cyan);color:#fff!important}body.light .price-new{color:#1a2040!important}body.light .price-offer{color:var(--cyan)!important}
 .sup-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.8rem}
 @media(max-width:700px){.sup-detail-grid{grid-template-columns:1fr}}
 .sup-detail{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.6rem 1.5rem}
@@ -482,10 +490,10 @@ body.light .compat-row{background:transparent}body.light .compat-row:hover{backg
         <span class="badge b-cyan">Browser / NW.js ✓</span>
         <span class="badge b-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="vertical-align:middle;margin-right:4px"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>RSK Studio Launcher</span>
       </div>
-      <div style="margin-bottom:1rem;text-align:left;">
-        <span style="font-family:var(--fh);font-size:1.1rem;color:var(--text2);text-decoration:line-through;opacity:.5;margin-right:.5rem;" data-l="en">$79.99</span><span style="font-family:var(--fh);font-size:1.1rem;color:var(--text2);text-decoration:line-through;opacity:.5;margin-right:.5rem;" data-l="es">$79.99</span>
-        <span style="font-family:var(--fh);font-size:1.4rem;font-weight:700;color:var(--cyan);">$59.99</span>
-        <span style="font-family:var(--fm);font-size:.75rem;color:var(--cyan);background:none;border:none;margin-left:.6rem;vertical-align:middle;letter-spacing:.15em;text-shadow:0 0 10px rgba(0,229,255,.6),0 0 30px rgba(0,229,255,.3);animation:offerGlow 2s ease-in-out infinite;" data-l="en">STEAM LAUNCH OFFER</span><span style="font-family:var(--fm);font-size:.75rem;color:var(--cyan);background:none;border:none;margin-left:.6rem;vertical-align:middle;letter-spacing:.15em;text-shadow:0 0 10px rgba(0,229,255,.6),0 0 30px rgba(0,229,255,.3);animation:offerGlow 2s ease-in-out infinite;" data-l="es">OFERTA LANZAMIENTO STEAM</span>
+      <div class="price-strip">
+        <div class="price-discount">-25%</div>
+        <div class="price-values"><span class="price-old">$79.99</span><span class="price-new">$59.99</span></div>
+        <div class="price-offer" data-l="en">Steam Launch Offer</div><div class="price-offer" data-l="es">Oferta Lanzamiento Steam</div>
       </div>
       <div class="hero-btns">
         <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener" class="btn-p" data-l="en">Get on Steam ↗</a>
