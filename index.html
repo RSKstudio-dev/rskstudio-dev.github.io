@@ -269,6 +269,56 @@ tbody td:first-child{font-family:var(--fm);font-size:.77rem;color:var(--cyan)}
 .sup-list li::before{content:'—';position:absolute;left:0;color:var(--cyan);font-size:.75rem;top:2px}
 .sup-note{margin-top:1.2rem;font-size:.82rem;color:var(--text2);background:var(--cyan-dim);border:1px solid rgba(0,229,255,.12);border-radius:7px;padding:.85rem 1rem;font-family:var(--fm)}
 .sup-note strong{color:var(--cyan)}
+.sup-channels{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:1.8rem}
+@media(max-width:700px){.sup-channels{grid-template-columns:1fr}}
+.sup-ch{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.6rem 1.5rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+.sup-ch::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;transition:opacity .3s}
+.sup-ch:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,229,255,.06)}
+.sup-ch-email::before{background:linear-gradient(90deg,var(--cyan),#7efff5)}
+.sup-ch-email:hover{border-color:rgba(0,229,255,.3)}
+.sup-ch-discord::before{background:linear-gradient(90deg,#5865F2,#8b9ff5)}
+.sup-ch-discord:hover{border-color:rgba(88,101,242,.35)}
+.sup-ch-steam::before{background:linear-gradient(90deg,#1b2838,#4a6a8a)}
+.sup-ch-steam:hover{border-color:rgba(74,144,226,.3)}
+.sup-ch-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;flex-shrink:0}
+.sup-ch-email .sup-ch-icon{background:rgba(0,229,255,.08);color:var(--cyan)}
+.sup-ch-discord .sup-ch-icon{background:rgba(88,101,242,.08);color:#5865F2}
+.sup-ch-steam .sup-ch-icon{background:rgba(74,144,226,.08);color:#4a90e2}
+.sup-ch-title{font-family:var(--fh);font-weight:700;font-size:.92rem;color:#fff;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
+.sup-ch-desc{font-size:.82rem;color:var(--text2);line-height:1.55;margin-bottom:1rem;flex:1}
+.sup-ch-meta{font-family:var(--fm);font-size:.62rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-top:.6rem;display:flex;align-items:center;gap:.4rem}
+.sup-ch-meta .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.dot-cyan{background:var(--cyan);box-shadow:0 0 6px rgba(0,229,255,.5)}
+.dot-green{background:var(--green);box-shadow:0 0 6px rgba(74,222,128,.5)}
+.dot-blue{background:#4a90e2;box-shadow:0 0 6px rgba(74,144,226,.4)}
+.sup-ch-btn{display:inline-flex;align-items:center;gap:.4rem;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:9px 18px;text-decoration:none;cursor:pointer;transition:all .2s;width:fit-content}
+.sup-ch-btn-cyan{background:var(--cyan);color:#000}.sup-ch-btn-cyan:hover{background:#fff;box-shadow:0 0 16px var(--cyan-glow)}
+.sup-ch-btn-discord{background:#5865F2;color:#fff}.sup-ch-btn-discord:hover{background:#4752C4;box-shadow:0 0 16px rgba(88,101,242,.3)}
+.sup-ch-btn-steam{background:#1b2838;color:#c7d5e0}.sup-ch-btn-steam:hover{background:#2a475e;box-shadow:0 0 16px rgba(27,40,56,.5)}
+.sup-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.8rem}
+@media(max-width:700px){.sup-detail-grid{grid-template-columns:1fr}}
+.sup-detail{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.6rem 1.5rem}
+.sup-detail-h{font-family:var(--fh);font-weight:700;font-size:.88rem;color:#fff;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.sup-detail-h svg{color:var(--cyan);flex-shrink:0}
+.sup-checklist{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.sup-checklist li{font-size:.82rem;color:var(--text);padding-left:1.6rem;position:relative;line-height:1.5}
+.sup-checklist li::before{content:'';position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:2px;border:1.5px solid var(--cyan);background:transparent}
+.sup-update-item{display:flex;align-items:flex-start;gap:.7rem;padding:.7rem 0;border-bottom:1px solid rgba(30,42,86,.4)}
+.sup-update-item:last-child{border-bottom:none}
+.sup-update-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.8rem}
+.sup-update-text{font-size:.82rem;color:var(--text2);line-height:1.5}
+.sup-update-text strong{color:var(--text)}
+.sup-doc-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.sup-doc-link{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--fm);font-size:.68rem;color:var(--cyan);background:rgba(0,229,255,.04);border:1px solid rgba(0,229,255,.15);border-radius:5px;padding:6px 12px;text-decoration:none;transition:all .2s;letter-spacing:.05em}
+.sup-doc-link:hover{background:rgba(0,229,255,.1);border-color:var(--cyan)}
+.sup-tip-bar{background:linear-gradient(135deg,rgba(0,229,255,.04),rgba(0,229,255,.08));border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:1rem 1.4rem;display:flex;align-items:center;gap:1rem;font-size:.84rem;color:var(--text2)}
+.sup-tip-bar strong{color:var(--cyan)}
+@media(max-width:700px){.sup-tip-bar{flex-direction:column;text-align:center;gap:.5rem}}
+body.light .sup-ch{background:var(--card);border-color:var(--border)}body.light .sup-ch:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+body.light .sup-ch-title{color:#1a2040!important}body.light .sup-ch-desc{color:#3a4560!important}
+body.light .sup-detail{background:var(--card)}body.light .sup-detail-h{color:#1a2040!important}
+body.light .sup-checklist li{color:#2a3550!important}
+body.light .sup-ch-btn-cyan{color:#fff!important}body.light .sup-ch-btn-discord{color:#fff!important}body.light .sup-ch-btn-steam{color:#c7d5e0!important}
 .upd-text{font-size:.87rem;color:var(--text2);line-height:1.7;margin-bottom:1.4rem}
 .upd-text a{color:var(--cyan);text-decoration:none}
 .upd-text a:hover{text-decoration:underline}
@@ -613,22 +663,78 @@ body.light .compat-row{background:transparent}body.light .compat-row:hover{backg
 </div></div>
 
 <div class="tab-panel" id="tab-sup"><div class="container">
-  <p class="sec-label" data-l="en">06 — Support &amp; Contact</p><p class="sec-label" data-l="es">06 — Soporte y Contacto</p>
+  <p class="sec-label" data-l="en">07 — Support &amp; Contact</p><p class="sec-label" data-l="es">07 — Soporte y Contacto</p>
   <h2 class="sec-title" data-l="en">Support <em>&amp; Contact</em></h2><h2 class="sec-title" data-l="es">Soporte <em>&amp; Contacto</em></h2>
+  <p class="sec-sub" data-l="en">Multiple channels to get help. We typically respond within 24–48 hours.</p><p class="sec-sub" data-l="es">Varios canales para obtener ayuda. Normalmente respondemos en 24–48 horas.</p>
   <hr class="sec-rule">
-  <div class="sup-grid">
-    <div class="sup-card rev"><h3 data-l="en">How to Request Support</h3><h3 data-l="es">Cómo Solicitar Soporte</h3>
-      <a href="mailto:rskstudio.support@gmail.com">rskstudio.support@gmail.com</a>
-      <p style="font-size:.84rem;color:var(--text2);margin-bottom:.7rem;" data-l="en">Please include in your message (use the RSK_Support_Template for a ready-to-fill form):</p><p style="font-size:.84rem;color:var(--text2);margin-bottom:.7rem;" data-l="es">Por favor incluye en tu mensaje (usa el RSK_Support_Template para un formulario listo para rellenar):</p>
-      <ul class="sup-list"><li data-l="en">Plugin name and version (found at the top of the .js file).</li><li data-l="es">Nombre y versión del plugin (al inicio del archivo .js).</li><li data-l="en">RPG Maker MZ version (Help → About).</li><li data-l="es">Versión de RPG Maker MZ (Ayuda → Acerca de).</li><li data-l="en">Operating system (Windows / macOS / Linux).</li><li data-l="es">Sistema operativo (Windows / macOS / Linux).</li><li data-l="en">Deployment target (Desktop NW.js / Android / JoiPlay / MalDives / Browser).</li><li data-l="es">Destino de despliegue (Escritorio NW.js / Android / JoiPlay / MalDives / Navegador).</li><li data-l="en">Full list of other active plugins (name + version).</li><li data-l="es">Lista completa de otros plugins activos (nombre + versión).</li><li data-l="en">Steps to reproduce the issue.</li><li data-l="es">Pasos para reproducir el problema.</li><li data-l="en">Error message or console output (if any).</li><li data-l="es">Mensaje de error o salida de consola (si los hay).</li><li data-l="en">Screenshot or short video clip (if the issue is visual).</li><li data-l="es">Captura o clip de vídeo corto (si el problema es visual).</li></ul>
-      <div class="sup-note"><strong data-l="en">Tip:</strong><strong data-l="es">Consejo:</strong><span data-l="en"> Download the <strong><a href="RSK_Support_Template.pdf" download style="color:var(--cyan);">RSK_Support_Template.pdf</a></strong> — a fillable PDF with all fields ready.</span><span data-l="es"> Descarga el <strong><a href="RSK_Support_Template.pdf" download style="color:var(--cyan);">RSK_Support_Template.pdf</a></strong> — un formulario PDF rellenable con todos los campos listos.</span></div>
+
+  <div class="sup-channels">
+    <div class="sup-ch sup-ch-email rev">
+      <div class="sup-ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div class="sup-ch-title" data-l="en">Email Support</div><div class="sup-ch-title" data-l="es">Soporte por Email</div>
+      <div class="sup-ch-desc" data-l="en">Direct support for bugs, technical issues, and license questions. Use the Support Template for fastest response.</div><div class="sup-ch-desc" data-l="es">Soporte directo para bugs, problemas técnicos y preguntas de licencia. Usa la plantilla de soporte para una respuesta más rápida.</div>
+      <a href="mailto:rskstudio.support@gmail.com" class="sup-ch-btn sup-ch-btn-cyan" data-l="en">rskstudio.support@gmail.com</a><a href="mailto:rskstudio.support@gmail.com" class="sup-ch-btn sup-ch-btn-cyan" data-l="es">rskstudio.support@gmail.com</a>
+      <div class="sup-ch-meta"><span class="dot dot-cyan"></span><span data-l="en">Response: 24–48h</span><span data-l="es">Respuesta: 24–48h</span></div>
     </div>
-    <div class="sup-card rev"><h3 data-l="en">Updates &amp; Store</h3><h3 data-l="es">Actualizaciones y Tienda</h3>
-      <p class="upd-text" data-l="en">Updates are delivered automatically via <strong style="color:var(--cyan)">Steam</strong>, or through the original purchase page on <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">rsk-studio.itch.io</a>. You will receive a notification from itch.io when a new version is uploaded.</p><p class="upd-text" data-l="es">Las actualizaciones se entregan automáticamente vía <strong style="color:var(--cyan)">Steam</strong>, o a través de la página de compra original en <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener">rsk-studio.itch.io</a>. Recibirás una notificación de itch.io cuando se suba una nueva versión.</p>
-      <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" class="btn-p" style="display:inline-block;margin-bottom:2rem;" data-l="en">Visit rsk-studio.itch.io ↗</a><a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" class="btn-p" style="display:inline-block;margin-bottom:2rem;" data-l="es">Visitar rsk-studio.itch.io ↗</a>
-      <h3 style="margin-top:.5rem;" data-l="en">Included in Your Purchase</h3><h3 style="margin-top:.5rem;" data-l="es">Incluido en tu Compra</h3>
-      <ul class="sup-list" style="margin-top:.6rem;"><li data-l="en">All 22 .js plugin files</li><li data-l="es">Los 22 archivos .js de plugins</li><li data-l="en">RSK Studio Launcher (Steam / Standalone)</li><li data-l="es">RSK Studio Launcher (Steam / Standalone)</li><li data-l="en"><strong style="color:var(--cyan)">Weapon Assets</strong> — Swords, Axes, Lances, Bows, Daggers, Tomes, Staffs, Melee, Items</li><li data-l="es"><strong style="color:var(--cyan)">Assets de Armas</strong> — Espadas, Hachas, Lanzas, Arcos, Dagas, Tomos, Bastones, Cuerpo a cuerpo, Objetos</li><li data-l="en"><strong style="color:var(--cyan)">Mount Assets</strong> — Aerial, Aquatic &amp; Ground mount sprites</li><li data-l="es"><strong style="color:var(--cyan)">Assets de Monturas</strong> — Sprites aéreos, acuáticos y terrestres</li><li data-l="en"><strong style="color:var(--cyan)">UI Elements</strong> — Backgrounds, Corners, Cursors, Frames, Lines, Wheels</li><li data-l="es"><strong style="color:var(--cyan)">Elementos UI</strong> — Fondos, Esquinas, Cursores, Marcos, Líneas, Ruedas</li><li data-l="en"><strong style="color:var(--gold)">32 Music Tracks</strong> — TBS/RPG soundtrack (OGG)</li><li data-l="es"><strong style="color:var(--gold)">32 Pistas de Música</strong> — Banda sonora TBS/RPG (OGG)</li><li data-l="en">RSK_EULA.pdf · RSK_Changelog.pdf · RSK_Support_Template.pdf</li><li data-l="es">RSK_EULA.pdf · RSK_Changelog.pdf · RSK_Support_Template.pdf</li></ul>
+    <div class="sup-ch sup-ch-discord rev">
+      <div class="sup-ch-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.87-.61 1.25a18.27 18.27 0 0 0-5.49 0 12.64 12.64 0 0 0-.62-1.25.08.08 0 0 0-.08-.04 19.74 19.74 0 0 0-4.89 1.52.07.07 0 0 0-.03.03C1.13 8.59.34 12.67.82 16.7a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 5.99 3.03.08.08 0 0 0 .08-.03c.46-.63.87-1.3 1.22-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1-.01-.13c.13-.09.25-.19.37-.29a.08.08 0 0 1 .08-.01c3.93 1.8 8.18 1.8 12.07 0a.08.08 0 0 1 .08.01c.12.1.25.2.37.29a.08.08 0 0 1 0 .13c-.6.35-1.22.65-1.87.9a.08.08 0 0 0-.04.11c.36.7.77 1.37 1.22 2a.08.08 0 0 0 .08.03 19.83 19.83 0 0 0 6-3.03.08.08 0 0 0 .03-.05c.56-5.8-.94-10.83-3.98-15.3a.06.06 0 0 0-.03-.03zM8.02 14.09c-1.18 0-2.16-1.08-2.16-2.42s.96-2.42 2.16-2.42 2.18 1.09 2.16 2.42c0 1.34-.96 2.42-2.16 2.42zm7.97 0c-1.18 0-2.16-1.08-2.16-2.42s.96-2.42 2.16-2.42 2.18 1.09 2.16 2.42c0 1.34-.95 2.42-2.16 2.42z"/></svg></div>
+      <div class="sup-ch-title" data-l="en">Discord Community</div><div class="sup-ch-title" data-l="es">Comunidad Discord</div>
+      <div class="sup-ch-desc" data-l="en">Join the community for quick tips, showcase your projects, share ideas, and get real-time help from other devs and RSK Studio.</div><div class="sup-ch-desc" data-l="es">Únete a la comunidad para consejos rápidos, muestra tus proyectos, comparte ideas y recibe ayuda en tiempo real de otros devs y RSK Studio.</div>
+      <a href="https://discord.gg/HeDrVZd7j" target="_blank" rel="noopener" class="sup-ch-btn sup-ch-btn-discord" data-l="en">Join Discord</a><a href="https://discord.gg/HeDrVZd7j" target="_blank" rel="noopener" class="sup-ch-btn sup-ch-btn-discord" data-l="es">Únete a Discord</a>
+      <div class="sup-ch-meta"><span class="dot dot-green"></span><span data-l="en">Community · Real-time</span><span data-l="es">Comunidad · Tiempo real</span></div>
     </div>
+    <div class="sup-ch sup-ch-steam rev">
+      <div class="sup-ch-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M11.98 0C5.36 0 .02 5.06.02 11.34L6.08 14c.57-.39 1.25-.62 1.99-.62l2.97-4.3v-.06c0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5h-.1l-4.24 3.02c0 .05.01.1.01.15 0 1.86-1.52 3.38-3.38 3.38-1.65 0-3.03-1.2-3.32-2.77L.15 14.96C1.52 19.85 6.3 23.5 11.98 23.5c6.9 0 12.5-5.37 12.5-12S18.88 0 11.98 0z"/></svg></div>
+      <div class="sup-ch-title" data-l="en">Steam Discussions</div><div class="sup-ch-title" data-l="es">Foros de Steam</div>
+      <div class="sup-ch-desc" data-l="en">Post bug reports, feature requests, and questions in the Steam community. Public threads help other developers too.</div><div class="sup-ch-desc" data-l="es">Publica reportes de bugs, solicitudes de funciones y preguntas en la comunidad Steam. Los hilos públicos ayudan a otros desarrolladores.</div>
+      <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener" class="sup-ch-btn sup-ch-btn-steam" data-l="en">Steam Community ↗</a><a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener" class="sup-ch-btn sup-ch-btn-steam" data-l="es">Comunidad Steam ↗</a>
+      <div class="sup-ch-meta"><span class="dot dot-blue"></span><span data-l="en">Public threads</span><span data-l="es">Hilos públicos</span></div>
+    </div>
+  </div>
+
+  <div class="sup-detail-grid">
+    <div class="sup-detail rev">
+      <div class="sup-detail-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg><span data-l="en">What to Include</span><span data-l="es">Qué Incluir</span></div>
+      <p style="font-size:.8rem;color:var(--text2);margin-bottom:.8rem" data-l="en">For the fastest resolution, include the following in your support message:</p><p style="font-size:.8rem;color:var(--text2);margin-bottom:.8rem" data-l="es">Para una resolución más rápida, incluye lo siguiente en tu mensaje de soporte:</p>
+      <ul class="sup-checklist">
+        <li data-l="en">Plugin name and version (top of the .js file)</li><li data-l="es">Nombre y versión del plugin (inicio del archivo .js)</li>
+        <li data-l="en">RPG Maker MZ version (Help → About)</li><li data-l="es">Versión de RPG Maker MZ (Ayuda → Acerca de)</li>
+        <li data-l="en">Operating system (Windows / macOS / Linux)</li><li data-l="es">Sistema operativo (Windows / macOS / Linux)</li>
+        <li data-l="en">Deploy target (Desktop / Android / JoiPlay / MalDives / Browser)</li><li data-l="es">Destino (Escritorio / Android / JoiPlay / MalDives / Navegador)</li>
+        <li data-l="en">Full list of other active plugins (name + version)</li><li data-l="es">Lista de otros plugins activos (nombre + versión)</li>
+        <li data-l="en">Steps to reproduce the issue</li><li data-l="es">Pasos para reproducir el problema</li>
+        <li data-l="en">Error message or console output (F8)</li><li data-l="es">Mensaje de error o consola (F8)</li>
+        <li data-l="en">Screenshot or short video clip</li><li data-l="es">Captura de pantalla o clip de vídeo</li>
+      </ul>
+      <div class="sup-doc-row" style="margin-top:1.2rem">
+        <a href="RSK_Support_Template.pdf" download class="sup-doc-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-l="en">Download Support Template</span><span data-l="es">Descargar Plantilla Soporte</span></a>
+      </div>
+    </div>
+    <div class="sup-detail rev">
+      <div class="sup-detail-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg><span data-l="en">Updates &amp; Documentation</span><span data-l="es">Actualizaciones y Documentación</span></div>
+      <div class="sup-update-item">
+        <div class="sup-update-icon" style="background:rgba(0,229,255,.06);color:var(--cyan)"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M11.98 0C5.36 0 .02 5.06.02 11.34L6.08 14c.57-.39 1.25-.62 1.99-.62l2.97-4.3v-.06c0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5h-.1l-4.24 3.02c0 .05.01.1.01.15 0 1.86-1.52 3.38-3.38 3.38-1.65 0-3.03-1.2-3.32-2.77L.15 14.96C1.52 19.85 6.3 23.5 11.98 23.5c6.9 0 12.5-5.37 12.5-12S18.88 0 11.98 0z"/></svg></div>
+        <div class="sup-update-text"><strong data-l="en">Steam</strong><strong data-l="es">Steam</strong><span data-l="en"> — Automatic updates. Always up to date without any action.</span><span data-l="es"> — Actualizaciones automáticas. Siempre al día sin hacer nada.</span></div>
+      </div>
+      <div class="sup-update-item">
+        <div class="sup-update-icon" style="background:rgba(233,30,140,.06);color:var(--pink)"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M3.13 1.338C2.08 1.96.02 4.328 0 4.95v1.03c0 1.303.997 2.399 2.232 2.399 1.38 0 2.476-1.086 2.476-2.399 0 1.313 1.015 2.399 2.395 2.399 1.38 0 2.382-1.086 2.382-2.399 0 1.313 1.093 2.399 2.473 2.399h.044c1.38 0 2.473-1.086 2.473-2.399 0 1.313 1.002 2.399 2.382 2.399 1.38 0 2.395-1.086 2.395-2.399 0 1.313 1.096 2.399 2.476 2.399C22.003 8.379 23 7.283 23 5.98V4.95c-.02-.622-2.08-2.99-3.13-3.612C18.96.878 14.67.747 12 .747c-2.67 0-6.96.131-7.87.591z"/></svg></div>
+        <div class="sup-update-text"><strong>itch.io</strong><span data-l="en"> — Download from your purchase page. Notifications on new versions.</span><span data-l="es"> — Descarga desde tu página de compra. Notificaciones en nuevas versiones.</span></div>
+      </div>
+      <div class="sup-update-item">
+        <div class="sup-update-icon" style="background:rgba(255,193,7,.06);color:var(--gold)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></div>
+        <div class="sup-update-text"><strong data-l="en">RSK Launcher</strong><strong data-l="es">RSK Launcher</strong><span data-l="en"> — Built-in update checker. One click to update all plugins.</span><span data-l="es"> — Verificador de actualizaciones integrado. Un clic para actualizar todos los plugins.</span></div>
+      </div>
+      <div class="sup-doc-row">
+        <a href="https://rskstudio-dev.github.io/manual.html" target="_blank" rel="noopener" class="sup-doc-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg><span data-l="en">Online Manual</span><span data-l="es">Manual Online</span></a>
+        <a href="RSK_EULA.pdf" download class="sup-doc-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>EULA</a>
+        <a href="RSK_Changelog.pdf" download class="sup-doc-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Changelog</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sup-tip-bar rev">
+    <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" width="22" height="22" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span data-l="en"><strong>Pro tip:</strong> Use the <a href="RSK_Support_Template.pdf" download style="color:var(--cyan)">RSK_Support_Template.pdf</a> to fill in all required info — it speeds up our response significantly.</span><span data-l="es"><strong>Pro tip:</strong> Usa la <a href="RSK_Support_Template.pdf" download style="color:var(--cyan)">RSK_Support_Template.pdf</a> para rellenar toda la info necesaria — acelera nuestra respuesta significativamente.</span>
   </div>
 </div></div>
 
