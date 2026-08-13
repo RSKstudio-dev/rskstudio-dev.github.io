@@ -179,7 +179,7 @@ footer{padding:1.2rem .8rem!important;font-size:.6rem!important;line-height:1.8!
 .filter-btn-suite.on{border-color:var(--cyan)!important;color:var(--cyan)!important;background:var(--cyan-dim)!important}
 .filter-btn-tbs.on{border-color:#ffa028!important;color:#ffa028!important;background:rgba(255,160,40,.1)!important}
 .plugin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
-.suite-featured{display:flex;gap:1.5rem;background:var(--card);border:1px solid rgba(0,229,255,.2);border-radius:10px;overflow:hidden;margin-bottom:1.8rem;position:relative;transition:border-color .3s,box-shadow .3s;cursor:pointer;text-decoration:none;color:inherit}
+.suite-featured{display:flex;gap:1.5rem;background:var(--card);border:1px solid rgba(0,229,255,.2);border-radius:10px;overflow:hidden;margin-bottom:1.8rem;position:relative;transition:border-color .3s,box-shadow .3s;text-decoration:none;color:inherit}
 .suite-featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--pink),var(--gold));z-index:1}
 .suite-featured::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,229,255,.04),rgba(0,229,255,.08),rgba(0,229,255,.04),transparent);transform:skewX(-15deg);animation:packSweep 5s ease-in-out infinite;pointer-events:none;z-index:2}
 @keyframes packSweep{0%,100%{left:-100%}50%{left:150%}}
@@ -743,12 +743,12 @@ body.light .compat-row{background:transparent}body.light .compat-row:hover{backg
   <h2 class="sec-title" style="font-size:1.5rem;margin-bottom:.5rem" data-l="en">Get the <em>Complete Packs</em></h2><h2 class="sec-title" style="font-size:1.5rem;margin-bottom:.5rem" data-l="es">Consigue los <em>Packs Completos</em></h2>
   <p class="sec-sub" style="margin-bottom:1.5rem" data-l="en">All plugins above are included in the Engine Suite. The TBS Pack is a separate expansion.</p><p class="sec-sub" style="margin-bottom:1.5rem" data-l="es">Todos los plugins de arriba están incluidos en la Engine Suite. El TBS Pack es una expansión separada.</p>
 
-  <a href="https://rsk-studio.itch.io/engine-suite-plugins" target="_blank" rel="noopener" class="suite-featured rev" id="suite-card">
-    <div class="suite-featured-img"><img src="Engine_Suite_Showcase.png" alt="RSK Studio Engine Suite" loading="lazy"></div>
+  <div class="suite-featured rev" id="suite-card">
+    <div class="suite-featured-img"><img src="Engine_Suite_Showcase.png" alt="RSK Studio Engine Suite" loading="lazy" style="object-fit:contain;background:#080a1a"></div>
     <div class="suite-featured-info">
       <div class="suite-featured-label" data-l="en">★ Complete Suite — 22 Plugins</div><div class="suite-featured-label" data-l="es">★ Suite Completa — 22 Plugins</div>
       <div class="suite-featured-name" data-l="en">RSK Studio — <em>Engine Suite</em></div><div class="suite-featured-name" data-l="es">RSK Studio — <em>Engine Suite</em></div>
-      <p class="suite-featured-desc" data-l="en">The complete professional toolkit for RPG Maker MZ. All 23 plugins, weapon & mount assets, UI elements, 32 music tracks, and the RSK Studio Launcher. One purchase, unlimited projects.</p><p class="suite-featured-desc" data-l="es">El toolkit profesional completo para RPG Maker MZ. Los 23 plugins, assets de armas y monturas, elementos UI, 32 pistas de música y el RSK Studio Launcher. Una compra, proyectos ilimitados.</p>
+      <p class="suite-featured-desc" data-l="en">The complete professional toolkit for RPG Maker MZ. All 22 premium plugins, weapon & mount assets, UI elements, 32 music tracks, and the RSK Studio Launcher. One purchase, unlimited projects.</p><p class="suite-featured-desc" data-l="es">El toolkit profesional completo para RPG Maker MZ. Los 22 plugins premium, assets de armas y monturas, elementos UI, 32 pistas de música y el RSK Studio Launcher. Una compra, proyectos ilimitados.</p>
       <div class="suite-featured-meta">
         <span class="suite-featured-tag sft-cyan">22 Plugins</span>
         <span class="suite-featured-tag sft-cyan">Assets</span>
@@ -761,14 +761,14 @@ body.light .compat-row{background:transparent}body.light .compat-row:hover{backg
         <span class="sfp-new">$59.99</span>
       </div>
       <div style="display:flex;gap:.5rem;margin-top:.8rem;flex-wrap:wrap">
-        <span class="sup-ch-btn sup-ch-btn-cyan" style="font-size:.65rem;padding:7px 14px" data-l="en">Get on Steam ↗</span><span class="sup-ch-btn sup-ch-btn-cyan" style="font-size:.65rem;padding:7px 14px" data-l="es">Conseguir en Steam ↗</span>
-        <span style="font-family:var(--fm);font-size:.62rem;color:var(--text3);display:flex;align-items:center;letter-spacing:.06em" data-l="en">or itch.io</span><span style="font-family:var(--fm);font-size:.62rem;color:var(--text3);display:flex;align-items:center;letter-spacing:.06em" data-l="es">o itch.io</span>
+        <a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener" class="sup-ch-btn sup-ch-btn-cyan" style="font-size:.65rem;padding:7px 14px" data-l="en">Get on Steam ↗</a><a href="https://store.steampowered.com/app/4580900" target="_blank" rel="noopener" class="sup-ch-btn sup-ch-btn-cyan" style="font-size:.65rem;padding:7px 14px" data-l="es">Conseguir en Steam ↗</a>
+        <a href="https://rsk-studio.itch.io/engine-suite-plugins" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;background:transparent;color:var(--pink);border:1px solid rgba(233,30,140,.3);border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;text-decoration:none;transition:all .2s" data-l="en">itch.io ↗</a><a href="https://rsk-studio.itch.io/engine-suite-plugins" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;background:transparent;color:var(--pink);border:1px solid rgba(233,30,140,.3);border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;text-decoration:none;transition:all .2s" data-l="es">itch.io ↗</a>
       </div>
     </div>
-  </a>
+  </div>
 
-  <a href="https://rsk-studio.itch.io/rsk-tbs-multiplayer-pack" target="_blank" rel="noopener" class="suite-featured rev" style="border-color:rgba(255,160,40,.2)" id="tbs-card">
-    <div class="suite-featured-img"><img src="thumbnails/rsk_tbs_studio.jpg" alt="RSK TBS Multiplayer Pack" loading="lazy"></div>
+  <div class="suite-featured rev" style="border-color:rgba(255,160,40,.2)" id="tbs-card">
+    <div class="suite-featured-img"><img src="thumbnails/rsk_tbs_studio.jpg" alt="RSK TBS Multiplayer Pack" loading="lazy" style="object-fit:contain;background:#080a1a"></div>
     <div class="suite-featured-info">
       <div class="suite-featured-label" style="color:#ffa028" data-l="en">⚔ Expansion Pack</div><div class="suite-featured-label" style="color:#ffa028" data-l="es">⚔ Pack de Expansión</div>
       <div class="suite-featured-name" data-l="en">TBS <em style="color:#ffa028">Multiplayer Pack</em></div><div class="suite-featured-name" data-l="es">TBS <em style="color:#ffa028">Pack Multijugador</em></div>
@@ -783,10 +783,10 @@ body.light .compat-row{background:transparent}body.light .compat-row:hover{backg
         <span class="sfp-new" style="color:#ffa028">$39.99</span>
       </div>
       <div style="display:flex;gap:.5rem;margin-top:.8rem;flex-wrap:wrap">
-        <span style="display:inline-flex;align-items:center;gap:.4rem;background:#ffa028;color:#000;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px" data-l="en">Get on itch.io ↗</span><span style="display:inline-flex;align-items:center;gap:.4rem;background:#ffa028;color:#000;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px" data-l="es">Conseguir en itch.io ↗</span>
+        <a href="https://rsk-studio.itch.io/rsk-tbs-multiplayer-pack" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;background:#ffa028;color:#000;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;text-decoration:none;transition:all .2s" data-l="en">Get on itch.io ↗</a><a href="https://rsk-studio.itch.io/rsk-tbs-multiplayer-pack" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;background:#ffa028;color:#000;border:none;border-radius:6px;font-family:var(--fh);font-weight:700;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;text-decoration:none;transition:all .2s" data-l="es">Conseguir en itch.io ↗</a>
       </div>
     </div>
-  </a>
+  </div>
 </div></div>
 
 <div class="tab-panel" id="tab-qs"><div class="container">
