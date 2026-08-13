@@ -178,6 +178,28 @@ footer{padding:1.2rem .8rem!important;font-size:.6rem!important;line-height:1.8!
 .filter-btn-suite.on{border-color:var(--cyan)!important;color:var(--cyan)!important;background:var(--cyan-dim)!important}
 .filter-btn-tbs.on{border-color:#ffa028!important;color:#ffa028!important;background:rgba(255,160,40,.1)!important}
 .plugin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
+.suite-featured{display:flex;gap:1.5rem;background:var(--card);border:1px solid rgba(0,229,255,.2);border-radius:10px;overflow:hidden;margin-bottom:1.8rem;position:relative;transition:border-color .3s,box-shadow .3s;cursor:pointer;text-decoration:none;color:inherit}
+.suite-featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--pink),var(--gold))}
+.suite-featured:hover{border-color:rgba(0,229,255,.4);box-shadow:0 8px 40px rgba(0,229,255,.1)}
+.suite-featured-img{width:320px;flex-shrink:0;overflow:hidden}
+.suite-featured-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.suite-featured:hover .suite-featured-img img{transform:scale(1.03)}
+.suite-featured-info{padding:1.5rem 1.8rem;display:flex;flex-direction:column;justify-content:center;flex:1}
+.suite-featured-label{font-family:var(--fm);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.suite-featured-name{font-family:var(--fh);font-size:1.4rem;font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}
+.suite-featured-name em{font-style:normal;color:var(--cyan)}
+.suite-featured-desc{font-size:.84rem;color:var(--text2);line-height:1.55;margin-bottom:1rem}
+.suite-featured-meta{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem}
+.suite-featured-tag{font-family:var(--fm);font-size:.58rem;letter-spacing:.06em;border-radius:4px;padding:3px 8px;border:1px solid}
+.sft-cyan{border-color:rgba(0,229,255,.25);color:var(--cyan);background:rgba(0,229,255,.06)}
+.sft-pink{border-color:rgba(233,30,140,.25);color:var(--pink);background:rgba(233,30,140,.06)}
+.sft-gold{border-color:rgba(255,193,7,.25);color:var(--gold);background:rgba(255,193,7,.06)}
+.suite-featured-price{display:flex;align-items:center;gap:.6rem}
+.suite-featured-price .sfp-old{font-family:var(--fm);font-size:.75rem;color:var(--text3);text-decoration:line-through}
+.suite-featured-price .sfp-new{font-family:var(--fh);font-size:1.3rem;font-weight:900;color:var(--cyan)}
+.suite-featured-price .sfp-disc{font-family:var(--fh);font-weight:900;font-size:.75rem;color:#000;background:var(--cyan);border-radius:4px;padding:2px 8px}
+@media(max-width:700px){.suite-featured{flex-direction:column}.suite-featured-img{width:100%;height:180px}.suite-featured-info{padding:1rem 1.2rem}.suite-featured-name{font-size:1.1rem}}
+body.light .suite-featured{background:var(--card);border-color:var(--border)}body.light .suite-featured:hover{border-color:var(--border-lit)}body.light .suite-featured-name{color:#1a2040!important}body.light .suite-featured-name em{color:var(--cyan)!important}
 .p-card{background:var(--card);border:1px solid var(--border);border-radius:0 0 10px 10px;transition:border-color .4s,transform .4s,box-shadow .4s;position:relative;overflow:hidden;display:flex;flex-direction:column;height:100%}
 .p-thumb-wrap{position:relative;width:100%;aspect-ratio:2722/2160;overflow:hidden;border-bottom:1px solid var(--border)}
 .p-thumb{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease,filter .4s ease}
@@ -603,11 +625,7 @@ body.light .compat-row{background:transparent}body.light .compat-row:hover{backg
         <span class="badge b-cyan">Browser / NW.js ✓</span>
         <span class="badge b-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="vertical-align:middle;margin-right:4px"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>RSK Studio Launcher</span>
       </div>
-      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.6rem;margin-top:.8rem" class="product-title-wrap">
-        <div class="suite-thumb" onclick="document.getElementById('suite-lightbox').style.display='flex'" style="width:100px;height:100px;border-radius:10px;border:1px solid rgba(0,229,255,.2);overflow:hidden;cursor:pointer;flex-shrink:0;position:relative;transition:all .3s;box-shadow:0 0 12px rgba(0,229,255,.08)">
-          <img src="Engine_Suite_Showcase.png" alt="Engine Suite Overview" style="width:100%;height:100%;object-fit:cover;transition:transform .3s">
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3);opacity:0;transition:opacity .2s;font-family:var(--fm);font-size:.55rem;color:#fff;letter-spacing:.1em"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-        </div>
+      <div style="margin-bottom:.6rem;margin-top:.8rem" class="product-title-wrap">
         <div>
           <span class="product-title" style="font-family:var(--fh);font-size:1.6rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#fff" data-l="en">RSK Studio — <span style="color:var(--cyan)">Engine Suite</span></span><span class="product-title" style="font-family:var(--fh);font-size:1.6rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#fff" data-l="es">RSK Studio — <span style="color:var(--cyan)">Engine Suite</span></span>
           <div class="product-subtitle" style="font-family:var(--fm);font-size:.68rem;color:var(--text2);letter-spacing:.1em;margin-top:.2rem" data-l="en">22 PREMIUM PLUGINS · ASSETS · MUSIC · LAUNCHER</div><div class="product-subtitle" style="font-family:var(--fm);font-size:.68rem;color:var(--text2);letter-spacing:.1em;margin-top:.2rem" data-l="es">22 PLUGINS PREMIUM · ASSETS · MÚSICA · LAUNCHER</div>
@@ -712,6 +730,26 @@ body.light .compat-row{background:transparent}body.light .compat-row:hover{backg
     <button class="filter-btn" data-filter="vistella" onclick="filterPlugins(this,'vistella')">VisuStella <span class="filter-count" id="fc-vistella"></span></button>
   </div>
   <div class="plugin-grid" id="pgrid"></div>
+
+  <a href="https://rsk-studio.itch.io" target="_blank" rel="noopener" class="suite-featured rev" id="suite-card">
+    <div class="suite-featured-img"><img src="Engine_Suite_Showcase.png" alt="RSK Studio Engine Suite" loading="lazy"></div>
+    <div class="suite-featured-info">
+      <div class="suite-featured-label" data-l="en">★ Complete Suite</div><div class="suite-featured-label" data-l="es">★ Suite Completa</div>
+      <div class="suite-featured-name" data-l="en">RSK Studio — <em>Engine Suite</em></div><div class="suite-featured-name" data-l="es">RSK Studio — <em>Engine Suite</em></div>
+      <p class="suite-featured-desc" data-l="en">The complete professional toolkit for RPG Maker MZ. All 22 premium plugins, weapon & mount assets, UI elements, 32 music tracks, and the RSK Studio Launcher. One purchase, unlimited projects.</p><p class="suite-featured-desc" data-l="es">El toolkit profesional completo para RPG Maker MZ. Los 22 plugins premium, assets de armas y monturas, elementos UI, 32 pistas de música y el RSK Studio Launcher. Una compra, proyectos ilimitados.</p>
+      <div class="suite-featured-meta">
+        <span class="suite-featured-tag sft-cyan">22 Plugins</span>
+        <span class="suite-featured-tag sft-cyan">Assets</span>
+        <span class="suite-featured-tag sft-gold">32 Music Tracks</span>
+        <span class="suite-featured-tag sft-pink">Commercial Use ✓</span>
+      </div>
+      <div class="suite-featured-price">
+        <span class="sfp-disc">-25%</span>
+        <span class="sfp-old">$79.99</span>
+        <span class="sfp-new">$59.99</span>
+      </div>
+    </div>
+  </a>
 </div></div>
 
 <div class="tab-panel" id="tab-qs"><div class="container">
@@ -972,6 +1010,5 @@ function toggleTheme(){document.body.classList.toggle('light');var isLight=docum
 (function(){var saved=localStorage.getItem('rsk-theme');if(saved==='light')document.body.classList.add('light');})();
 (function(){var bc=document.getElementById("banner-particles");if(!bc)return;var bctx=bc.getContext("2d");var bpts=[];function bresize(){var wrap=bc.parentElement;bc.width=wrap.offsetWidth;bc.height=wrap.offsetHeight;}function bmk(){return{x:Math.random()*bc.width,y:Math.random()*bc.height,r:Math.random()*1.5+.3,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,a:Math.random()*Math.PI*2};}bresize();window.addEventListener("resize",bresize);for(var i=0;i<30;i++)bpts.push(bmk());function bdraw(){bctx.clearRect(0,0,bc.width,bc.height);bpts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.a+=.01;if(p.x<-5)p.x=bc.width+5;if(p.x>bc.width+5)p.x=-5;if(p.y<-5)p.y=bc.height+5;if(p.y>bc.height+5)p.y=-5;var alpha=0.2+0.3*Math.abs(Math.sin(p.a));bctx.beginPath();bctx.arc(p.x,p.y,p.r,0,Math.PI*2);bctx.fillStyle="rgba(0,229,255,"+alpha+")";bctx.fill();});requestAnimationFrame(bdraw);}bdraw();})();
 </script>
-<div id="suite-lightbox" onclick="this.style.display='none'"><img src="Engine_Suite_Showcase.png" alt="RSK Studio Engine Suite — All 22 Premium Plugins"></div>
 </body>
 </html>
