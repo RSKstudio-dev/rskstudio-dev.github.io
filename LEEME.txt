@@ -1,0 +1,33 @@
+RSK STUDIO · WEB (rskstudio-dev.github.io) · ACTUALIZACIÓN
+
+SUBIR AL REPOSITORIO (sustituyendo los que tengas):
+  index.html        la página actualizada
+  versions.json     versiones que lee el Launcher para avisar de actualizaciones
+  thumbnails/       portadas nuevas (mismos nombres .jpg, + rsk_tbs_hud, rsk_tbs_combat_pack,
+                    rsk_launcher, rsk_engine_suite)
+  launcher/         capturas del Launcher nuevo para la sección de Inicio
+  manual.html       manual actualizado al Launcher nuevo (11 idiomas)
+  img/l_*.webp      capturas del manual (las img/*.png antiguas ya no se usan)
+
+QUÉ CAMBIA EN index.html
+  - Sección nueva en Inicio: RSK Studio Launcher v1.3.0 (capturas, funciones, enlaces).
+  - Versiones de las tarjetas de plugins al día; TBS HUD con su propia portada.
+  - TBS Combat Pack como "próximamente" (sin precio ni compra), igual que en el Launcher.
+  - Discord: discord.gg/ent3Hmb5c4 en toda la página. YouTube: @RSKSTUDIO-OFFICIAL.
+  - Textos del Launcher: "Instalar" en vez de "Inyectar"; el comprobador de actualizaciones
+    ya no promete "actualizar todo con un clic" (avisa y lleva a la página de compra).
+  - Changelog: entrada nueva del Launcher v1.3.0.
+  - Lo demás (precios, licencia/EULA, FAQ, soporte) sin tocar.
+
+OJO
+  - versions.json: pon en cada plugin la versión de los archivos que lleva el Launcher en
+    assets/plugins; si alguna no coincide, el Launcher avisará de una actualización que no existe.
+  - En el Launcher, cambia "version" a "1.3.0" en package.json para que coincida.
+
+QUÉ CAMBIA EN manual.html
+  - Pasos al día con el Launcher nuevo, con capturas reales en vez de huecos "Captura: ...".
+  - "Inyectar" pasa a "Instalar plugins"; licencia itch.io sin selector de plugin.
+  - Secciones nuevas: Mando y Teclado, Ajustes. Biblioteca con fichas y estados nuevos.
+  - Banderas dibujadas igual que en tus editores; abre en el idioma del navegador.
+  - Enlaces: rsk-studio.itch.io y YouTube @RSKSTUDIO-OFFICIAL.
+  - Textos de licencia de Steam, licencia manual, orden de plugins y FAQ sin tocar.
