@@ -8,7 +8,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#060810;--bg2:#0a0e1e;--c:#00e5ff;--g:#00ff88;--r:#e94560;--t1:#d0ddf2;--t2:#7a90b8;--t3:#4a5f82;--border:rgba(25,35,75,.5)}
-body{background:var(--bg);color:var(--t1);font-family:'Inter',sans-serif;line-height:1.8;min-height:100vh}
+body{background:#06080f url(img/bg_stars.jpg) center top/2560px auto repeat-y;color:var(--t1);font-family:'Inter',sans-serif;line-height:1.8;min-height:100vh}
 ::selection{background:rgba(0,229,255,.2);color:#fff}
 header{text-align:center;padding:60px 20px 40px;border-bottom:1px solid var(--border);position:relative}
 header::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.15),transparent)}
@@ -63,6 +63,12 @@ footer a:hover{text-decoration:underline}
 .sdot-off{background:#ffaa00;box-shadow:0 0 8px rgba(255,170,0,.6)}
 .sdot-soon{background:#3d5070}
 .status-table td:first-child{white-space:nowrap;width:1%}
+
+header,nav,main,footer{position:relative}
+header{border-bottom:none}
+footer{background:linear-gradient(180deg,transparent,rgba(4,6,14,.6))}
+.nav-item{background:rgba(10,14,36,.72);backdrop-filter:blur(2px)}
+@media(min-width:1300px){body{background-attachment:scroll}}
 </style>
 </head>
 <body>
